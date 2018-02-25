@@ -84,4 +84,14 @@ C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\
  C:\Users\jonas\OneDrive\Dokumente\Arduino\libraries\Adafruit_NeoPixel/Adafruit_NeoPixel.h \
  C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\WebSocketHandler.h \
  C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\configurations.h \
- C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\EEPROM/EEPROM.h
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\EEPROM/EEPROM.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WiFi\src/WiFiClient.h \
+ C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\ConfigServer.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WiFi\src/ESP8266WiFiMulti.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WiFi\src/ESP8266WiFi.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266mDNS/ESP8266mDNS.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WiFi\src/WiFiUdp.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\cores\esp8266/Udp.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WiFi\src/include/slist.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WebServer\src/ESP8266WebServer.h \
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WebServer\src/detail/RequestHandler.h
