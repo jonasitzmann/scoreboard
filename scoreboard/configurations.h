@@ -3,7 +3,7 @@
 /*
 ssid = "EasyBox-522111"
 hostIp = "192.168.2.112"
-password = "DdPA7As6kYKLDMKV"
+password = ""
 hostPort = 8000
 numPixels = 70
 useEmulator = true
