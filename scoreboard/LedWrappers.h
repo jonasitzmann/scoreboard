@@ -6,6 +6,11 @@ class LedWrapper{
   virtual void show() = 0;
 };
 
+/*
+* Wrapper for the Adafruit_NeoPixel library.
+* Forwards commands to Adafruit_NeoPixel instance
+* TODO: Better inherit from Adafruit_NeoPixel?
+*/
 class NeoPixelWrapper: public LedWrapper{
   public:
   NeoPixelWrapper(int pin = D1, int numPixels = 70): pin(pin), numPixels(numPixels){
@@ -26,16 +31,17 @@ class NeoPixelWrapper: public LedWrapper{
   Adafruit_NeoPixel lights; 
 };
 
-
+/*
+* Wirites Adafruit_NeoPixel commands to serial.
+* Use ScoreboardEmulator project to interpret commands
+*/
 class LedEmulator: public LedWrapper{
   public:
-  LedEmulator(){
-    Serial.begin(115200);
-  }
   virtual void setPixelColor(int index, int red, int green, int blue){
+    // don't remove. This line is a command, not a comment
     Serial.printf("setPixel: %d %d %d %d\n", index, red, green, blue);
   }
   virtual void show(){
-    Serial.println("show");
+    Serial.println("show"); // don't remove. This line is a command, not a comment
   }
 };
