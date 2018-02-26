@@ -19,18 +19,13 @@ static const int digits[10][7] = {
 class LedDisplay {
   public:
     LedDisplay(int pin = D1, int numPixels = 70, bool emulated = false): pin(pin), numPixels(numPixels) {
-      Serial.begin(115200);
-      Serial.println("Ctor");
       brightness = 255;
-      if(emulated){
-        lights = new LedEmulator();
-      }
-      else{
-        lights = new NeoPixelWrapper();
-      }
+      lights = emulated? new LedEmulator() : new NeoPixelWrapper();
     }
 
-
+/*
+* shows the value of digit on every LED digit
+*/
     void showDigit(int digit) {
       if (digit < 0 || digit > 9) {
         Serial.println("illegal argument");
@@ -41,6 +36,8 @@ class LedDisplay {
         segment %= 7;
         bool pixelActive = digits[digit][segment];
         int pixelBrightness = pixelActive ? brightness : 0;
+        
+        // shift color (red -> green -> blue -> red) after each pixel
         int redval = pixel % 3 == 0 ? pixelBrightness : 0;
         int greenval = pixel % 3 == 1 ? pixelBrightness : 0;
         int blueval = pixel % 3 == 2 ? pixelBrightness : 0;
