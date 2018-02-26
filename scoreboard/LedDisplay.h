@@ -24,16 +24,15 @@ class LedDisplay {
     }
 
 /*
-* shows the value of digit on every LED digit
+* shows the value of digit on the position given by offset
 */
-    void showDigit(int digit) {
+    void showDigit(int digit, int offset) {
       if (digit < 0 || digit > 9) {
         Serial.println("illegal argument");
         return;
       }
-      for (int pixel = 0; pixel < numPixels; ++pixel) {
+      for (int pixel = 0; pixel < 35; ++pixel) {
         int segment = pixel / 5;
-        segment %= 7;
         bool pixelActive = digits[digit][segment];
         int pixelBrightness = pixelActive ? brightness : 0;
         
@@ -43,7 +42,17 @@ class LedDisplay {
         int blueval = pixel % 3 == 2 ? pixelBrightness : 0;
         lights->setPixelColor(pixel, redval, greenval, blueval);
       }
-      lights->show();
+    }
+    void showNumber(int number){
+        int digit;
+        int offset = 0;
+        do{
+            digit = number % 10;
+            showDigit(digit, offset);
+            offset += 35;
+            number /= 10;
+        } while (number != 0);
+        lights->show();
     }
 
 
