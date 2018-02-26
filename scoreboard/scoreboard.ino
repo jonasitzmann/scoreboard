@@ -51,7 +51,7 @@ void loop() {
 
 			String data = wsHandler.getData();
 			if (data.length() > 0 && String(data.toInt()) == data) {
-				leds.showDigit(data.toInt());
+				leds.showNumber(data.toInt());
 			}
 		}
 		else {
