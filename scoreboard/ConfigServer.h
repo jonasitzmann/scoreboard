@@ -24,16 +24,16 @@ public:
 	ESP8266WiFiMulti wifiMulti;
 	ESP8266WebServer server;
 public:
-	ConfigServer() : server(80) {}
+	ConfigServer() : server(80) {} // serve at port 80
 	void handleRoot() {
 		server.send(200, "text/html", htmlForm);
 	}
 
 	void handlePost() {
+		// Post arguments are provided by server.arg("argName")
 		if (server.hasArg("ssid") && server.arg("ssid") != "") {
+			// copy arg to configuration
 			strncpy(config.ssid, server.arg("ssid").c_str(), strlen(config.ssid));
-			Serial.print("SSID: ");
-			Serial.println(server.arg("ssid"));
 			configChanged = true;
 		}
 		if (server.hasArg("pwd") && server.arg("pwd") != "") {
@@ -61,10 +61,8 @@ public:
 			configChanged = true;
 		}
 		if (server.hasArg("write")) {
-			Serial.print("write: ");
-			Serial.println(server.arg("write"));
 			if (server.arg("write") == "on") {
-				config.save();
+				config.save(); //write config to EEPROM
 			}
 		}
 		server.send(200, "text/html", "<h1>Hello World");
@@ -84,22 +82,22 @@ public:
 		WiFi.mode(WIFI_AP); //Only Access point
 		WiFi.softAP(ssid, password);  //Start Hotspot
 
-		IPAddress myIP = WiFi.softAPIP(); //Get IP address
-		Serial.print("HotSpt IP:");
-		Serial.println(myIP);
-
 		server.on("/", HTTP_GET, std::bind(&ConfigServer::handleRoot, this));
 		server.on("/results", HTTP_POST, std::bind(&ConfigServer::handlePost, this));
 		server.onNotFound(std::bind(&ConfigServer::handleNotFound, this));
 
 		server.begin();
-		Serial.println("HTTP server started");
+		// Print Server IP to Serial
+		Serial.print("HTTP server started at ");
+		IPAddress myIP = WiFi.softAPIP();
+		Serial.println(myIP);
 	}
 	ScoreboardConfiguration updateConfig(bool& changed) {
 		server.handleClient();
 		changed = configChanged;
 		configChanged = false;
 		Serial.println(config.hostPort);
+		
 		return config;
 	}
 
