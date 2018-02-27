@@ -38,15 +38,29 @@ class StartState : public State{
 	private Configuration *cfg;
 };
 class UpdateConfigState : public State {
-	State(Configuration *cfg): cfg(cfg){}
-	virtual std::shared_ptr<State> handle() {
-		Serial.println("In UpdateConfigState");
-	}
-private:
+	virtual std::shared_ptr<State> handle();
 	ConfigServer server;
+public:
+	UpdateConfigState(Configuration *cfg): cfg(cfg){}
+
 };
 class ConnectState : public State {
-	virtual std::shared_ptr<State> handle() {
-		Serial.println("In ConnectState");
-	}
+	virtual std::shared_ptr<State> handle();
+	WebsocketHandler wsHandler;
+public:
+	ConnectState(Configuration *cfg): cfg(cfg){}
+
 };
+class ShowScoreState: public State{
+	virtual std::shared_ptr<State> handle();
+	std::shared_ptr<WebsocketHandler> wsHandler;
+public:
+	ConnectState(Configuration *cfg, std::shared_ptr<WebsocketHandler> wsHandler):
+		cfg(cfg),
+		wsHandler(wsHandler)
+		{}
+}
+class SleepState: public State{
+	virtual std::shared_ptr<State> handle();
+public:
+	SleepState(Configuration *cfg){}
