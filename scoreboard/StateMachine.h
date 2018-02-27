@@ -5,68 +5,99 @@
 #include "LedDisplay.h"
 #include "WebSocketHandler.h"
 #include <WString.h>
-#include "configurations.h"
+#include "configuration.h"
 #include <WiFiClient.h>
 #include "ConfigServer.h"
 #include <ESP8266WebServer.h>
-class StateMachine
-{
-public:
-	StateMachine();
-	~StateMachine();
-	void start();
-	State* state;
-	LedDisplay leds;
-	WebSocketHandler wsHandler;
-	ScoreboardConfiguration cfg;
-	ConfigServer server;
-	int buttonPin = D6;
-	int ledPin = D7;
-
-};
+#include <memory>
 
 class State{
 public:
-	State(Configuration *cfg): cfg(cfg){}
+	State(std::shared_ptr<Configuration>cfg): cfg(cfg){}
+	State() : cfg(nullptr){}
 	virtual ~State() {}
 	virtual std::shared_ptr<State> handle() = 0;
+	virtual String getName() { return "State";}
+protected:
+	std::shared_ptr<Configuration> cfg;
 private:
-	Configuration* cfg;
 };
-class StartState : public State{
-	virtual std::shared_ptr<State> handle();
-	private Configuration *cfg;
-};
-class UpdateConfigState : public State {
-	virtual std::shared_ptr<State> handle();
-	ConfigServer server;
-public:
-	UpdateConfigState(Configuration *cfg): cfg(cfg){}
 
-};
-class ConnectState : public State {
+
+
+class StartState : public State {
+	int buttonPin = D6;
+	int ledPin = D7;
+	std::shared_ptr<Configuration>cfg;
+public:
+	StartState() : State(std::shared_ptr<Configuration>()) {
+		cfg = std::make_shared<Configuration>();
+	}
 	virtual std::shared_ptr<State> handle();
+	virtual String getName() { return "StartState"; }
+};
+
+
+
+
+class UpdateConfigState : public State {
+	ConfigServer server;
+	std::shared_ptr<Configuration> cfg;
+	UpdateConfigState();
+public:
+	UpdateConfigState(std::shared_ptr<Configuration>cfg): State(cfg), server(cfg){}
+	virtual std::shared_ptr<State> handle();
+	virtual String getName() { return "UpdateConfigState"; }
+};
+
+
+
+
+class ConnectState : public State {
 	std::shared_ptr<WiFiClient> wfClient;
 	std::shared_ptr<WebSocketClient> wsClient;
 	bool connectToWiFi();
 	bool openWebSocket();
 	bool handshake();
 public:
-	ConnectState(Configuration *cfg): cfg(cfg){}
-
-};
-class ShowScoreState: public State{
 	virtual std::shared_ptr<State> handle();
+	ConnectState(std::shared_ptr<Configuration>cfg) :
+		State(cfg) {
+		wfClient = std::make_shared<WiFiClient>();
+		wsClient = std::make_shared<WebSocketClient>();
+	}
+	virtual String getName() { return "ConnectState"; }
+};
+
+
+
+class ShowScoreState: public State{
 	std::shared_ptr<WiFiClient> wfClient;
 	std::shared_ptr<WebSocketClient> wsClient;
+	LedDisplay display;
 public:
-	ConnectState(Configuration *cfg, std::shared_ptr<WiFiClient> wfClient, std::shared_ptr<WebSocketClient> wsClient):
-		cfg(cfg),
-		wfClient(wfClient),
-		wsClient(wsClient)
-		{}
-}
-class SleepState: public State{
+	ShowScoreState(std::shared_ptr<Configuration>cfg, std::shared_ptr<WiFiClient> wfClient, std::shared_ptr<WebSocketClient> wsClient) :
+		State(cfg), wfClient(wfClient), wsClient(wsClient)
+	{
+		display = LedDisplay(D1, cfg->numPixels, cfg->useEmulator);
+	}
 	virtual std::shared_ptr<State> handle();
+	virtual String getName() { return "ShowScoreState"; }
+};
+
+
+
+class SleepState : public State {
 public:
-	SleepState(Configuration *cfg){}
+	SleepState(std::shared_ptr<Configuration>cfg): State(cfg){}
+	virtual std::shared_ptr<State> handle();
+	virtual String getName() { return "SleepState"; }
+};
+
+class StateMachine
+{
+	std::shared_ptr<State> state;
+public:
+	void start();
+	std::shared_ptr<Configuration> cfg;
+};

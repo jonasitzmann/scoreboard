@@ -1,5 +1,6 @@
-	#include <EEPROM.h>
-	#include <string.h>
+#pragma once
+#include <EEPROM.h>
+#include <string.h>
 /*
 ssid = "EasyBox-522111"
 hostIp = "192.168.2.112"
@@ -10,7 +11,7 @@ useEmulator = true
 id = "Scoreboard1"
 ;*/
 	static const int CONFIG_BEGIN = 0;
-	class ScoreboardConfiguration {
+	class Configuration {
 		typedef struct {
 			char id[30];
 			char ssid[30];
@@ -21,10 +22,11 @@ id = "Scoreboard1"
 			int numPixels;
 		} config_t;
 	public:
-		char* id;
-		char* ssid;
-		char* password;
-		char* hostIp;
+		Configuration() {}
+		String id;
+		String ssid;
+		String password;
+		String hostIp;
 		int hostPort;
 		bool useEmulator;
 		int numPixels;
@@ -33,19 +35,19 @@ id = "Scoreboard1"
 			EEPROM.get(CONFIG_BEGIN, m_config);
 			delay(50);
 			EEPROM.end();
-			id = &m_config.id[0];
-			ssid = &m_config.ssid[0];
-			password = &m_config.password[0];
-			hostIp = &m_config.hostIp[0];
+			id = String(m_config.id);
+			ssid = String(m_config.ssid);
+			password = String(m_config.password);
+			hostIp = String(m_config.hostIp);
 			hostPort = m_config.hostPort;
 			useEmulator = m_config.useEmulator;
 			numPixels = m_config.numPixels;
 		}
 		void save() {
-			strncpy(m_config.id, id, sizeof m_config.id);
-			strncpy(m_config.ssid, ssid, sizeof m_config.ssid);
-			strncpy(m_config.password, password, sizeof m_config.password);
-			strncpy(m_config.hostIp, hostIp, sizeof m_config.hostIp);
+			id.toCharArray(m_config.id, 30);
+			ssid.toCharArray(m_config.ssid, 30);
+			password.toCharArray(m_config.password, 30);
+			hostIp.toCharArray(m_config.hostIp, 30);
 			m_config.useEmulator = useEmulator;
 			m_config.numPixels = numPixels;
 			m_config.hostPort = hostPort;

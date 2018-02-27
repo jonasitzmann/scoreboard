@@ -1,3 +1,4 @@
+#pragma once
 STR(
 	<!DOCTYPE HTML>
 	<form action = "/results" method = "POST">

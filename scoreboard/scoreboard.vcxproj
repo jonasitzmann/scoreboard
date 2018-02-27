@@ -84,7 +84,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="configurations.h">
+    <ClInclude Include="Configuration.h">
       <FileType>CppCode</FileType>
     </ClInclude>
     <ClInclude Include="ConfigServer.h" />
@@ -106,7 +106,6 @@
     <ResourceCompile Include="scoreboard.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConfigServer.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <PropertyGroup>

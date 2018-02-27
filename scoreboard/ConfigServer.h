@@ -1,24 +1,42 @@
 #pragma once
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
-#include <ESP8266WiFiMulti.h> 
-#include <ESP8266mDNS.h>
 #include <ESP8266WebServer.h>
-#define xstr(s) #s
-#define STR(s) xstr(s)
-String htmlForm =
-#include "html.h"
-;
+#include "Configuration.h"
+
+//#define xstr(s) #s
+//#define STR(s) xstr(s)
+//String htmlForm =
+//#include "html.h"
+//;
+
 class ConfigServer {
-public:
-	bool configChanged;
-	ScoreboardConfiguration config;
+	std::shared_ptr<Configuration> cfg;
 	const char* ssid = "scoreboard";
 	const char* password = "scoreboard";
-	ESP8266WiFiMulti wifiMulti;
 	ESP8266WebServer server;
+	String htmlForm = "Input Box"
+		"<!DOCTYPE HTML>"
+		"	<form action = \"/results\" method = \"POST\">"
+		"	SSID:<br>"
+		"	<input type = \"text\" name = \"ssid\"><br>"
+		"	Password : <br>"
+		"	<input type = \"text\" name = \"pwd\"><br>"
+		"	Host Ip : <br>"
+		"	<input type = \"text\" name = \"ip\"><br>"
+		"	Host Port : <br>"
+		"	<input type = \"text\" name = \"port\"><br>"
+		"	Id : <br>"
+		"	<input type = \"text\" name = \"id\"><br>"
+		"	Number of Pixels : <br>"
+		"	<input type = \"text\" name = \"numPixels\"><br>"
+		"	Emulate LEDs : <br>"
+		"	<input type = \"text\" name = \"emulate\"><br>"
+		"	Write : <input type = \"radio\" name = \"write\">"
+		"	</br><input type = \"submit\" value = \"Save\"></form>";
 public:
-	ConfigServer() : server(80) {} // serve at port 80
+	bool configChanged;
+	ConfigServer(std::shared_ptr<Configuration> cfg) : cfg(cfg), server(80), configChanged("false") {} // serve at port 80
 	void handleRoot() {
 		server.send(200, "text/html", htmlForm);
 	}
@@ -27,46 +45,46 @@ public:
 		// Post arguments are provided by server.arg("argName")
 		if (server.hasArg("ssid") && server.arg("ssid") != "") {
 			// copy arg to configuration
-			strncpy(config.ssid, server.arg("ssid").c_str(), strlen(config.ssid));
+			cfg->ssid = server.arg("ssid");
 			configChanged = true;
 		}
 		if (server.hasArg("pwd") && server.arg("pwd") != "") {
-			strncpy(config.ssid, server.arg("ssid").c_str(), strlen(config.ssid));
+			cfg->password = server.arg("pwd");
 			configChanged = true;
 		}
 		if (server.hasArg("ip") && server.arg("ip") != "") {
-			strncpy(config.hostIp, server.arg("ip").c_str(), strlen(config.hostIp));
+			cfg->hostIp = server.arg("ip");
 			configChanged = true;
 		}
 		if (server.hasArg("port") && server.arg("port") != "") {
-			config.hostPort = server.arg("port").toInt();
+			cfg->hostPort = server.arg("port").toInt();
 			configChanged = true;
 		}
 		if (server.hasArg("id") && server.arg("id") != "") {
-			strncpy(config.id, server.arg("id").c_str(), strlen(config.id));
+			cfg->id = server.arg("id");
 			configChanged = true;
 		}
 		if (server.hasArg("numPixels") && server.arg("numPixels") != "") {
-			config.numPixels = server.arg("numPixels").toInt();
+			cfg->numPixels = server.arg("numPixels").toInt();
 			configChanged = true;
 		}
 		if (server.hasArg("emulate") && server.arg("emulate") != "") {
-			config.useEmulator = server.arg("emulate").toInt();
+			cfg->useEmulator = server.arg("emulate").toInt();
 			configChanged = true;
 		}
 		if (server.hasArg("write")) {
 			if (server.arg("write") == "on") {
-				config.save(); //write config to EEPROM
+				cfg->save(); //write config to EEPROM
 			}
 		}
 		server.send(200, "text/html", "<h1>Hello World");
-		Serial.println(config.ssid);
-		Serial.println(config.password);
-		Serial.println(config.hostIp);
-		Serial.println(config.hostPort);
-		Serial.println(config.id);
-		Serial.println(config.numPixels);
-		Serial.println(config.useEmulator);
+		Serial.println(cfg->ssid);
+		Serial.println(cfg->password);
+		Serial.println(cfg->hostIp);
+		Serial.println(cfg->hostPort);
+		Serial.println(cfg->id);
+		Serial.println(cfg->numPixels);
+		Serial.println(cfg->useEmulator);
 	}
 
 	void handleNotFound() {
@@ -85,13 +103,15 @@ public:
 		Serial.print("HTTP server started at ");
 		IPAddress myIP = WiFi.softAPIP();
 		Serial.println(myIP);
-	}
-	ScoreboardConfiguration updateConfig(bool& changed) {
-		server.handleClient();
-		changed = configChanged;
 		configChanged = false;
-		
-		return config;
+	}
+	void terminate() {
+		WiFi.softAPdisconnect();
+		WiFi.disconnect();
+		WiFi.mode(WIFI_OFF);
+	}
+	std::shared_ptr<Configuration> updateConfig() {
+		server.handleClient();
 	}
 
 };

@@ -1,3 +1,4 @@
+#pragma once
 #include <ESP8266WiFi.h>
 #include <WebSocketClient.h>
 class WebSocketHandler {

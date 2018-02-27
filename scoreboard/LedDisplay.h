@@ -31,7 +31,7 @@ class LedDisplay {
         Serial.println("illegal argument");
         return;
       }
-      for (int pixel = 0; pixel < 35; ++pixel) {
+      for (int pixel = 0; pixel < numPixels; ++pixel) {
         int segment = pixel / 5;
         bool pixelActive = digits[digit][segment];
         int pixelBrightness = pixelActive ? brightness : 0;
