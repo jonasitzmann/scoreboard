@@ -13,31 +13,33 @@ StateMachine::~StateMachine()
 
 void StateMachine::start()
 {
+	state = new StartState();
+	while(true){
+		state = state.handle();
+	}
+}
+
+std::shared_ptr<State> StartState::handle()
+{
 	//define end set pins
 	pinMode(buttonPin, INPUT);
 	pinMode(ledPin, OUTPUT);
 	digitalWrite(ledPin, LOW);    // turn the LED off
 	Serial.println("");
 	Serial.println("load configuration...");
-	cfg.load();
-	server.config = cfg;
+	cfg->load();
 	Serial.println("configuration loaded:");
-	Serial.println(cfg.toString());
-	Serial.println("create objects");
-	wsHandler = *new WebSocketHandler(cfg.ssid, cfg.password, cfg.m_config.hostIp, cfg.hostPort);
-	leds = *new LedDisplay(D1, 70, cfg.useEmulator);
-	Serial.println("initialized!");
-	Serial.println("\n\n");
-	state = new StartState(this);
+	Serial.println(cfg->toString());
+	//wsHandler = *new WebSocketHandler(cfg.ssid, cfg.password, cfg.m_config.hostIp, cfg.hostPort);
+	//leds = *new LedDisplay(D1, 70, cfg.useEmulator);
+	if(digitalRead(buttonPin) = HIGH){
+		return std::shared_ptr<UpdateConfigState>(new UpdateConfigState(cfg));
+	}
+	else{
+		return std::shared_ptr<ConnectState>(new ConnectState(cfg));
+	}
 }
-
-State * StartState::execute()
+std::shared_ptr<State> UpdateConfigState::handle()
 {
-	bool updateConfig = digitalRead(stateMachine->buttonPin) == HIGH? true:false;
-	if (updateConfig) {
-		return new UpdateConfigState(stateMachine);
-	}
-	else {
-		return new ConnectState();
-	}
+
 }
