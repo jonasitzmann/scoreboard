@@ -27,21 +27,26 @@ public:
 
 class State{
 public:
+	State(Configuration *cfg): cfg(cfg){}
 	virtual ~State() {}
-	virtual State* handle() = 0;
+	virtual std::shared_ptr<State> handle() = 0;
+private:
+	Configuration* cfg;
 };
 class StartState : public State{
-	State(Configuration *cfg);
-	virtual State* execute();
+	virtual std::shared_ptr<State> handle();
 	private Configuration *cfg;
 };
 class UpdateConfigState : public State {
-	virtual State* execute() {
+	State(Configuration *cfg): cfg(cfg){}
+	virtual std::shared_ptr<State> handle() {
 		Serial.println("In UpdateConfigState");
 	}
+private:
+	ConfigServer server;
 };
 class ConnectState : public State {
-	virtual State* execute() {
+	virtual std::shared_ptr<State> handle() {
 		Serial.println("In ConnectState");
 	}
 };
