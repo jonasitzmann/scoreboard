@@ -46,18 +46,24 @@ public:
 };
 class ConnectState : public State {
 	virtual std::shared_ptr<State> handle();
-	WebsocketHandler wsHandler;
+	std::shared_ptr<WiFiClient> wfClient;
+	std::shared_ptr<WebSocketClient> wsClient;
+	bool connectToWiFi();
+	bool openWebSocket();
+	bool handshake();
 public:
 	ConnectState(Configuration *cfg): cfg(cfg){}
 
 };
 class ShowScoreState: public State{
 	virtual std::shared_ptr<State> handle();
-	std::shared_ptr<WebsocketHandler> wsHandler;
+	std::shared_ptr<WiFiClient> wfClient;
+	std::shared_ptr<WebSocketClient> wsClient;
 public:
-	ConnectState(Configuration *cfg, std::shared_ptr<WebsocketHandler> wsHandler):
+	ConnectState(Configuration *cfg, std::shared_ptr<WiFiClient> wfClient, std::shared_ptr<WebSocketClient> wsClient):
 		cfg(cfg),
-		wsHandler(wsHandler)
+		wfClient(wfClient),
+		wsClient(wsClient)
 		{}
 }
 class SleepState: public State{
