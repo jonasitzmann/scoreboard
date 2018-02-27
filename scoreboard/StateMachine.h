@@ -20,7 +20,6 @@ public:
 	WebSocketHandler wsHandler;
 	ScoreboardConfiguration cfg;
 	ConfigServer server;
-	bool editConfig = false;
 	int buttonPin = D6;
 	int ledPin = D7;
 
@@ -28,14 +27,13 @@ public:
 
 class State{
 public:
-	State(StateMachine* const stateMachine) :stateMachine(stateMachine) {}
 	virtual ~State() {}
-	virtual State* execute() = 0;
-protected:
-	StateMachine * const stateMachine;
+	virtual State* handle() = 0;
 };
 class StartState : public State{
+	State(Configuration *cfg);
 	virtual State* execute();
+	private Configuration *cfg;
 };
 class UpdateConfigState : public State {
 	virtual State* execute() {
