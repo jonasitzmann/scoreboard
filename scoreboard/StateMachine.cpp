@@ -13,7 +13,7 @@ StateMachine::~StateMachine()
 
 void StateMachine::start()
 {
-	state = new StartState();
+	state = std::shared_ptr(new StartState());
 	while(true){
 		state = state.handle();
 	}
@@ -39,7 +39,34 @@ std::shared_ptr<State> StartState::handle()
 		return std::shared_ptr<ConnectState>(new ConnectState(cfg));
 	}
 }
+ConnectState::ConnectState(Configuration *cfg): cfg(cfg)
+{
+	wsHandler = std::shared_ptr(new WebSocketHandler(cfg.m_config.hostIp, cfg.hostPort));
+}
+
 std::shared_ptr<State> UpdateConfigState::handle()
 {
+	
+}
 
+
+std::shared_ptr<State> ConnectState::handle()
+{
+	if (!connectToWifi(cfg->ssid, cfg->password)) {
+		return std::shared_ptr(new SleepState(cfg));
+	}
+	if(!openWebSocket(cfg->hostIp, cfg->hostPort)){
+		return std::shared_ptr(new SleepState(cfg));
+	}
+	if(!handshake(port)){
+		return std::shared_ptr(new SleepState(cfg));
+	}
+	return std::shared_ptr(new ShowScoreState(cfg, wfClient, wsClient));
+}
+
+
+
+std::shared_ptr<State> SleepState::handle()
+{
+	ESP.deepSleep(0);
 }
