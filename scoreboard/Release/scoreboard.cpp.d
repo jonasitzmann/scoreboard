@@ -94,4 +94,5 @@ C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\
  C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\cores\esp8266/Udp.h \
  C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WiFi\src/include/slist.h \
  C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WebServer\src/ESP8266WebServer.h \
- C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WebServer\src/detail/RequestHandler.h
+ C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\ESP8266WebServer\src/detail/RequestHandler.h \
+ C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\html.h

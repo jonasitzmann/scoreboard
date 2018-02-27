@@ -11,7 +11,7 @@ SerialPortReader::SerialPortReader(QSerialPort *serialPort, QObject *parent) :
            "setPixel:\\s+(?<index>\\d+)\\s+(?<red>\\d+)\\s+(?<green>\\d+)\\s+(?<blue>\\d+)");
     m_root = parent;
     connect(m_serialPort, &QSerialPort::readyRead, this, &SerialPortReader::handleReadyRead);
-    connect(m_serialPort, &QSerialPort::errorOccurred, this, &SerialPortReader::handleError);
+   // connect(m_serialPort, &QSerialPort::errorOccurred, this, &SerialPortReader::handleError);
 }
 
 void SerialPortReader::handleReadyRead()

@@ -1,0 +1,1 @@
+dot -Tpdf Statemachine.dot -o Statemachine.pdf

@@ -79,9 +79,6 @@
     <ProjectCapability Include="VisualMicro" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="html1.htm">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
     <None Include="scoreboard.ino">
       <FileType>CppCode</FileType>
     </None>
@@ -91,6 +88,7 @@
       <FileType>CppCode</FileType>
     </ClInclude>
     <ClInclude Include="ConfigServer.h" />
+    <ClInclude Include="html.h" />
     <ClInclude Include="LedDisplay.h">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -98,6 +96,7 @@
       <FileType>CppCode</FileType>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="WebSocketHandler.h">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -108,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConfigServer.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <PropertyGroup>
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>

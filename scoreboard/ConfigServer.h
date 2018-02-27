@@ -4,17 +4,11 @@
 #include <ESP8266WiFiMulti.h> 
 #include <ESP8266mDNS.h>
 #include <ESP8266WebServer.h>
+#define xstr(s) #s
+#define STR(s) xstr(s)
 String htmlForm =
-"<form action=\"/results\" method=\"POST\">"
-"<input type=\"text\" name=\"ssid\" placeholder=\"ssid\"></br>"
-"<input type=\"text\" name=\"pwd\" placeholder=\"pwd\"></br>"
-"<input type=\"text\" name=\"ip\" placeholder=\"ip\"></br>"
-"<input type=\"text\" name=\"port\" placeholder=\"port\"></br>"
-"<input type=\"text\" name=\"id\" placeholder=\"id\"></br>"
-"<input type=\"text\" name=\"numPixels\" placeholder=\"numPixels\"></br>"
-"<input type=\"text\" name=\"emulate\" placeholder=\"emulate\"></br>"
-"Write: <input type = \"radio\" name = \"write\">"
-"</br><input type=\"submit\" value=\"Save\"></form>";
+#include "html.h"
+;
 class ConfigServer {
 public:
 	bool configChanged;
@@ -96,7 +90,6 @@ public:
 		server.handleClient();
 		changed = configChanged;
 		configChanged = false;
-		Serial.println(config.hostPort);
 		
 		return config;
 	}

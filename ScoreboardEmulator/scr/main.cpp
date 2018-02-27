@@ -7,10 +7,10 @@
 #include <QStringList>
 #include <QTextStream>
 #include "serialportrrader.h"
-#include "errorhandler.h"
+//#include "errorhandler.h"
 
 int main(int argc, char *argv[]){
-    qInstallMessageHandler(ErrorHandler);
+  //  qInstallMessageHandler(ErrorHandler);
     QGuiApplication app(argc,argv);
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

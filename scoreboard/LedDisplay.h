@@ -20,7 +20,7 @@ class LedDisplay {
   public:
     LedDisplay(int pin = D1, int numPixels = 70, bool emulated = false): pin(pin), numPixels(numPixels) {
       brightness = 255;
-      lights = emulated? new LedEmulator() : new NeoPixelWrapper();
+      lights = emulated? static_cast<LedWrapper*>(new LedEmulator()) : static_cast<LedWrapper*>(new NeoPixelWrapper());
     }
 
 /*

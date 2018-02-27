@@ -1,0 +1,17 @@
+digraph state_machine {
+	label = "State Machine"
+    rankdir=LR;
+    size="8,5"
+
+	node [shape = point] in;
+	node [shape=ellipse];
+	
+    in -> Start;
+    Start  -> Connect [ label = "!buttonPressed" ];
+    Start  -> UpdateConfig  [ label = "buttonPressed" ];
+	UpdateConfig -> Connect [ label = "updated" ];
+    Connect -> Sleep  [ label = "connectionFailed" ];
+    Connect -> ShowScore [ label = "connectionEstablished" ];
+    ShowScore -> Start [ label = "resetButtonPressed" ];
+	Sleep -> Start [ label = "resetButtonPressed"];
+}

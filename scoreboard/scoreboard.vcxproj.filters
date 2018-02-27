@@ -16,7 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="scoreboard.ino" />
-    <None Include="html1.htm" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.scoreboard.vsarduino.h">
@@ -40,6 +39,12 @@
     <ClInclude Include="ConfigServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="html.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="scoreboard.rc">
@@ -48,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConfigServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

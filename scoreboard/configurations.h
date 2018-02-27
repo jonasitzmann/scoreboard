@@ -59,9 +59,23 @@ id = "Scoreboard1"
 			EEPROM.end();
 			EEPROM.begin(200);
 			EEPROM.put(CONFIG_BEGIN, m_config);
-			delay(200);
+			delay(100);
 			EEPROM.commit();
 			EEPROM.end();
+		}
+		String toString() {
+			String str;
+			str += "\n";
+			str += "----------- Configuration: -----------------\n";
+			str += "| id: " + String(id) + "\n";
+			str += "| ssid: " + String(ssid) + "\n";
+			str += "| password: " + String(password) + "\n";
+			str += "| hostIp: " + String(hostIp) + "\n";
+			str += "| hostPort: " + String(hostPort) + "\n";
+			str += "| numPixels: " + String(numPixels) + "\n";
+			str += "| useEmulator: " + String(useEmulator) + "\n";
+			str += "--------------------------------------------\n";
+			return str;
 		}
 		config_t m_config;
 	};
