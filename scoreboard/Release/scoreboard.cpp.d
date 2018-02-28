@@ -83,6 +83,7 @@ C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\
  C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\LedDisplay.h \
  C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\LedWrappers.h \
  C:\Users\jonas\OneDrive\Dokumente\Arduino\libraries\Adafruit_NeoPixel/Adafruit_NeoPixel.h \
+ C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\Color.h \
  C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\WebSocketHandler.h \
  C:\Users\jonas\AppData\Local\Temp\VMBuilds\scoreboard\esp8266_nodemcuv2\Release\configuration.h \
  C:\Users\jonas\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.0\libraries\EEPROM/EEPROM.h \

@@ -1,8 +1,8 @@
 #include <Adafruit_NeoPixel.h>
-
+#include "Color.h"
 class LedWrapper{
   public:
-  virtual void setPixelColor(int index, int red, int green, int blue) = 0;
+  virtual void setPixelColor(int index, Color color) = 0;
   virtual void show() = 0;
 };
 
@@ -19,8 +19,8 @@ class NeoPixelWrapper: public LedWrapper{
                );
     lights.begin();
   }
-  virtual void setPixelColor(int index, int red, int green, int blue){
-    lights.setPixelColor(index, red, green, blue);
+  virtual void setPixelColor(int index, Color color){
+    lights.setPixelColor(index, color.r, color.g, color.b);
   }
   virtual void show(){
     lights.show();
@@ -37,9 +37,9 @@ class NeoPixelWrapper: public LedWrapper{
 */
 class LedEmulator: public LedWrapper{
   public:
-  virtual void setPixelColor(int index, int red, int green, int blue){
+  virtual void setPixelColor(int index, Color color){
     // don't remove. This line is a command, not a comment
-    Serial.printf("setPixel: %d %d %d %d\n", index, red, green, blue);
+    Serial.printf("setPixel: %d %d %d %d\n", index, color.r, color.g, color.b);
   }
   virtual void show(){
     Serial.println("show"); // don't remove. This line is a command, not a comment

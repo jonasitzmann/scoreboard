@@ -10,6 +10,8 @@
 #include "ConfigServer.h"
 #include <ESP8266WebServer.h>
 #include <memory>
+#include "Color.h"
+
 
 class State{
 public:
@@ -75,9 +77,13 @@ class ShowScoreState: public State{
 	std::shared_ptr<WiFiClient> wfClient;
 	std::shared_ptr<WebSocketClient> wsClient;
 	LedDisplay display;
+	int score;
+	Color color;
+	void setScore(int newScore);
+	void setColor(Color newColor);
 public:
 	ShowScoreState(std::shared_ptr<Configuration>cfg, std::shared_ptr<WiFiClient> wfClient, std::shared_ptr<WebSocketClient> wsClient) :
-		State(cfg), wfClient(wfClient), wsClient(wsClient)
+		State(cfg), wfClient(wfClient), wsClient(wsClient), score(0), color(WHITE)
 	{
 		display = LedDisplay(D1, cfg->numPixels, cfg->useEmulator);
 	}
