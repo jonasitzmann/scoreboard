@@ -4,18 +4,16 @@
 #include <ESP8266WebServer.h>
 #include "Configuration.h"
 
-//#define xstr(s) #s
-//#define STR(s) xstr(s)
-//String htmlForm =
-//#include "html.h"
-//;
+#define xstr(s) #s
+#define STR(s) xstr(s)
+extern String htmlForm;
 
 class ConfigServer {
 	std::shared_ptr<Configuration> cfg;
 	const char* ssid = "scoreboard";
 	const char* password = "scoreboard";
 	ESP8266WebServer server;
-	String htmlForm = "Input Box"
+	/*String htmlForm = "Input Box"
 		"<!DOCTYPE HTML>"
 		"	<form action = \"/results\" method = \"POST\">"
 		"	SSID:<br>"
@@ -33,10 +31,10 @@ class ConfigServer {
 		"	Emulate LEDs : <br>"
 		"	<input type = \"text\" name = \"emulate\"><br>"
 		"	Write : <input type = \"radio\" name = \"write\">"
-		"	</br><input type = \"submit\" value = \"Save\"></form>";
+		"	</br><input type = \"submit\" value = \"Save\"></form>";*/
 public:
 	bool configChanged;
-	ConfigServer(std::shared_ptr<Configuration> cfg) : cfg(cfg), server(80), configChanged("false") {} // serve at port 80
+	ConfigServer(std::shared_ptr<Configuration> cfg) : cfg(cfg), server(80), configChanged(false) {} // serve at port 80
 	void handleRoot() {
 		server.send(200, "text/html", htmlForm);
 	}

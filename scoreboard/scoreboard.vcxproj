@@ -88,6 +88,7 @@
       <FileType>CppCode</FileType>
     </ClInclude>
     <ClInclude Include="ConfigServer.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="html.h" />
     <ClInclude Include="LedDisplay.h">
       <FileType>CppCode</FileType>
@@ -106,6 +107,7 @@
     <ResourceCompile Include="scoreboard.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <PropertyGroup>
