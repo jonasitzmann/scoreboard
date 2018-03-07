@@ -5,7 +5,7 @@ STR(
 	SSID:<br>
 	<input type = "text" name = "ssid"><br>
 	Password : <br>
-	<input type = "text" name = "pwd"><br>
+	<input type = "text" name = "pwd"><br>	
 	Host Ip : <br>
 	<input type = "text" name = "ip"><br>
 	Host Port : <br>
@@ -17,5 +17,5 @@ STR(
 	Emulate LEDs : <br>
 	<input type = "text" name = "emulate"><br>
 	Write : <input type = "radio" name = "write">
-	< / br><input type = "submit" value = "Save">< / form>
+	</br><input type = "submit" value = "Save"></form>
 )

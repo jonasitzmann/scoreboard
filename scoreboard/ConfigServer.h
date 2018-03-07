@@ -4,8 +4,8 @@
 #include <ESP8266WebServer.h>
 #include "Configuration.h"
 
-#define xstr(s) #s
-#define STR(s) xstr(s)
+#define S(x) #x
+#define STR(x) S(x)
 extern String htmlForm;
 
 class ConfigServer {

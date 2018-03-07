@@ -25,12 +25,9 @@ protected:
 private:
 };
 
-
-
 class StartState : public State {
 	int buttonPin = D6;
 	int ledPin = D7;
-	std::shared_ptr<Configuration>cfg;
 public:
 	StartState() : State(std::shared_ptr<Configuration>()) {
 		cfg = std::make_shared<Configuration>();
@@ -39,21 +36,14 @@ public:
 	virtual String getName() { return "StartState"; }
 };
 
-
-
-
 class UpdateConfigState : public State {
 	ConfigServer server;
-	std::shared_ptr<Configuration> cfg;
 	UpdateConfigState();
 public:
 	UpdateConfigState(std::shared_ptr<Configuration>cfg): State(cfg), server(cfg){}
 	virtual std::shared_ptr<State> handle();
 	virtual String getName() { return "UpdateConfigState"; }
 };
-
-
-
 
 class ConnectState : public State {
 	std::shared_ptr<WiFiClient> wfClient;
@@ -70,8 +60,6 @@ public:
 	}
 	virtual String getName() { return "ConnectState"; }
 };
-
-
 
 class ShowScoreState: public State{
 	std::shared_ptr<WiFiClient> wfClient;
@@ -90,8 +78,6 @@ public:
 	virtual std::shared_ptr<State> handle();
 	virtual String getName() { return "ShowScoreState"; }
 };
-
-
 
 class SleepState : public State {
 public:
