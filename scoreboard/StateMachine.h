@@ -11,6 +11,7 @@
 #include <ESP8266WebServer.h>
 #include <memory>
 #include "Color.h"
+#include "InputDevice.h"
 
 
 class State{
@@ -26,10 +27,12 @@ private:
 };
 
 class StartState : public State {
-	int buttonPin = D6;
-	int ledPin = D7;
+	int buttonPin = D1;
+	int ledPin = BUILTIN_LED;
 public:
 	StartState() : State(std::shared_ptr<Configuration>()) {
+		pinMode(buttonPin, INPUT);
+		pinMode(ledPin, OUTPUT);
 		cfg = std::make_shared<Configuration>();
 	}
 	virtual std::shared_ptr<State> handle();
@@ -61,6 +64,33 @@ public:
 	virtual String getName() { return "ConnectState"; }
 };
 
+
+
+class ShowScoreOfflineState : public State {
+	InputDevice* inputDevice;
+	LedDisplay display;
+	int lScore;
+	Color lColor;
+	int rScore;
+	Color rColor;
+	int upPin, downPin, colorPin;
+	bool upButtonPressedBefore, downButtonPressedBefore, colorButtonPressedBefore;
+	void setLScore(int newScore);
+	void setRScore(int newScore);
+	void setLColor(Color newColor);
+	void setRColor(Color newColor);
+	void handleUpButton();
+	void handleDownButton();
+	void handleColorButton();
+public:
+	ShowScoreOfflineState(std::shared_ptr<Configuration> cfg);
+	virtual std::shared_ptr<State> handle();
+	virtual String getName();
+
+
+};
+
+
 class ShowScoreState: public State{
 	std::shared_ptr<WiFiClient> wfClient;
 	std::shared_ptr<WebSocketClient> wsClient;
@@ -73,7 +103,7 @@ public:
 	ShowScoreState(std::shared_ptr<Configuration>cfg, std::shared_ptr<WiFiClient> wfClient, std::shared_ptr<WebSocketClient> wsClient) :
 		State(cfg), wfClient(wfClient), wsClient(wsClient), score(0), color(WHITE)
 	{
-		display = LedDisplay(D1, cfg->numPixels, cfg->useEmulator);
+		display = LedDisplay(D6, cfg->numPixels, false);
 	}
 	virtual std::shared_ptr<State> handle();
 	virtual String getName() { return "ShowScoreState"; }

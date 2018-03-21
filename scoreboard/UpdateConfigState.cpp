@@ -14,5 +14,5 @@ std::shared_ptr<State> UpdateConfigState::handle()
 	delay(1000); //wait for the feedback page to load
 	server.terminate();
 	digitalWrite(LED_BUILTIN, HIGH);
-	return std::make_shared<ConnectState>(cfg);
+	return std::make_shared<ShowScoreOfflineState>(cfg);
 }

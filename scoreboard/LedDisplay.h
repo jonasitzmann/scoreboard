@@ -42,10 +42,10 @@ class LedDisplay {
 			}
 		}
 	}
-    void showNumber(int number, Color color){
+    void showNumber(int number, Color color, int numberOffset = 0){
 
-		showDigit(number / 10, 0, color);
-		showDigit(number % 10, 1, color);
+		showDigit(number / 10, 0 + 2*numberOffset, color);
+		showDigit(number % 10, 1 + 2 * numberOffset, color);
         lights->show();
     }
 
