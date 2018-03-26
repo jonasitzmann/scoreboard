@@ -14,6 +14,7 @@ class SerialPortReader : public QObject
     Q_OBJECT
 
 public:
+    Q_INVOKABLE void write(QString msg);
     explicit SerialPortReader(QSerialPort *serialPort, QObject *parent = nullptr);
 signals:
     int messageRead(int Message);

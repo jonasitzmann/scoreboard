@@ -3,6 +3,12 @@
 #include <QCoreApplication>
 #include <QRegularExpression>
 #include <QStringlist>
+void SerialPortReader::write(QString msg)
+{
+    auto code = m_serialPort->write(msg.toUtf8());
+    qDebug() << code;
+}
+
 SerialPortReader::SerialPortReader(QSerialPort *serialPort, QObject *parent) :
     QObject(parent),
     m_serialPort(serialPort)
@@ -46,9 +52,6 @@ void SerialPortReader::processMessage(QString message)
         int red = match.captured("red").toInt();
         int green = match.captured("green").toInt();
         int blue = match.captured("blue").toInt();
-        if(index < 0 || index >= 70){
-            continue;
-        }
         QMetaObject::invokeMethod(m_root, "setPixel",
                                       Q_ARG(QVariant, index),
                                       Q_ARG(QVariant, red),

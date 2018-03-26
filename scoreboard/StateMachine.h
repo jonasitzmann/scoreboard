@@ -73,16 +73,16 @@ class ShowScoreOfflineState : public State {
 	Color lColor;
 	int rScore;
 	Color rColor;
+	Color::ColorType rColorType, lColorType;
 	int upPin, downPin, colorPin;
 	bool upButtonPressedBefore, downButtonPressedBefore, colorButtonPressedBefore;
 	void setLScore(int newScore);
 	void setRScore(int newScore);
-	void setLColor(Color newColor);
-	void setRColor(Color newColor);
-	void handleUpButton();
-	void handleDownButton();
-	void handleColorButton();
+	void setLColor(Color::ColorType newColor);
+	void setRColor(Color::ColorType newColor);
+	Color::ColorType getNextColor(Color::ColorType type);
 public:
+	ShowScoreOfflineState();
 	ShowScoreOfflineState(std::shared_ptr<Configuration> cfg);
 	virtual std::shared_ptr<State> handle();
 	virtual String getName();

@@ -6,75 +6,76 @@ String ShowScoreOfflineState::getName() {
 	return "ShowScoreOfflineState";
 }
 
-void ShowScoreOfflineState::handleUpButton() {
-	bool upButtonPressed = digitalRead(upPin);
-	if (upButtonPressed && !upButtonPressedBefore) {
-		setLScore(lScore + 1);
-	}
-	upButtonPressedBefore = upButtonPressed;
+
+ShowScoreOfflineState::ShowScoreOfflineState() :
+	lColor(RED),
+	rColor(GREEN),
+	lScore(0),
+	rScore(0),
+	rColorType(Color::RED),
+	lColorType(Color::BLUE),
+	display(D6, 142, false) // USE_EMULATOR HARD CODED
+{
+	inputDevice = new ButtonInput();
 }
 
-void ShowScoreOfflineState::handleDownButton() {
-	bool downButtonPressed = digitalRead(downPin);
-	if (downButtonPressed && !downButtonPressedBefore) {
-		setLScore(lScore - 1);
-	}
-	downButtonPressedBefore = downButtonPressed;
-}
-
-void ShowScoreOfflineState::handleColorButton() {
-	bool colorButtonPressed = digitalRead(colorPin);
-	if (colorButtonPressed && !colorButtonPressedBefore) {
-		Color newColor(BLACK);
-		newColor.r = (lColor.r + 50) % 255;
-		newColor.g = (lColor.g + 100) % 255;
-		newColor.b = (lColor.b + 150) % 255;
-		setLColor(newColor);
-	}
-	colorButtonPressedBefore = colorButtonPressed;
-}
 
 ShowScoreOfflineState::ShowScoreOfflineState(std::shared_ptr<Configuration> cfg) :
 	lColor(RED),
 	rColor(GREEN),
 	lScore(0),
 	rScore(0),
-	upPin(D2), downPin(D1), colorPin(D3),
-	colorButtonPressedBefore(false), upButtonPressedBefore(false), downButtonPressedBefore(false),
-	display(D6, cfg->numPixels, true) // USE_EMULATOR HARD CODED
+	display(D6, cfg->numPixels, cfg->useEmulator)
 {
-	inputDevice = new SerialInput();
+	if (cfg->useEmulator) {
+		inputDevice = new SerialInput();
+	}
+	else {
+		inputDevice = new ButtonInput();
+	}
 }
 
 std::shared_ptr<State> ShowScoreOfflineState::handle() {
-	while (!(digitalRead(upPin) && digitalRead(downPin) && digitalRead(colorPin))) {
-		//Serial.printf("up: %d ", digitalRead(upPin));
-		//Serial.printf("down: %d ", digitalRead(downPin));
-		//Serial.printf("color: %d\n", digitalRead(colorPin));
-		//handleUpButton();
-		//handleDownButton();
-		//handleColorButton();
+	while (true) {
 		auto input = inputDevice->getInput();
 		switch (input) {
 		case InputDevice::NO_INPUT:
 			break;
 		case InputDevice::L_PLUS:
+			Serial.println("L_PLUS");
 			setLScore(lScore + 1);
 			break;
 		case InputDevice::L_MINUS:
+			Serial.println("L_MINUS");
 			setLScore(lScore - 1);
 			break;
+		case InputDevice::L_COLOR:
+			Serial.println("L_COLOR");
+			setLColor(getNextColor(lColorType));
+			break;
 		case InputDevice::R_PLUS:
+			Serial.println("R_PLUS");
 			setRScore(rScore + 1);
 			break;
 		case InputDevice::R_MINUS:
+			Serial.println("R_MINUS");
 			setRScore(rScore - 1);
 			break;
+		case InputDevice::R_COLOR:
+			Serial.println("R_COLOR");
+			setRColor(getNextColor(rColorType));
+			break;
 		case InputDevice::RESET:
+			Serial.println("RESET");
+			display.setPixel(70, WHITE);
+			display.setPixel(71, WHITE);
 			setLScore(0);
 			setRScore(0);
+			setLColor(Color::WHITE);
+			setRColor(Color::WHITE);
 			break;
-	}
+		}
+		delay(10);
 	}
 	return std::make_shared<SleepState>(cfg);
 }
@@ -86,17 +87,26 @@ void ShowScoreOfflineState::setLScore(int newScore) {
 void ShowScoreOfflineState::setRScore(int newScore)
 {
 	rScore = min(99, max(0, newScore));
-	display.showNumber(rScore, rColor, 1);
+	display.showNumber(rScore, rColor, 72);
 }
 
-void ShowScoreOfflineState::setLColor(Color newColor)
+void ShowScoreOfflineState::setLColor(Color::ColorType newColor)
 {
-	lColor = newColor;
+	lColorType = newColor;
+	lColor = Color(newColor);
 	display.showNumber(lScore, lColor, 0);
 }
 
-void ShowScoreOfflineState::setRColor(Color newColor)
+void ShowScoreOfflineState::setRColor(Color::ColorType newColor)
 {
-	rColor = newColor;
-	display.showNumber(rScore, rColor, 1);
+	rColorType = newColor;
+	rColor = Color(newColor);
+	display.showNumber(rScore, rColor, 72);
+}
+
+Color::ColorType ShowScoreOfflineState::getNextColor(Color::ColorType type)
+{
+	int newType = (((int) type) + 1) % (int) Color::NUM_COLORS;
+	Serial.printf("new color: %d\n", newType);
+	return Color::ColorType(newType);
 }

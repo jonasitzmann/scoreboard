@@ -25,8 +25,7 @@ class LedDisplay {
 * shows the value on the position given by digitOffset
 *example with 4 digits: showDigit(7, 1) -> |0|0|7|0|
 */
-	void showDigit(int value, int digitOffset, Color color = WHITE) {
-		int pixelOffset = digitOffset * 35;
+	void showDigit(int value, int pixelOffset, Color color = WHITE) {
 		if (value < 0 || value > 9) {
 			Serial.println("illegal argument");
 			return;
@@ -42,12 +41,15 @@ class LedDisplay {
 			}
 		}
 	}
-    void showNumber(int number, Color color, int numberOffset = 0){
+    void showNumber(int number, Color color, int pixelOffset = 0){
 
-		showDigit(number / 10, 0 + 2*numberOffset, color);
-		showDigit(number % 10, 1 + 2 * numberOffset, color);
+		showDigit(number / 10, pixelOffset, color);
+		showDigit(number % 10, 35 + pixelOffset, color);
         lights->show();
     }
+	void setPixel(int index, Color color) {
+		lights->setPixelColor(index, color);
+	}
 
 
   private:
