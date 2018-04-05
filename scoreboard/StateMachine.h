@@ -101,7 +101,7 @@ class ShowScoreState: public State{
 	void setColor(Color newColor);
 public:
 	ShowScoreState(std::shared_ptr<Configuration>cfg, std::shared_ptr<WiFiClient> wfClient, std::shared_ptr<WebSocketClient> wsClient) :
-		State(cfg), wfClient(wfClient), wsClient(wsClient), score(0), color(WHITE)
+		State(cfg), wfClient(wfClient), wsClient(wsClient), score(0), color()
 	{
 		display = LedDisplay(D6, cfg->numPixels, false);
 	}

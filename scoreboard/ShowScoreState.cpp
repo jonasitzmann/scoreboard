@@ -15,18 +15,6 @@ std::shared_ptr<State> ShowScoreState::handle()
 		else if (data == "decr") {
 			setScore(score - 1);
 		}
-		else if (data == "white") {
-			setColor(WHITE);
-		}
-		else if (data == "red") {
-			setColor(RED);
-		}
-		else if (data == "green") {
-			setColor(GREEN);
-		}
-		else if (data == "blue") {
-			setColor(BLUE);
-		}
 	}
 	return std::make_shared<StartState>();
 }

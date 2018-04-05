@@ -8,8 +8,8 @@ String ShowScoreOfflineState::getName() {
 
 
 ShowScoreOfflineState::ShowScoreOfflineState() :
-	lColor(RED),
-	rColor(GREEN),
+	lColor(),
+	rColor(),
 	lScore(0),
 	rScore(0),
 	rColorType(Color::RED),
@@ -21,8 +21,8 @@ ShowScoreOfflineState::ShowScoreOfflineState() :
 
 
 ShowScoreOfflineState::ShowScoreOfflineState(std::shared_ptr<Configuration> cfg) :
-	lColor(RED),
-	rColor(GREEN),
+	lColor(),
+	rColor(),
 	lScore(0),
 	rScore(0),
 	display(D6, cfg->numPixels, cfg->useEmulator)
@@ -67,8 +67,8 @@ std::shared_ptr<State> ShowScoreOfflineState::handle() {
 			break;
 		case InputDevice::RESET:
 			Serial.println("RESET");
-			display.setPixel(70, WHITE);
-			display.setPixel(71, WHITE);
+			display.setPixel(70, Color());
+			display.setPixel(71, Color());
 			setLScore(0);
 			setRScore(0);
 			setLColor(Color::WHITE);
@@ -107,6 +107,5 @@ void ShowScoreOfflineState::setRColor(Color::ColorType newColor)
 Color::ColorType ShowScoreOfflineState::getNextColor(Color::ColorType type)
 {
 	int newType = (((int) type) + 1) % (int) Color::NUM_COLORS;
-	Serial.printf("new color: %d\n", newType);
 	return Color::ColorType(newType);
 }

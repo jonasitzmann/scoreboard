@@ -51,6 +51,27 @@
     <ClInclude Include="InputDevice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ScoreboardController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerOutput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ssid1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pwd1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ssid2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pwd2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="scoreboard.rc">
@@ -86,6 +107,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InputDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreboardController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

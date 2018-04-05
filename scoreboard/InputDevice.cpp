@@ -10,6 +10,11 @@ InputDevice::~InputDevice()
 {
 }
 
+SerialInput::SerialInput()
+{
+	Serial.setTimeout(10);
+}
+
 InputDevice::Input SerialInput::getInput()
 {
 	String serialStr = Serial.readString();

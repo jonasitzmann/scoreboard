@@ -8,7 +8,7 @@ Window {
     color: "#000000"
     title: qsTr("Scoreboard Emulator")
     Component.onCompleted:{
-        pixels = digit1.pixels.concat(digit2.pixels, digit3.pixels, digit4.pixels);
+        pixels = digit1.pixels.concat(digit2.pixels, [rectangle5], [rectangle6], digit3.pixels, digit4.pixels);
     }
 
     property var pixels: []
@@ -21,7 +21,6 @@ Window {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b)
     }
     function setPixel(index, r, g, b) {
-        console.log("setPixel: " + index)
         if (index < 0 || index >= pixels.length) {
             console.log("invalid index");
             return;
@@ -68,14 +67,14 @@ Window {
                         id: rectangle5
                         width: 10
                         height: 10
-                        color: "#ffffff"
+                        color: "#333333"
                     }
 
                     Rectangle {
                         id: rectangle6
                         width: 10
                         height: 10
-                        color: "#ffffff"
+                        color: "#333333"
                     }
                 }
             }

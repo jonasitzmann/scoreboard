@@ -23,6 +23,7 @@ public:
 
 class SerialInput : public InputDevice {
 public:
+	SerialInput();
 	virtual InputDevice::Input getInput();
 };
 

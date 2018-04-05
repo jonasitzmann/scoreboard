@@ -1,0 +1,13 @@
+/ScoreboardEmulator/ScoreboardEmulator.pro.user
+*.aps
+*.suo
+/scoreboard/ssid2.h
+/scoreboard/pwd1.h
+/scoreboard/pwd2.h
+/scoreboard/ssid1.h
+Debug
+Release
+.vs
+__vm
+bin
+/.vs
