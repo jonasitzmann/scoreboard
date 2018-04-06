@@ -118,8 +118,8 @@ ScoreboardData ServerOutput::init()
 	String score1 = gameObj["team1"].asObject()["score"].asString();
 	String score2 = gameObj["team2"].asObject()["score"].asString();
 	ScoreboardData retval;
-	retval.lScore = score1.toInt();
-	retval.rScore = score2.toInt();
+	retval.score1 = score1.toInt();
+	retval.score2 = score2.toInt();
 	retval.trust = 2;
 	return retval;
 }

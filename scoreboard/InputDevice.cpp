@@ -71,10 +71,11 @@ InputDevice::Input ButtonInput::getInput()
 ScoreboardData ButtonInput::init()
 {
 	ScoreboardData retval;
-	retval.lColor = Color(Color::RED);
-	retval.rColor = Color(Color::GREEN);
-	retval.rScore = 42;
-	retval.lScore = 42;
+	retval.color1 = Color(Color::RED);
+	retval.color2 = Color(Color::GREEN);
+	retval.score1 = 42;
+	retval.score2 = 42;
 	retval.trust = 1;
+  retval.swappedSides = false;
 	return retval;
 }

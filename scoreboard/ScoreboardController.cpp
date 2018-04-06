@@ -48,55 +48,55 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		{
 		case InputDevice::L_PLUS:
 		{
-			data.lScore = min(data.lScore + 1, 99);
+			data.score1 = min(data.score1 + 1, 99);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				ok &= (*outputItr)->updateLScore(data.lScore);
+				ok &= (*outputItr)->updateLScore(data.score1);
 			}
 		}
 		break;
 		case InputDevice::L_MINUS:
 		{
-			data.lScore = max(data.lScore - 1, 0);
+			data.score1 = max(data.score1 - 1, 0);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				ok &= (*outputItr)->updateLScore(data.lScore);
+				ok &= (*outputItr)->updateLScore(data.score1);
 			}
 		}
 		break;
 		case InputDevice::R_PLUS:
 		{
-			data.rScore = min(data.rScore + 1, 99);
+			data.score2 = min(data.score2 + 1, 99);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				ok &= (*outputItr)->updateRScore(data.rScore);
+				ok &= (*outputItr)->updateRScore(data.score2);
 			}
 		}
 		break;
 		case InputDevice::R_MINUS:
 		{
-			data.rScore = max(data.rScore - 1, 0);
+			data.score2 = max(data.score2 - 1, 0);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				ok &= (*outputItr)->updateRScore(data.rScore);
+				ok &= (*outputItr)->updateRScore(data.score2);
 			}
 		}
 		break;
 		case InputDevice::L_COLOR:
 		{
-			data.lColor.changeToNext();
+			data.color1.changeToNext();
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				ok &= (*outputItr)->updateLColor(data.lColor);
+				ok &= (*outputItr)->updateLColor(data.color1);
 			}
 		}
 		break;
 		case InputDevice::R_COLOR:
 		{
-			data.rColor.changeToNext();
+			data.color2.changeToNext();
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				ok &= (*outputItr)->updateRColor(data.rColor);
+				ok &= (*outputItr)->updateRColor(data.color2);
 			}
 		}
 		break;
@@ -108,13 +108,12 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 				if (dataCandidate.trust > data.trust)
 				{
 					data = dataCandidate;
-					Serial.printf("trust: %d\trScore: %d\n", dataCandidate.trust, dataCandidate.rScore);
 				}
 			}
 			data.trust = 0;
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				(*outputItr)->updateAll(data.rScore, data.lScore, data.rColor, data.lColor);
+				(*outputItr)->updateAll(data.score2, data.score1, data.color2, data.color1);
 			}
 		}
 		default:
