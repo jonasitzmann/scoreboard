@@ -1,8 +1,8 @@
 #include "ScoreboardController.h"
-
-ScoreboardController::ScoreboardController():
-	lScore(0), rScore(0), lColor(), rColor()
+#include <set>
+ScoreboardController::ScoreboardController()
 {
+	data.trust = 0; // overwrite the initial data by trusted information sources only
 	addInputDevice(make_shared<SerialInput>());
 	addInputDevice(make_shared<ButtonInput>());
 	addOutputDevice(make_shared<LedOutput>());
@@ -12,7 +12,10 @@ ScoreboardController::ScoreboardController():
 	auto ledOutput = std::make_shared<LedOutput>();
 	ledOutput->leds = ledDisplay;
 	addOutputDevice(ledOutput);
-	addOutputDevice(make_shared<ServerOutput>());
+	auto serverInOut = make_shared<ServerOutput>();
+	addInputDevice(serverInOut);
+	addOutputDevice(serverInOut);
+	executeInputCommands({ InputDevice::RESET });
 }
 
 
@@ -20,7 +23,7 @@ ScoreboardController::~ScoreboardController()
 {
 }
 
-void ScoreboardController::update()
+std::vector<InputDevice::Input> ScoreboardController::collectInputCommands()
 {
 	// collect inputs from all devices
 	vector<InputDevice::Input> inputs;
@@ -32,7 +35,12 @@ void ScoreboardController::update()
 			inputs.push_back(input);
 		}
 	}
+	return inputs;
+}
 
+bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> inputs)
+{
+	bool ok = true;
 	// process each input using all output devices
 	for (auto itr = inputs.begin(); itr != inputs.end(); ++itr)
 	{
@@ -40,72 +48,91 @@ void ScoreboardController::update()
 		{
 		case InputDevice::L_PLUS:
 		{
-			lScore = min(lScore + 1, 99);
+			data.lScore = min(data.lScore + 1, 99);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				(*outputItr)->updateLScore(lScore);
+				ok &= (*outputItr)->updateLScore(data.lScore);
 			}
 		}
-			break;
+		break;
 		case InputDevice::L_MINUS:
 		{
-			lScore = max(lScore - 1, 0);
+			data.lScore = max(data.lScore - 1, 0);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				(*outputItr)->updateLScore(lScore);
+				ok &= (*outputItr)->updateLScore(data.lScore);
 			}
 		}
-		break;		
+		break;
 		case InputDevice::R_PLUS:
 		{
-			rScore = min(rScore + 1, 99);
+			data.rScore = min(data.rScore + 1, 99);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				(*outputItr)->updateRScore(rScore);
+				ok &= (*outputItr)->updateRScore(data.rScore);
 			}
 		}
-		break;		
+		break;
 		case InputDevice::R_MINUS:
 		{
-			rScore = max(rScore - 1, 0);
+			data.rScore = max(data.rScore - 1, 0);
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				(*outputItr)->updateRScore(rScore);
+				ok &= (*outputItr)->updateRScore(data.rScore);
 			}
 		}
-		break;		
+		break;
 		case InputDevice::L_COLOR:
 		{
-			lColor.changeToNext();
+			data.lColor.changeToNext();
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				(*outputItr)->updateLColor(lColor);
+				ok &= (*outputItr)->updateLColor(data.lColor);
 			}
 		}
 		break;
 		case InputDevice::R_COLOR:
 		{
-			rColor.changeToNext();
+			data.rColor.changeToNext();
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				(*outputItr)->updateRColor(rColor);
+				ok &= (*outputItr)->updateRColor(data.rColor);
 			}
 		}
 		break;
 		case InputDevice::RESET:
 		{
+			for (auto inputItr = inputDevices.begin(); inputItr != inputDevices.end(); ++inputItr)
+			{
+				ScoreboardData dataCandidate = (*inputItr)->init();
+				if (dataCandidate.trust > data.trust)
+				{
+					data = dataCandidate;
+					Serial.printf("trust: %d\trScore: %d\n", dataCandidate.trust, dataCandidate.rScore);
+				}
+			}
+			data.trust = 0;
 			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
 			{
-				rScore = 0;
-				lScore = 0;
-				rColor = Color();
-				lColor = Color();
-				(*outputItr)->updateAll(rScore, lScore, rColor, lColor);
+				(*outputItr)->updateAll(data.rScore, data.lScore, data.rColor, data.lColor);
 			}
 		}
 		default:
 			break;
 		}
+	}
+	return ok;
+}
+
+void ScoreboardController::update()
+{
+	auto inputs = collectInputCommands();
+	bool ok = executeInputCommands(inputs);
+	if (!ok)
+	{
+		Serial.println("could not execute input command");
+		Serial.println("performing reset");
+		executeInputCommands({ InputDevice::RESET });
 	}
 }
 

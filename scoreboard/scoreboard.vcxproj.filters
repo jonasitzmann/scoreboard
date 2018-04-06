@@ -57,9 +57,6 @@
     <ClInclude Include="OutputDevice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ServerOutput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ssid1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -70,6 +67,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pwd2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInOut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreboardData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -115,7 +118,10 @@
     <ClCompile Include="OutputDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ServerOutput.cpp">
+    <ClCompile Include="ServerInOut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreboardData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

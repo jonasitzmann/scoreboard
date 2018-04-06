@@ -1,6 +1,7 @@
 #pragma once
 #include <Arduino.h>
 #include <map>
+#include "ScoreboardData.h"
 class InputDevice
 {
 public:
@@ -19,12 +20,14 @@ public:
 	InputDevice();
 	virtual ~InputDevice();
 	virtual Input getInput() = 0;
+	virtual ScoreboardData init() = 0;
 };
 
 class SerialInput : public InputDevice {
 public:
 	SerialInput();
 	virtual InputDevice::Input getInput();
+	virtual ScoreboardData init();
 };
 
 struct CmpPins {
@@ -60,4 +63,5 @@ class ButtonInput : public InputDevice {
 public:
 	ButtonInput();
 	virtual InputDevice::Input getInput();
+	virtual ScoreboardData init();
 };

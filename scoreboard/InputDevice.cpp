@@ -30,6 +30,12 @@ InputDevice::Input SerialInput::getInput()
 	return NO_INPUT;
 }
 
+ScoreboardData SerialInput::init()
+{
+	ScoreboardData retval;
+	return retval;
+}
+
 ButtonInput::ButtonInput()
 {
 	for (auto itr = pinValues.begin(); itr != pinValues.end(); ++itr) {
@@ -60,4 +66,15 @@ InputDevice::Input ButtonInput::getInput()
 		}
 	}
 	return static_cast<InputDevice::Input>(inputCode);
+}
+
+ScoreboardData ButtonInput::init()
+{
+	ScoreboardData retval;
+	retval.lColor = Color(Color::RED);
+	retval.rColor = Color(Color::GREEN);
+	retval.rScore = 42;
+	retval.lScore = 42;
+	retval.trust = 1;
+	return retval;
 }

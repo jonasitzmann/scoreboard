@@ -90,6 +90,7 @@
     <ClInclude Include="ConfigServer.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="pwd2.h" />
+    <ClInclude Include="ScoreboardData.h" />
     <ClInclude Include="ssid2.h" />
     <ClInclude Include="pwd1.h" />
     <ClInclude Include="ssid1.h" />
@@ -104,7 +105,7 @@
     <ClInclude Include="OutputDevice.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScoreboardController.h" />
-    <ClInclude Include="ServerOutput.h" />
+    <ClInclude Include="ServerInOut.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="WebSocketHandler.h">
       <FileType>CppCode</FileType>
@@ -121,7 +122,8 @@
     <ClCompile Include="InputDevice.cpp" />
     <ClCompile Include="OutputDevice.cpp" />
     <ClCompile Include="ScoreboardController.cpp" />
-    <ClCompile Include="ServerOutput.cpp" />
+    <ClCompile Include="ScoreboardData.cpp" />
+    <ClCompile Include="ServerInOut.cpp" />
     <ClCompile Include="ShowScoreOfflineState.cpp" />
     <ClCompile Include="ShowScoreState.cpp" />
     <ClCompile Include="SleepState.cpp" />
