@@ -9,10 +9,10 @@ ScoreboardController::ScoreboardController()
 	LedDisplay ledDisplay(D5, 72, true);
 	ledDisplay.setPixel(35, Color());
 	ledDisplay.setPixel(36, Color());
-	auto ledOutput = std::make_shared<LedOutput>();
-	ledOutput->leds = ledDisplay;
-	addOutputDevice(ledOutput);
-	auto serverInOut = make_shared<ServerOutput>();
+	auto emulatorOutput = std::make_shared<LedOutput>();
+	emulatorOutput->leds = ledDisplay;
+	//addOutputDevice(emulatorOutput);
+	auto serverInOut = make_shared<ServerInOut>();
 	addInputDevice(serverInOut);
 	addOutputDevice(serverInOut);
 	executeInputCommands({ InputDevice::RESET });
@@ -40,6 +40,7 @@ std::vector<InputDevice::Input> ScoreboardController::collectInputCommands()
 
 bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> inputs)
 {
+	if (inputs.empty()) return true;
 	bool ok = true;
 	// process each input using all output devices
 	for (auto itr = inputs.begin(); itr != inputs.end(); ++itr)
@@ -49,55 +50,31 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		case InputDevice::L_PLUS:
 		{
 			data.score1 = min(data.score1 + 1, 99);
-			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
-			{
-				ok &= (*outputItr)->updateLScore(data.score1);
-			}
 		}
 		break;
 		case InputDevice::L_MINUS:
 		{
 			data.score1 = max(data.score1 - 1, 0);
-			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
-			{
-				ok &= (*outputItr)->updateLScore(data.score1);
-			}
 		}
 		break;
 		case InputDevice::R_PLUS:
 		{
 			data.score2 = min(data.score2 + 1, 99);
-			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
-			{
-				ok &= (*outputItr)->updateRScore(data.score2);
-			}
 		}
 		break;
 		case InputDevice::R_MINUS:
 		{
 			data.score2 = max(data.score2 - 1, 0);
-			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
-			{
-				ok &= (*outputItr)->updateRScore(data.score2);
-			}
 		}
 		break;
 		case InputDevice::L_COLOR:
 		{
 			data.color1.changeToNext();
-			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
-			{
-				ok &= (*outputItr)->updateLColor(data.color1);
-			}
 		}
 		break;
 		case InputDevice::R_COLOR:
 		{
 			data.color2.changeToNext();
-			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
-			{
-				ok &= (*outputItr)->updateRColor(data.color2);
-			}
 		}
 		break;
 		case InputDevice::RESET:
@@ -111,14 +88,15 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 				}
 			}
 			data.trust = 0;
-			for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
-			{
-				(*outputItr)->updateAll(data.score2, data.score1, data.color2, data.color1);
-			}
 		}
+		break;
 		default:
 			break;
 		}
+	}
+	for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
+	{
+		ok &= (*outputItr)->update(data);
 	}
 	return ok;
 }

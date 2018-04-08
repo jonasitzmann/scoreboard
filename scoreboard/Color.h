@@ -13,8 +13,11 @@ struct Color {
 		PURPLE,
 		NUM_COLORS
 	};
-	Color(ColorType type = WHITE);
-	Color(int r, int g, int b, ColorType type = WHITE) : r(r), g(g), b(b), type(type) {}
+	Color(ColorType type_ = WHITE);
+	Color(int r, int g, int b, ColorType type_ = WHITE) : r(r), g(g), b(b), type(type_) {}
+	bool operator== (Color &other);
+	bool operator!= (Color &other);
+
 	void changeToNext();
 	int r;
 	int g;

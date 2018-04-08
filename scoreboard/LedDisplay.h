@@ -46,7 +46,6 @@ class LedDisplay {
 		showDigit(number / 10, pixelOffset, color);
 		showDigit(number % 10, 35 + pixelOffset, color);
         lights->show();
-		Serial.printf("showing Number: %d\n", number);
     }
 	void setPixel(int index, Color color) {
 		lights->setPixelColor(index, color);

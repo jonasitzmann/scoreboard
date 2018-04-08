@@ -14,7 +14,7 @@ String pwd2 =
 
 
 
-String ServerOutput::sendRequest(String method, String url, String payload)
+String ServerInOut::sendRequest(String method, String url, String payload)
 {
 	String received;
 	https.begin(url, fingerprint);
@@ -31,7 +31,7 @@ String ServerOutput::sendRequest(String method, String url, String payload)
 	https.end();
 	return received;
 }
-ServerOutput::ServerOutput()
+ServerInOut::ServerInOut()
 {
 	//ToDo: get current game id
 	wifi.addAP(ssid1.c_str(), pwd1.c_str());
@@ -54,67 +54,86 @@ ServerOutput::ServerOutput()
 }
 
 
-ServerOutput::~ServerOutput()
+ServerInOut::~ServerInOut()
 {
 }
 
-void ServerOutput::update()
+bool ServerInOut::update(ScoreboardData newData)
 {
+	bool scoreChanged = (data.score1 != newData.score1) ||
+						(data.score2 != newData.score2);
+	bool settingsChanged = (data.color1 != newData.color1) ||
+		(data.color2 != newData.color2) ||
+		(data.swappedSides != newData.swappedSides);
+	bool scoreConsistent = true;
+	if (scoreChanged)
+	{
+		bool b1 = updateScores(newData.score1, newData.score2);
+		scoreConsistent &= b1;
+	}
+	if (!scoreConsistent) return false;
+	data = newData;
+	if (settingsChanged)
+	{
+		updateSettings(data.color1, data.color2, data.swappedSides);
+	}
+	return true;
 }
 
-bool ServerOutput::updateRScore(int newScore)
+bool ServerInOut::updateScores(int score1, int score2)
 {
-	return updateAll(newScore, lScore, rColor, lColor);
-}
-
-bool ServerOutput::updateLScore(int newScore)
-{
-	return updateAll(rScore, newScore, rColor, lColor);
-}
-
-bool ServerOutput::updateRColor(Color newColor)
-{
-	return updateAll(rScore, lScore, newColor, lColor);
-}
-
-bool ServerOutput::updateLColor(Color newColor)
-{
-	return updateAll(rScore, lScore, rColor, newColor);
-}
-
-bool ServerOutput::updateAll(int rScore_, int lScore_, Color rColor_, Color lColor_)
-{
-	String prev1(lScore);
-	String prev2(rScore);
-	String cur1(lScore_);
-	String cur2(rScore_);
-	rScore = rScore_;
-	lScore = lScore_;
-	rColor = rColor_;
-	lColor = lColor_;
+	String prev1(data.score1);
+	String prev2(data.score2);
+	String cur1(score1);
+	String cur2(score2);
+	data.score1 = score1;
+	data.score2 = score2;
 	String payload = "score1=" + cur1 + "&score2=" + cur2 + "&previousScore1=" + prev1 + "&previousScore2=" + prev2;
-	String response = sendRequest("PATCH", updateUrl, payload);
+	String response = sendRequest("PATCH", updateScoreUrl, payload);
 	DynamicJsonBuffer buffer;
 	JsonObject &obj = buffer.parseObject(response);
-	int score1 = String(obj["score1"].asString()).toInt();
-	int score2 = String(obj["score2"].asString()).toInt();
-	//printf("score from server: %d:%d\n", score1, score2);
-	return score1 == lScore && score2 == rScore;
+	int score1_ = String(obj["score1"].asString()).toInt();
+	int score2_ = String(obj["score2"].asString()).toInt();
+	printf("local score: %d:%d\n", score1, score2);
+	printf("score from server: %d:%d\n", score1_, score2_);
+	return score1 == score1_ && score2 == score2_; // return if server score matches local score
 }
 
-InputDevice::Input ServerOutput::getInput()
+bool ServerInOut::updateSettings(Color color1, Color color2, bool swappedSides)
+{
+	String strColor1(color1.type);
+	String strColor2(color2.type);
+	String strSwapped(swappedSides);
+	String payload = "color1=" + strColor1 +
+		"&color2=" + strColor2 +
+		"&swappedSides=" + strSwapped;
+	String response = sendRequest("PATCH", updateSettingsUrl, payload);
+	DynamicJsonBuffer buffer;
+	JsonObject &obj = buffer.parseObject(response);
+	int colorIndex1 = String(obj["colorIndex1"].asString()).toInt();
+	int colorIndex2 = String(obj["colorIndex2"].asString()).toInt();
+	bool swappedReceived= String(obj["swappedSides"].asString()).toInt();
+	Serial.printf("settings received: colorIndex1: %d\t colorIndex2: %d\t swappedReceived: %d\n",
+		colorIndex1, colorIndex2, swappedReceived);
+	data.color1 = color1;
+	data.color2 = color2;
+	data.swappedSides = swappedSides;
+}
+
+InputDevice::Input ServerInOut::getInput()
 {
 	return Input::NO_INPUT;
 }
 
-ScoreboardData ServerOutput::init()
+ScoreboardData ServerInOut::init()
 {
 	String url = "https://playground.fackelup.de/api/scoreboards/me";
 	String response = sendRequest("GET", url);
 	DynamicJsonBuffer buffer;
 	JsonObject &obj = buffer.parseObject(response);
 	auto &gameObj = obj["game"].asObject();
-	updateUrl = gameObj["updateScore"].asObject()["href"].asString();
+	updateScoreUrl = gameObj["updateScore"].asObject()["href"].asString();
+	updateSettingsUrl = obj["updateSettings"].asObject()["href"].asString();
 	String score1 = gameObj["team1"].asObject()["score"].asString();
 	String score2 = gameObj["team2"].asObject()["score"].asString();
 	ScoreboardData retval;

@@ -1,8 +1,8 @@
 #include "Color.h"
-Color::Color(ColorType type)
+Color::Color(ColorType type_)
 {
 	Color c(0, 0, 0);
-	switch (type) {
+	switch (type_) {
 	case WHITE: {
 		c = Color(255, 255, 255);
 		break;
@@ -30,14 +30,26 @@ Color::Color(ColorType type)
 		c = Color(127, 0, 255);
 		break;
 	}
-	default: {
-		c = Color(0, 0, 0);
 	}
-	}
-	c.type = type;
+	type = type_;
 	r = c.r;
 	g = c.g;
 	b = c.b;
+}
+
+bool Color::operator==(Color &other)
+{
+	bool retval = true;
+	retval &= (r == other.r);
+	retval &= (g == other.g);
+	retval &= (b == other.b);
+	retval &= (type == other.type);
+	return retval;
+}
+
+bool Color::operator!=(Color &other)
+{
+	return !(*this == other);
 }
 
 void Color::changeToNext()

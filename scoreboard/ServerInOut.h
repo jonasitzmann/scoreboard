@@ -14,31 +14,24 @@ extern String ssid1;
 extern String ssid2;
 extern String pwd1;
 extern String pwd2;
-class ServerOutput :
+class ServerInOut :
 	public InputDevice,
 	public OutputDevice
 {
 	ESP8266WiFiMulti wifi;
 	HTTPClient https;
 	String fingerprint;
-	String updateUrl;
+	String updateScoreUrl;
+	String updateSettingsUrl;
 	String sendRequest(String method, String url, String payload = "");
 public:
-	ServerOutput();
-	virtual ~ServerOutput();
+	ServerInOut();
+	virtual ~ServerInOut();
 
 	// OutputDevice Interface
-	virtual void update();
-	virtual bool updateRScore(int newScore);
-	virtual bool updateLScore(int newScore);
-	virtual bool updateRColor(Color newColor);
-	virtual bool updateLColor(Color newColor);
-	virtual bool updateAll(
-		int rScore_,
-		int lScore_,
-		Color rColor_,
-		Color lColor_
-	);
+	virtual bool update(ScoreboardData newData);
+	bool updateSettings(Color color1, Color color2, bool swappedSides);
+	bool updateScores(int score1, int score2);
 
 	// InputDevice Interface
 	virtual InputDevice::Input getInput();
