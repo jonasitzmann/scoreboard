@@ -104,8 +104,8 @@ bool ServerInOut::updateSettings(Color color1, Color color2, bool swappedSides)
 	String strColor1(color1.type);
 	String strColor2(color2.type);
 	String strSwapped(swappedSides);
-	String payload = "color1=" + strColor1 +
-		"&color2=" + strColor2 +
+	String payload = "colorIndex1=" + strColor1 +
+		"&colorIndex2=" + strColor2 +
 		"&swappedSides=" + strSwapped;
 	String response = sendRequest("PATCH", updateSettingsUrl, payload);
 	DynamicJsonBuffer buffer;
