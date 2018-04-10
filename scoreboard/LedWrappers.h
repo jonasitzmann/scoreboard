@@ -32,13 +32,13 @@ class NeoPixelWrapper: public LedWrapper{
 };
 
 /*
-* Wirites Adafruit_NeoPixel commands to serial.
+* Writes Adafruit_NeoPixel commands to serial.
 * Use ScoreboardEmulator project to interpret commands
 */
 class LedEmulator: public LedWrapper{
   public:
   virtual void setPixelColor(int index, Color color){
-    // don't remove. This line is a command, not a comment
+    // don't remove. The following line is a command, not a comment
     Serial.printf("setPixel: %d %d %d %d\n", index, color.r, color.g, color.b);
   }
   virtual void show(){
