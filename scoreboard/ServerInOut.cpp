@@ -38,13 +38,12 @@ ServerInOut::ServerInOut()
 	Serial.println("Connecting ...");
 	int i = 0;
 	while (wifi.run() != WL_CONNECTED) { // Wait for the Wi-Fi to connect: scan for Wi-Fi networks, and connect to the strongest of the networks above
-		delay(1000);
+		delay(500);
 		Serial.print('.');
 	}
-	Serial.println('\n');
-	Serial.print("Connected to ");
-	Serial.println(WiFi.SSID());
 	Serial.println();
+	Serial.println("Connected to ");
+	Serial.println(WiFi.SSID());
 	// configure target server and url
 	fingerprint = "2d3be5152d49d30d0923f1cf7bebb90d20ea0723";
 	https.addHeader("Accept", "application/json", true);
@@ -107,8 +106,6 @@ bool ServerInOut::updateScores(int score1, int score2)
 	JsonObject &obj = buffer.parseObject(response);
 	int score1_ = String(obj["score1"].asString()).toInt();
 	int score2_ = String(obj["score2"].asString()).toInt();
-	printf("local score: %d:%d\n", score1, score2);
-	printf("score from server: %d:%d\n", score1_, score2_);
 	return score1 == score1_ && score2 == score2_; // return if server score matches local score
 }
 
@@ -120,15 +117,12 @@ bool ServerInOut::updateSettings(int colorIndex1, int colorIndex2, bool swappedS
 	String payload = "colorIndex1=" + strColor1 +
 		"&colorIndex2=" + strColor2 +
 		"&swappedSides=" + strSwapped;
-	Serial.println(payload);
 	String response = sendRequest("PATCH", updateSettingsUrl, payload);
 	DynamicJsonBuffer buffer;
 	JsonObject &obj = buffer.parseObject(response);
 	data.colorIndex1 = String(obj["colorIndex1"].asString()).toInt();
 	data.colorIndex2 = String(obj["colorIndex2"].asString()).toInt();
 	bool swappedReceived= String(obj["swappedSides"].asString()).toInt();
-	Serial.printf("settings received: colorIndex1: %d\t colorIndex2: %d\t swappedReceived: %d\n",
-		data.colorIndex1, data.colorIndex2, swappedReceived);
 	data.swappedSides = swappedSides;
 }
 

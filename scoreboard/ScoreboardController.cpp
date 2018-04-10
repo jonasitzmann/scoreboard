@@ -121,8 +121,7 @@ void ScoreboardController::update()
 	bool ok = executeInputCommands(inputs);
 	if (!ok)
 	{
-		Serial.println("could not execute input command");
-		Serial.println("performing reset");
+		Serial.println("could not execute input command\nperforming reset");
 		executeInputCommands({ InputDevice::RESET });
 	}
 }

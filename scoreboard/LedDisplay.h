@@ -27,7 +27,7 @@ class LedDisplay {
 	}
 	void showDigit(int value, int pixelOffset, Color color = Color()) {
 		if (value < 0 || value > 9) {
-			Serial.println("illegal argument");
+			Serial.printf("illegal digit: %d\n", value);
 			return;
 		}
 		for (int pixel = 0; pixel < 35; ++pixel) {
