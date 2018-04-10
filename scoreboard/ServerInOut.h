@@ -27,10 +27,10 @@ class ServerInOut :
 public:
 	ServerInOut();
 	virtual ~ServerInOut();
-
+	vector<shared_ptr<Color>> getColorList(JsonArray &arr) const;
 	// OutputDevice Interface
 	virtual bool update(ScoreboardData newData);
-	bool updateSettings(Color color1, Color color2, bool swappedSides);
+	bool updateSettings(int colorIndex1, int colorIndex2, bool swappedSides);
 	bool updateScores(int score1, int score2);
 
 	// InputDevice Interface

@@ -20,7 +20,7 @@ class NeoPixelWrapper: public LedWrapper{
     lights.begin();
   }
   virtual void setPixelColor(int index, Color color){
-    lights.setPixelColor(index, color.r/2, color.g/2, color.b/2);
+    lights.setPixelColor(index, color.r, color.g, color.b);
   }
   virtual void show(){
     lights.show();

@@ -6,11 +6,9 @@ ScoreboardController::ScoreboardController()
 	addInputDevice(make_shared<SerialInput>());
 	addInputDevice(make_shared<ButtonInput>());
 	addOutputDevice(make_shared<LedOutput>());
+	addOutputDevice(make_shared<LedOutput>());
 	LedDisplay ledDisplay(D5, 72, true);
-	ledDisplay.setPixel(35, Color());
-	ledDisplay.setPixel(36, Color());
-	auto emulatorOutput = std::make_shared<LedOutput>();
-	emulatorOutput->leds = ledDisplay;
+	//emulatorOutput->leds = ledDisplay;
 	//addOutputDevice(emulatorOutput);
 	auto serverInOut = make_shared<ServerInOut>();
 	addInputDevice(serverInOut);
@@ -69,12 +67,28 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		break;
 		case InputDevice::L_COLOR:
 		{
-			data.color1.changeToNext();
+			int &colorIndex = data.colorIndex1;
+			vector<shared_ptr<Color>> &colorList = data.colorList1;
+			if (data.swappedSides)
+			{
+				colorIndex = data.colorIndex2;
+				colorList = data.colorList2;
+			}
+			++colorIndex;
+			colorIndex %= colorList.size();
 		}
 		break;
 		case InputDevice::R_COLOR:
 		{
-			data.color2.changeToNext();
+			int &colorIndex = data.colorIndex2;
+			vector<shared_ptr<Color>> &colorList = data.colorList2;
+			if (data.swappedSides)
+			{
+				colorIndex = data.colorIndex1;
+				colorList = data.colorList1;
+			}
+			++colorIndex;
+			colorIndex %= colorList.size();
 		}
 		break;
 		case InputDevice::RESET:

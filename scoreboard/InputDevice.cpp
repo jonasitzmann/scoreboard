@@ -71,8 +71,8 @@ InputDevice::Input ButtonInput::getInput()
 ScoreboardData ButtonInput::init()
 {
 	ScoreboardData retval;
-	retval.color1 = Color(Color::RED);
-	retval.color2 = Color(Color::GREEN);
+	retval.colorIndex1 = 0;
+	retval.colorIndex2 = 0;
 	retval.score1 = 42;
 	retval.score2 = 42;
 	retval.trust = 1;

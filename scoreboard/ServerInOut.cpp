@@ -33,7 +33,6 @@ String ServerInOut::sendRequest(String method, String url, String payload)
 }
 ServerInOut::ServerInOut()
 {
-	//ToDo: get current game id
 	wifi.addAP(ssid1.c_str(), pwd1.c_str());
 	wifi.addAP(ssid2.c_str(), pwd2.c_str());
 	Serial.println("Connecting ...");
@@ -58,12 +57,26 @@ ServerInOut::~ServerInOut()
 {
 }
 
+std::vector<std::shared_ptr<Color>> ServerInOut::getColorList(JsonArray &arr) const
+{
+	std::vector<std::shared_ptr<Color>> colors;
+	for (int i = 0; i < arr.size(); ++i)
+	{
+		JsonObject &colorObj = arr[i].asObject();
+		int r = String(colorObj["red"].asString()).toInt();
+		int g = String(colorObj["green"].asString()).toInt();
+		int b = String(colorObj["blue"].asString()).toInt();
+		colors.push_back(make_shared<Color>(r, g, b));
+	}
+	return colors;
+}
+
 bool ServerInOut::update(ScoreboardData newData)
 {
 	bool scoreChanged = (data.score1 != newData.score1) ||
 						(data.score2 != newData.score2);
-	bool settingsChanged = (data.color1 != newData.color1) ||
-		(data.color2 != newData.color2) ||
+	bool settingsChanged = (data.colorIndex1 != newData.colorIndex1) ||
+		(data.colorIndex2 != newData.colorIndex2) ||
 		(data.swappedSides != newData.swappedSides);
 	bool scoreConsistent = true;
 	if (scoreChanged)
@@ -75,7 +88,7 @@ bool ServerInOut::update(ScoreboardData newData)
 	data = newData;
 	if (settingsChanged)
 	{
-		updateSettings(data.color1, data.color2, data.swappedSides);
+		updateSettings(data.colorIndex1, data.colorIndex2, data.swappedSides);
 	}
 	return true;
 }
@@ -99,24 +112,23 @@ bool ServerInOut::updateScores(int score1, int score2)
 	return score1 == score1_ && score2 == score2_; // return if server score matches local score
 }
 
-bool ServerInOut::updateSettings(Color color1, Color color2, bool swappedSides)
+bool ServerInOut::updateSettings(int colorIndex1, int colorIndex2, bool swappedSides)
 {
-	String strColor1(color1.type);
-	String strColor2(color2.type);
+	String strColor1(colorIndex1);
+	String strColor2(colorIndex2);
 	String strSwapped(swappedSides);
 	String payload = "colorIndex1=" + strColor1 +
 		"&colorIndex2=" + strColor2 +
 		"&swappedSides=" + strSwapped;
+	Serial.println(payload);
 	String response = sendRequest("PATCH", updateSettingsUrl, payload);
 	DynamicJsonBuffer buffer;
 	JsonObject &obj = buffer.parseObject(response);
-	int colorIndex1 = String(obj["colorIndex1"].asString()).toInt();
-	int colorIndex2 = String(obj["colorIndex2"].asString()).toInt();
+	data.colorIndex1 = String(obj["colorIndex1"].asString()).toInt();
+	data.colorIndex2 = String(obj["colorIndex2"].asString()).toInt();
 	bool swappedReceived= String(obj["swappedSides"].asString()).toInt();
 	Serial.printf("settings received: colorIndex1: %d\t colorIndex2: %d\t swappedReceived: %d\n",
-		colorIndex1, colorIndex2, swappedReceived);
-	data.color1 = color1;
-	data.color2 = color2;
+		data.colorIndex1, data.colorIndex2, swappedReceived);
 	data.swappedSides = swappedSides;
 }
 
@@ -127,6 +139,7 @@ InputDevice::Input ServerInOut::getInput()
 
 ScoreboardData ServerInOut::init()
 {
+	ScoreboardData retval;
 	String url = "https://playground.fackelup.de/api/scoreboards/me";
 	String response = sendRequest("GET", url);
 	DynamicJsonBuffer buffer;
@@ -134,9 +147,17 @@ ScoreboardData ServerInOut::init()
 	auto &gameObj = obj["game"].asObject();
 	updateScoreUrl = gameObj["updateScore"].asObject()["href"].asString();
 	updateSettingsUrl = obj["updateSettings"].asObject()["href"].asString();
+	int colorIndex1 = String(obj["colorIndex1"].asString()).toInt();
+	int colorIndex2 = String(obj["colorIndex2"].asString()).toInt();
+	
+	// update team colors
+	retval.colorList1 = getColorList(gameObj["team1"].asObject()["colors"].asArray());
+	retval.colorList2 = getColorList(gameObj["team2"].asObject()["colors"].asArray());
+	retval.colorIndex1 = String(obj["colorIndex1"].asString()).toInt();
+	retval.colorIndex2 = String(obj["colorIndex2"].asString()).toInt();
+	retval.swappedSides = String(obj["swappedSides"].asString()).toInt();
 	String score1 = gameObj["team1"].asObject()["score"].asString();
 	String score2 = gameObj["team2"].asObject()["score"].asString();
-	ScoreboardData retval;
 	retval.score1 = score1.toInt();
 	retval.score2 = score2.toInt();
 	retval.trust = 2;
