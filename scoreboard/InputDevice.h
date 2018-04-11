@@ -15,7 +15,8 @@ public:
 		R_MINUS,
 		END,
 		RESET,
-		SWAP
+		SWAP,
+		RESUME
 	};
 	InputDevice();
 	virtual ~InputDevice();

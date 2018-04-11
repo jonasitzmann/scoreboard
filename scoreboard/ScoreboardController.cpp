@@ -47,28 +47,38 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		{
 		case InputDevice::L_PLUS:
 		{
+			if (data.scoreIsFinal) break;
 			data.score1 = min(data.score1 + 1, 99);
+			break;
 		}
-		break;
 		case InputDevice::L_MINUS:
 		{
+			if (data.scoreIsFinal) break;
 			data.score1 = max(data.score1 - 1, 0);
 		}
 		break;
 		case InputDevice::R_PLUS:
 		{
+			if (data.scoreIsFinal) break;
 			data.score2 = min(data.score2 + 1, 99);
 		}
 		break;
 		case InputDevice::R_MINUS:
 		{
+			if (data.scoreIsFinal) break;
 			data.score2 = max(data.score2 - 1, 0);
 		}
 		break;
 		case InputDevice::L_COLOR:
 		{
+			if (data.scoreIsFinal) break;
 			int &colorIndex = data.colorIndex1;
 			vector<shared_ptr<Color>> &colorList = data.colorList1;
+			if (colorList.empty())
+			{
+				Serial.println("no colors available!");
+				break;
+			}
 			if (data.swappedSides)
 			{
 				colorIndex = data.colorIndex2;
@@ -80,8 +90,14 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		break;
 		case InputDevice::R_COLOR:
 		{
+			if (data.scoreIsFinal) break;
 			int &colorIndex = data.colorIndex2;
 			vector<shared_ptr<Color>> &colorList = data.colorList2;
+			if (colorList.empty())
+			{
+				Serial.println("no colors available!");
+				break;
+			}
 			if (data.swappedSides)
 			{
 				colorIndex = data.colorIndex1;
@@ -91,6 +107,22 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 			colorIndex %= colorList.size();
 		}
 		break;
+		case InputDevice::SWAP:
+		{
+			if (data.scoreIsFinal) break;
+			data.swappedSides = !data.swappedSides;
+			break;
+		}
+		case InputDevice::END:
+		{
+			data.scoreIsFinal = true;
+			break;
+		}
+		case InputDevice::RESUME:
+		{
+			data.scoreIsFinal = false;
+			break;
+		}
 		case InputDevice::RESET:
 		{
 			for (auto inputItr = inputDevices.begin(); inputItr != inputDevices.end(); ++inputItr)
