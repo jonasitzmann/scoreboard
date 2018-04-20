@@ -5,15 +5,16 @@
 #include "ScoreboardData.h"
 #include <vector>
 #include <memory>
+#include "IConfigLoader.h"
 using namespace std;
 class ScoreboardController
 {
 	ScoreboardData data;
 	vector<shared_ptr<InputDevice>> inputDevices;
 	vector<shared_ptr<OutputDevice>> outputDevices;
+	shared_ptr<IConfigLoader> configLoader;
 public:
 	ScoreboardController();
-	~ScoreboardController();
 	vector<InputDevice::Input> collectInputCommands();
 	bool executeInputCommands(vector<InputDevice::Input> inputs);
 	void update();

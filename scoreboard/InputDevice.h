@@ -2,6 +2,8 @@
 #include <Arduino.h>
 #include <map>
 #include "ScoreboardData.h"
+#include <pcf8574_esp.h>
+#include <Wire.h>
 class InputDevice
 {
 public:
@@ -18,17 +20,13 @@ public:
 		SWAP,
 		RESUME
 	};
-	InputDevice();
-	virtual ~InputDevice();
-	virtual Input getInput() = 0;
-	virtual ScoreboardData init() = 0;
+	virtual InputDevice::Input getInput() const = 0;
 };
 
 class SerialInput : public InputDevice {
 public:
 	SerialInput();
-	virtual InputDevice::Input getInput();
-	virtual ScoreboardData init();
+	virtual InputDevice::Input getInput() const;
 };
 
 struct CmpPins {
@@ -55,14 +53,8 @@ struct CmpPins {
 };
 
 class ButtonInput : public InputDevice {
-	std::map<int, bool, CmpPins> pinValues = {
-		{ D1, true },
-		{ D2, true },
-		{ D3, true },
-		{ D4, true }
-	};
+	vector<int> pins = { D1, D2, D3, D4 };
 public:
 	ButtonInput();
-	virtual InputDevice::Input getInput();
-	virtual ScoreboardData init();
+	virtual InputDevice::Input getInput() const;
 };

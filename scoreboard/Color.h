@@ -15,8 +15,8 @@ struct Color {
 	};
 	Color(ColorType type_ = WHITE);
 	Color(int r, int g, int b, ColorType type_ = WHITE) : r(r), g(g), b(b), type(type_) {}
-	bool operator== (Color &other);
-	bool operator!= (Color &other);
+	bool operator== (Color &other) const;
+	bool operator!= (Color &other) const;
 
 	void changeToNext();
 	int r;
@@ -27,6 +27,6 @@ struct Color {
 		int arr[3] = { r, g, b };
 		return arr;
 	}
-	String toString();
+	String toString() const;
 };
 #endif // !COLOR

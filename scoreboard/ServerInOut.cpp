@@ -52,13 +52,10 @@ ServerInOut::ServerInOut()
 }
 
 
-ServerInOut::~ServerInOut()
-{
-}
-
 std::vector<std::shared_ptr<Color>> ServerInOut::getColorList(JsonArray &arr) const
 {
-	std::vector<std::shared_ptr<Color>> colors;
+	using namespace std;
+	vector<std::shared_ptr<Color>> colors;
 	for (int i = 0; i < arr.size(); ++i)
 	{
 		JsonObject &colorObj = arr[i].asObject();
@@ -126,12 +123,12 @@ bool ServerInOut::updateSettings(int colorIndex1, int colorIndex2, bool swappedS
 	data.swappedSides = swappedSides;
 }
 
-InputDevice::Input ServerInOut::getInput()
+InputDevice::Input ServerInOut::getInput() const
 {
 	return Input::NO_INPUT;
 }
 
-ScoreboardData ServerInOut::init()
+ScoreboardData ServerInOut::loadConfig()
 {
 	ScoreboardData retval;
 	String url = "https://playground.fackelup.de/api/scoreboards/me";
@@ -154,6 +151,5 @@ ScoreboardData ServerInOut::init()
 	String score2 = gameObj["team2"].asObject()["score"].asString();
 	retval.score1 = score1.toInt();
 	retval.score2 = score2.toInt();
-	retval.trust = 2;
 	return retval;
 }

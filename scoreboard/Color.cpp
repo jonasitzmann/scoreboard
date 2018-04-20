@@ -37,7 +37,7 @@ Color::Color(ColorType type_)
 	b = c.b;
 }
 
-bool Color::operator==(Color &other)
+bool Color::operator==(Color &other) const
 {
 	bool retval = true;
 	retval &= (r == other.r);
@@ -47,7 +47,7 @@ bool Color::operator==(Color &other)
 	return retval;
 }
 
-bool Color::operator!=(Color &other)
+bool Color::operator!=(Color &other) const
 {
 	return !(*this == other);
 }
@@ -64,7 +64,7 @@ void Color::changeToNext()
 	b = newColor.b;
 }
 
-String Color::toString()
+String Color::toString() const
 {
 	String str;
 	str += "color: {\t";

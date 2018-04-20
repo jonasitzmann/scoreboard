@@ -2,23 +2,14 @@
 #include <set>
 ScoreboardController::ScoreboardController()
 {
-	data.trust = 0; // overwrite the initial data by trusted information sources only
 	addInputDevice(make_shared<SerialInput>());
 	addInputDevice(make_shared<ButtonInput>());
 	addOutputDevice(make_shared<LedOutput>());
-	addOutputDevice(make_shared<LedOutput>());
-	LedDisplay ledDisplay(D5, 72, true);
-	//emulatorOutput->leds = ledDisplay;
-	//addOutputDevice(emulatorOutput);
 	auto serverInOut = make_shared<ServerInOut>();
 	addInputDevice(serverInOut);
 	addOutputDevice(serverInOut);
-	executeInputCommands({ InputDevice::RESET });
-}
-
-
-ScoreboardController::~ScoreboardController()
-{
+	configLoader = serverInOut;
+	data = configLoader->loadConfig();
 }
 
 std::vector<InputDevice::Input> ScoreboardController::collectInputCommands()
@@ -125,15 +116,7 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		}
 		case InputDevice::RESET:
 		{
-			for (auto inputItr = inputDevices.begin(); inputItr != inputDevices.end(); ++inputItr)
-			{
-				ScoreboardData dataCandidate = (*inputItr)->init();
-				if (dataCandidate.trust > data.trust)
-				{
-					data = dataCandidate;
-				}
-			}
-			data.trust = 0;
+			data = configLoader->loadConfig();
 		}
 		break;
 		default:

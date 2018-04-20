@@ -1,21 +1,11 @@
 #include "InputDevice.h"
 
-
-InputDevice::InputDevice()
-{
-}
-
-
-InputDevice::~InputDevice()
-{
-}
-
 SerialInput::SerialInput()
 {
 	Serial.setTimeout(10);
 }
 
-InputDevice::Input SerialInput::getInput()
+InputDevice::Input SerialInput::getInput() const
 {
 	String serialStr = Serial.readString();
 	if (serialStr.length() == 0) {
@@ -30,52 +20,38 @@ InputDevice::Input SerialInput::getInput()
 	return NO_INPUT;
 }
 
-ScoreboardData SerialInput::init()
-{
-	ScoreboardData retval;
-	return retval;
-}
-
 ButtonInput::ButtonInput()
 {
-	for (auto itr = pinValues.begin(); itr != pinValues.end(); ++itr) {
-		pinMode(itr->first, INPUT_PULLUP);
-	}
+	for_each(begin(pins), end(pins), [](int pin)
+	{
+		pinMode(pin, INPUT_PULLUP);
+	});
 }
 
-InputDevice::Input ButtonInput::getInput()
+InputDevice::Input ButtonInput::getInput() const
 {
-	int inputCode = 0;
+	std::map<int, bool, CmpPins> pinValues;
+	for_each(begin(pins), end(pins), [&pinValues](int pin)
+	{
+		pinValues[pin] = false;
+	});
 	bool anyPressed = false;
 	// update buttonValues
 	for (auto itr = pinValues.begin(); itr != pinValues.end(); ++itr) {
-		bool pressed = digitalRead(itr->first) == LOW? true : false;
+		bool pressed = digitalRead(itr->first) == LOW ? true : false;
 		anyPressed |= pressed;
-		itr->second |= pressed;
+		itr->second = pressed;
 	}
-	if (!anyPressed) {
-		delay(50);
-		// calc inputCode from buttonValues
-		int digit = 0;
-		for (auto itr = pinValues.begin(); itr != pinValues.end(); ++itr) {
-			if (itr->second) {
-				inputCode += pow(2, digit);
-				itr->second = false; // reset buttonValue
-			}
-			++digit;
+	// calc inputCode from buttonValues
+	int inputCode = 0;
+	int digit = 0;
+	for_each(begin(pinValues), end(pinValues), [&inputCode, &digit](pair<int, bool> pinVal) {
+		if (pinVal.second) {
+			inputCode += pow(2, digit);
+			pinVal.second = false; // reset buttonValue
 		}
-	}
-	return static_cast<InputDevice::Input>(inputCode);
-}
+		++digit;
+	});
 
-ScoreboardData ButtonInput::init()
-{
-	ScoreboardData retval;
-	retval.colorIndex1 = 0;
-	retval.colorIndex2 = 0;
-	retval.score1 = 42;
-	retval.score2 = 42;
-	retval.trust = 1;
-  retval.swappedSides = false;
-	return retval;
+	return static_cast<InputDevice::Input>(inputCode);
 }

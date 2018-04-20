@@ -1,6 +1,7 @@
 #pragma once
 #include "OutputDevice.h"
 #include "InputDevice.h"
+#include "IConfigLoader.h"
 #include "ScoreboardData.h"
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
@@ -16,7 +17,8 @@ extern String pwd1;
 extern String pwd2;
 class ServerInOut :
 	public InputDevice,
-	public OutputDevice
+	public OutputDevice,
+	public IConfigLoader
 {
 	ESP8266WiFiMulti wifi;
 	HTTPClient https;
@@ -26,7 +28,6 @@ class ServerInOut :
 	String sendRequest(String method, String url, String payload = "");
 public:
 	ServerInOut();
-	virtual ~ServerInOut();
 	vector<shared_ptr<Color>> getColorList(JsonArray &arr) const;
 	// OutputDevice Interface
 	virtual bool update(ScoreboardData newData);
@@ -34,7 +35,7 @@ public:
 	bool updateScores(int score1, int score2);
 
 	// InputDevice Interface
-	virtual InputDevice::Input getInput();
-	virtual ScoreboardData init();
+	virtual InputDevice::Input getInput() const;
+	virtual ScoreboardData loadConfig();
 };
 

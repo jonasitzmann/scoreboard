@@ -9,6 +9,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
+		Unit Test|x86 = Unit Test|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.ActiveCfg = Debug|Win32
@@ -17,8 +18,13 @@ Global
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Deploy.0 = Release|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Unit Test|x86.ActiveCfg = Unit Test|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Unit Test|x86.Build.0 = Unit Test|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F87BCCCD-3E5D-4413-B678-0DB663580A99}
 	EndGlobalSection
 EndGlobal
