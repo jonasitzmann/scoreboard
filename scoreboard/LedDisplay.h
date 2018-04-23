@@ -3,7 +3,7 @@
 #include <map>
 #include "Color.h"
 static const int digits[10][7] = {
-//   1  2  3  4  5  6  7
+//   1  2  3  4  5  6  7  (segments)
     {1, 1, 1, 0, 1, 1, 1}, // zero
     {0, 0, 1, 0, 0, 0, 1}, // one
     {1, 1, 0, 1, 0, 1, 1}, // two
@@ -17,6 +17,9 @@ static const int digits[10][7] = {
 };
 
 class LedDisplay {
+	int pin;
+	int numPixels;
+	LedWrapper* lights;
   public:
     LedDisplay(int pin = D1, int numPixels = 70, bool emulated = false){
       lights = emulated? static_cast<LedWrapper*>(new LedEmulator()) : static_cast<LedWrapper*>(new NeoPixelWrapper(pin, numPixels));
@@ -37,12 +40,11 @@ class LedDisplay {
 				lights->setPixelColor(pixel + pixelOffset, color);
 			}
 			else {
-				lights->setPixelColor(pixel + pixelOffset, Color(0,0,0));
+				lights->setPixelColor(pixel + pixelOffset, Color());
 			}
 		}
 	}
     void showNumber(int number, Color color, int pixelOffset = 0){
-
 		showDigit(number / 10, pixelOffset, color);
 		showDigit(number % 10, 35 + pixelOffset, color);
         lights->show();
@@ -50,11 +52,5 @@ class LedDisplay {
 	void setPixel(int index, Color color) {
 		lights->setPixelColor(index, color);
 	}
-
-
-  private:
-    int pin;
-    int numPixels;
-    LedWrapper* lights;
 
 };

@@ -6,63 +6,55 @@ ScoreboardController::ScoreboardController()
 	addInputDevice(make_shared<ButtonInput>());
 	addOutputDevice(make_shared<LedOutput>());
 	auto serverInOut = make_shared<ServerInOut>();
-	addInputDevice(serverInOut);
 	addOutputDevice(serverInOut);
 	configLoader = serverInOut;
 	data = configLoader->loadConfig();
 }
 
-std::vector<InputDevice::Input> ScoreboardController::collectInputCommands()
+void ScoreboardController::collectInputCommands()
 {
-	// collect inputs from all devices
-	vector<InputDevice::Input> inputs;
-	for (auto itr = inputDevices.begin(); itr != inputDevices.end(); ++itr)
-	{
-		auto input = (*itr)->getInput();
-		if (input != InputDevice::NO_INPUT)
-		{
-			inputs.push_back(input);
-		}
-	}
-	return inputs;
+		for_each(begin(inputDevices), end(inputDevices), [&](shared_ptr<InputDevice> device) {
+		auto newInputs = device->getInput();
+		inputCommands.insert(end(inputCommands), begin(newInputs), end(newInputs));
+	});
 }
 
-bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> inputs)
+bool ScoreboardController::executeInputCommands()
 {
-	if (inputs.empty()) return true;
+
+	if (inputCommands.empty()) return true;
 	bool ok = true;
-	// process each input using all output devices
-	for (auto itr = inputs.begin(); itr != inputs.end(); ++itr)
+	for (auto itr = inputCommands.begin(); itr != inputCommands.end(); ++itr)
 	{
 		switch (*itr)
 		{
 		case InputDevice::L_PLUS:
 		{
-			if (data.scoreIsFinal) break;
+			if (data.locked) break;
 			data.score1 = min(data.score1 + 1, 99);
 			break;
 		}
 		case InputDevice::L_MINUS:
 		{
-			if (data.scoreIsFinal) break;
+			if (data.locked) break;
 			data.score1 = max(data.score1 - 1, 0);
 		}
 		break;
 		case InputDevice::R_PLUS:
 		{
-			if (data.scoreIsFinal) break;
+			if (data.locked) break;
 			data.score2 = min(data.score2 + 1, 99);
 		}
 		break;
 		case InputDevice::R_MINUS:
 		{
-			if (data.scoreIsFinal) break;
+			if (data.locked) break;
 			data.score2 = max(data.score2 - 1, 0);
 		}
 		break;
 		case InputDevice::L_COLOR:
 		{
-			if (data.scoreIsFinal) break;
+			if (data.locked) break;
 			int &colorIndex = data.colorIndex1;
 			vector<shared_ptr<Color>> &colorList = data.colorList1;
 			if (colorList.empty())
@@ -81,7 +73,7 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		break;
 		case InputDevice::R_COLOR:
 		{
-			if (data.scoreIsFinal) break;
+			if (data.locked) break;
 			int &colorIndex = data.colorIndex2;
 			vector<shared_ptr<Color>> &colorList = data.colorList2;
 			if (colorList.empty())
@@ -100,27 +92,25 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 		break;
 		case InputDevice::SWAP:
 		{
-			if (data.scoreIsFinal) break;
+			if (data.locked) break;
 			data.swappedSides = !data.swappedSides;
 			break;
 		}
-		case InputDevice::END:
+		case InputDevice::LOCK:
 		{
-			data.scoreIsFinal = true;
+			data.locked = true;
 			break;
 		}
-		case InputDevice::RESUME:
+		case InputDevice::UNLOCK:
 		{
-			data.scoreIsFinal = false;
+			data.locked = false;
 			break;
 		}
 		case InputDevice::RESET:
 		{
-			data = configLoader->loadConfig();
-		}
-		break;
-		default:
+			reset();
 			break;
+		}
 		}
 	}
 	for (auto outputItr = outputDevices.begin(); outputItr != outputDevices.end(); ++outputItr)
@@ -132,12 +122,11 @@ bool ScoreboardController::executeInputCommands(vector<InputDevice::Input> input
 
 void ScoreboardController::update()
 {
-	auto inputs = collectInputCommands();
-	bool ok = executeInputCommands(inputs);
-	if (!ok)
+	collectInputCommands();
+	if (!executeInputCommands())
 	{
 		Serial.println("could not execute input command\nperforming reset");
-		executeInputCommands({ InputDevice::RESET });
+		reset();
 	}
 }
 
@@ -149,4 +138,9 @@ void ScoreboardController::addInputDevice(shared_ptr<InputDevice> inputDevice)
 void ScoreboardController::addOutputDevice(shared_ptr<OutputDevice> outputDevice)
 {
 	outputDevices.push_back(outputDevice);
+}
+
+void ScoreboardController::reset()
+{
+	data = configLoader->loadConfig();
 }

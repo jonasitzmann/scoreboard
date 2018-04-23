@@ -15,18 +15,19 @@ public:
 		R_COLOR,
 		R_PLUS,
 		R_MINUS,
-		END,
+		LOCK,
 		RESET,
 		SWAP,
-		RESUME
+		UNLOCK
 	};
-	virtual InputDevice::Input getInput() const = 0;
+	virtual std::vector<Input> getInput() = 0;
+
 };
 
 class SerialInput : public InputDevice {
 public:
 	SerialInput();
-	virtual InputDevice::Input getInput() const;
+	virtual std::vector<Input> getInput();
 };
 
 struct CmpPins {
@@ -54,7 +55,10 @@ struct CmpPins {
 
 class ButtonInput : public InputDevice {
 	vector<int> pins = { D1, D2, D3, D4 };
+	std::map<int, bool, CmpPins> pinValues;
+	bool updateButtonValues();
+	int calcInputCode() const;
 public:
 	ButtonInput();
-	virtual InputDevice::Input getInput() const;
+	virtual std::vector<Input> getInput();
 };

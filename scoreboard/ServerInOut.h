@@ -16,7 +16,6 @@ extern String ssid2;
 extern String pwd1;
 extern String pwd2;
 class ServerInOut :
-	public InputDevice,
 	public OutputDevice,
 	public IConfigLoader
 {
@@ -34,8 +33,6 @@ public:
 	bool updateSettings(int colorIndex1, int colorIndex2, bool swappedSides);
 	bool updateScores(int score1, int score2);
 
-	// InputDevice Interface
-	virtual InputDevice::Input getInput() const;
 	virtual ScoreboardData loadConfig();
 };
 

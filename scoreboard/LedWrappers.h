@@ -13,7 +13,7 @@ class LedWrapper{
 */
 class NeoPixelWrapper: public LedWrapper{
   public:
-  NeoPixelWrapper(int pin = D1, int numPixels = 70): pin(pin), numPixels(numPixels){
+  NeoPixelWrapper(int pin = D5, int numPixels = 72): pin(pin), numPixels(numPixels){
     lights = * new Adafruit_NeoPixel(numPixels, pin,
                  /*suitable pixel flags for our LED Strip*/NEO_GRB + NEO_KHZ800
                );

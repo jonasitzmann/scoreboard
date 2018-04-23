@@ -13,13 +13,14 @@ class ScoreboardController
 	vector<shared_ptr<InputDevice>> inputDevices;
 	vector<shared_ptr<OutputDevice>> outputDevices;
 	shared_ptr<IConfigLoader> configLoader;
+	vector<InputDevice::Input> inputCommands;
 public:
 	ScoreboardController();
-	vector<InputDevice::Input> collectInputCommands();
-	bool executeInputCommands(vector<InputDevice::Input> inputs);
+	void collectInputCommands();
+	bool executeInputCommands();
 	void update();
 	void addInputDevice(shared_ptr<InputDevice> inputDevice);
 	void addOutputDevice(shared_ptr<OutputDevice> outputDevice);
-
+	void reset();
 };
 

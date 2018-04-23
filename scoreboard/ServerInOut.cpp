@@ -123,11 +123,6 @@ bool ServerInOut::updateSettings(int colorIndex1, int colorIndex2, bool swappedS
 	data.swappedSides = swappedSides;
 }
 
-InputDevice::Input ServerInOut::getInput() const
-{
-	return Input::NO_INPUT;
-}
-
 ScoreboardData ServerInOut::loadConfig()
 {
 	ScoreboardData retval;
