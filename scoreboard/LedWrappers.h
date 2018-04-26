@@ -9,20 +9,22 @@ class LedWrapper{
 /*
 * Wrapper for the Adafruit_NeoPixel library.
 * Forwards commands to Adafruit_NeoPixel instance
-* TODO: Better inherit from Adafruit_NeoPixel?
 */
 class NeoPixelWrapper: public LedWrapper{
   public:
-  NeoPixelWrapper(int pin = D5, int numPixels = 72): pin(pin), numPixels(numPixels){
+  NeoPixelWrapper(int pin = D5, int numPixels = 142): pin(pin), numPixels(numPixels){
     lights = * new Adafruit_NeoPixel(numPixels, pin,
                  /*suitable pixel flags for our LED Strip*/NEO_GRB + NEO_KHZ800
                );
     lights.begin();
+	delay(100);
   }
-  virtual void setPixelColor(int index, Color color){
+  void setPixelColor(int index, Color color) override
+  {
     lights.setPixelColor(index, color.r, color.g, color.b);
   }
-  virtual void show(){
+  void show() override
+  {
     lights.show();
   }
   private:
@@ -37,11 +39,13 @@ class NeoPixelWrapper: public LedWrapper{
 */
 class LedEmulator: public LedWrapper{
   public:
-  virtual void setPixelColor(int index, Color color){
+  void setPixelColor(int index, Color color) override
+  {
     // don't remove. The following line is a command, not a comment
     Serial.printf("setPixel: %d %d %d %d\n", index, color.r, color.g, color.b);
   }
-  virtual void show(){
+  void show() override
+  {
     Serial.println("show"); // don't remove. This line is a command, not a comment
   }
 };

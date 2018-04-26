@@ -54,10 +54,9 @@ struct CmpPins {
 };
 
 class ButtonInput : public InputDevice {
-	vector<int> pins = { D1, D2, D3, D4 };
-	std::map<int, bool, CmpPins> pinValues;
+	vector<pair<int, bool>> pinVals;
 	bool updateButtonValues();
-	int calcInputCode() const;
+	int calcInputCode();
 public:
 	ButtonInput();
 	virtual std::vector<Input> getInput();

@@ -25,14 +25,12 @@ class ServerInOut :
 	String updateScoreUrl;
 	String updateSettingsUrl;
 	String sendRequest(String method, String url, String payload = "");
-public:
-	ServerInOut();
-	vector<shared_ptr<Color>> getColorList(JsonArray &arr) const;
-	// OutputDevice Interface
-	virtual bool update(ScoreboardData newData);
 	bool updateSettings(int colorIndex1, int colorIndex2, bool swappedSides);
 	bool updateScores(int score1, int score2);
-
-	virtual ScoreboardData loadConfig();
+	vector<shared_ptr<Color>> getColorList(JsonArray &arr) const;
+public:
+	ServerInOut();
+	bool update(ScoreboardData newData) override;
+	ScoreboardData loadConfig() override;
 };
 

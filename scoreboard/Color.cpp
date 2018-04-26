@@ -54,14 +54,10 @@ bool Color::operator!=(Color &other) const
 
 void Color::changeToNext()
 {
-	//find next type
-	type =  (Color::ColorType)(((int)type + 1) % (int)Color::NUM_COLORS);
-	//make color from next type
-	Color newColor(type);
-	// copy attributes to this
-	r = newColor.r;
-	g = newColor.g;
-	b = newColor.b;
+	int nextTypeNumber = static_cast<Color::ColorType>(type) + 1;
+	nextTypeNumber %= Color::NUM_COLORS;
+	Color newColor(static_cast<Color::ColorType>(nextTypeNumber));
+	memcpy(this, &newColor, sizeof(newColor));
 }
 
 String Color::toString() const

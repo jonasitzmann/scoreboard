@@ -37,10 +37,13 @@ std::vector<InputDevice::Input> SerialInput::getInput()
 
 ButtonInput::ButtonInput()
 {
-	for_each(begin(pins), end(pins), [&](int pin)
+	pinVals.push_back({ D1, false });
+	pinVals.push_back({ D2, false });
+	pinVals.push_back({ D3, false });
+	pinVals.push_back({ D4, false });
+	for_each(begin(pinVals), end(pinVals), [&](pair<int, bool> pinVal)
 	{
-		pinMode(pin, INPUT_PULLUP);
-		pinValues[pin] = false;
+		pinMode(pinVal.first, INPUT_PULLUP);
 	});
 }
 
@@ -48,33 +51,39 @@ std::vector<InputDevice::Input> ButtonInput::getInput()
 {
 	bool anyButtonPressed = updateButtonValues();
 	if (anyButtonPressed)
-	{
 		return {};
-	}
 	int inputCode = calcInputCode();
-	return vector<InputDevice::Input>(inputCode);
+	if (inputCode == NO_INPUT)
+		return {};
+	auto input = static_cast<InputDevice::Input>(inputCode);
+	vector<InputDevice::Input> inputs;
+	inputs.push_back(input);
+	return inputs;
 }
 
 bool ButtonInput::updateButtonValues()
 {
-	bool anyPressed = true;
-	for (auto itr = pinValues.begin(); itr != pinValues.end(); ++itr) {
-		bool pressed = digitalRead(itr->first) == LOW ? true : false;
+	bool anyPressed = false;
+	for(auto itr = begin(pinVals); itr != end(pinVals); ++itr)
+	{
+		bool pressed = (digitalRead(itr->first) == LOW);
 		anyPressed |= pressed;
-		itr->second = pressed;
+		itr->second = itr->second || pressed;
 	}
 	return anyPressed;
 }
 
-int ButtonInput::calcInputCode() const
+int ButtonInput::calcInputCode()
 {
 	int inputCode = 0;
 	int digit = 0;
-	for_each(begin(pinValues), end(pinValues), [&](pair<int, bool> pinVal) {
-		if (pinVal.second) {
+	for (auto itr = begin(pinVals); itr != end(pinVals); ++itr)
+	{
+		if (itr->second) {
 			inputCode += pow(2, digit);
-			pinVal.second = false; // reset buttonValue
+			itr->second = false;
 		}
 		++digit;
-	});
+	}
+	return inputCode;
 }

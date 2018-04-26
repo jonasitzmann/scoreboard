@@ -15,6 +15,5 @@ class LedOutput : public OutputDevice
 public:
 	LedDisplay leds;
 public:
-	LedOutput();
-	virtual bool update(ScoreboardData newData);
+	bool update(ScoreboardData newData) override;
 };
