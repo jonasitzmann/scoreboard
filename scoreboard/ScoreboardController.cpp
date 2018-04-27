@@ -2,13 +2,17 @@
 #include <set>
 ScoreboardController::ScoreboardController()
 {
-	//addInputDevice(make_shared<SerialInput>());
+	addInputDevice(make_shared<SerialInput>());
 	addInputDevice(make_shared<ButtonInput>());
 	addOutputDevice(make_shared<LedOutput>());
-//	auto serverInOut = make_shared<ServerInOut>();
-//	addOutputDevice(serverInOut);
-//	configLoader = serverInOut;
-//	data = configLoader->loadConfig();
+	auto emulatorOutput = make_shared<LedOutput>();
+	emulatorOutput->leds = LedDisplay(14, 142, true);
+	addOutputDevice(emulatorOutput);
+	auto serverInOut = make_shared<ServerInOut>();
+	addOutputDevice(serverInOut);
+	configLoader = serverInOut;
+	inputCommands.push_back(InputDevice::RESET);
+	executeInputCommands();
 }
 
 void ScoreboardController::collectInputCommands()
@@ -105,7 +109,7 @@ bool ScoreboardController::executeInputCommands()
 		}
 		case InputDevice::RESET:
 		{
-			reset();
+			data = configLoader->loadConfig();
 			break;
 		}
 		}
@@ -123,7 +127,9 @@ void ScoreboardController::update()
 	if (!executeInputCommands())
 	{
 		Serial.println("could not execute input command\nperforming reset");
-		reset();
+		inputCommands.clear();
+		inputCommands.push_back(InputDevice::RESET);
+		executeInputCommands();
 	}
 }
 
@@ -137,7 +143,3 @@ void ScoreboardController::addOutputDevice(shared_ptr<OutputDevice> outputDevice
 	outputDevices.push_back(outputDevice);
 }
 
-void ScoreboardController::reset()
-{
-	data = configLoader->loadConfig();
-}

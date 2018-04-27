@@ -7,8 +7,10 @@ Window {
     height: 170
     color: "#000000"
     title: qsTr("Scoreboard Emulator")
-    Component.onCompleted:{
-        pixels = digit1.pixels.concat(digit2.pixels, [rectangle5], [rectangle6], digit3.pixels, digit4.pixels);
+    Component.onCompleted: {
+        pixels = digit1.pixels.concat(digit2.pixels, [rectangle5],
+                                      [rectangle6], digit3.pixels,
+                                      digit4.pixels)
     }
 
     property var pixels: []
@@ -22,8 +24,8 @@ Window {
     }
     function setPixel(index, r, g, b) {
         if (index < 0 || index >= pixels.length) {
-            console.log("invalid index");
-            return;
+            console.log("invalid index")
+            return
         }
         pixels[index].color = rgbToHex(r, g, b)
     }
@@ -43,10 +45,9 @@ Window {
 
             Digit {
                 id: digit1
-
             }
 
-            Digit{
+            Digit {
                 id: digit2
             }
 
@@ -80,15 +81,11 @@ Window {
             }
             Digit {
                 id: digit3
-
             }
 
-            Digit{
+            Digit {
                 id: digit4
             }
-
-
-
         }
 
         Row {
@@ -129,8 +126,8 @@ Window {
                 MouseArea {
                     id: lPlus
                     anchors.fill: parent
-                    onClicked:{
-                        serialPort.write("lPlus()");
+                    onClicked: {
+                        serialPort.write("lPlus")
                     }
                 }
             }
@@ -159,8 +156,8 @@ Window {
                 MouseArea {
                     id: lMinus
                     anchors.fill: parent
-                    onClicked:{
-                        serialPort.write("lMinus()");
+                    onClicked: {
+                        serialPort.write("lMinus")
                     }
                 }
             }
@@ -196,8 +193,8 @@ Window {
                 MouseArea {
                     id: reset
                     anchors.fill: parent
-                    onClicked:{
-                        serialPort.write("reset()");
+                    onClicked: {
+                        serialPort.write("reset")
                     }
                 }
             }
@@ -229,8 +226,8 @@ Window {
                 MouseArea {
                     id: end
                     anchors.fill: parent
-                    onClicked:{
-                        serialPort.write("end()");
+                    onClicked: {
+                        serialPort.write("end")
                     }
                 }
             }
@@ -266,8 +263,8 @@ Window {
                 MouseArea {
                     id: rPlus
                     anchors.fill: parent
-                    onClicked:{
-                        serialPort.write("rPlus()");
+                    onClicked: {
+                        serialPort.write("rPlus")
                     }
                 }
             }
@@ -296,14 +293,11 @@ Window {
                 MouseArea {
                     id: rMinus
                     anchors.fill: parent
-                    onClicked:{
-                        serialPort.write("rMinus()");
+                    onClicked: {
+                        serialPort.write("rMinus")
                     }
                 }
             }
-
         }
-
-
     }
 }

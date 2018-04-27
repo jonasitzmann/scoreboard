@@ -60,6 +60,12 @@
     <ClInclude Include="IConfigLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="pwd3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ssid3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp">

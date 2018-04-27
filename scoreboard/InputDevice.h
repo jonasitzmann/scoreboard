@@ -2,8 +2,7 @@
 #include <Arduino.h>
 #include <map>
 #include "ScoreboardData.h"
-#include <pcf8574_esp.h>
-#include <Wire.h>
+#include <ESP_PCF8574.h>
 class InputDevice
 {
 public:
@@ -54,9 +53,18 @@ struct CmpPins {
 };
 
 class ButtonInput : public InputDevice {
-	vector<pair<int, bool>> pinVals;
-	bool updateButtonValues();
-	int calcInputCode();
+	ESP_PCF8574 pcf8574;
+	std::map<uint8_t, Input> inputMap = {
+		{4, L_COLOR},
+		{5, L_MINUS},
+		{6, L_PLUS},
+		{7, R_COLOR},
+		{0, R_MINUS},
+		{1, R_PLUS},
+		{2, RESET},
+		{3, SWAP}
+		};
+	std::map<uint8_t, bool> previousPressed;
 public:
 	ButtonInput();
 	virtual std::vector<Input> getInput();

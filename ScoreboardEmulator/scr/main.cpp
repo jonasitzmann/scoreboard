@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
     QQmlContext *context = engine.rootContext();
 
     QSerialPort serialPort;
-    serialPort.setPortName("COM6");
+    serialPort.setPortName("COM9");
     serialPort.setBaudRate(115200);
 
     if (!serialPort.open(QIODevice::ReadWrite)) {

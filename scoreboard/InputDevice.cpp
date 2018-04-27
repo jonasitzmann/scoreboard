@@ -37,53 +37,26 @@ std::vector<InputDevice::Input> SerialInput::getInput()
 
 ButtonInput::ButtonInput()
 {
-	pinVals.push_back({ D1, false });
-	pinVals.push_back({ D2, false });
-	pinVals.push_back({ D3, false });
-	pinVals.push_back({ D4, false });
-	for_each(begin(pinVals), end(pinVals), [&](pair<int, bool> pinVal)
+	pcf8574.begin(0x20, D1, D2);
+	for (auto itr = begin(inputMap); itr != end(inputMap); ++itr)
 	{
-		pinMode(pinVal.first, INPUT_PULLUP);
-	});
+		previousPressed[itr->first] = false;
+	}
 }
 
 std::vector<InputDevice::Input> ButtonInput::getInput()
 {
-	bool anyButtonPressed = updateButtonValues();
-	if (anyButtonPressed)
-		return {};
-	int inputCode = calcInputCode();
-	if (inputCode == NO_INPUT)
-		return {};
-	auto input = static_cast<InputDevice::Input>(inputCode);
-	vector<InputDevice::Input> inputs;
-	inputs.push_back(input);
-	return inputs;
-}
-
-bool ButtonInput::updateButtonValues()
-{
-	bool anyPressed = false;
-	for(auto itr = begin(pinVals); itr != end(pinVals); ++itr)
+	vector<Input> inputs;
+	uint8_t input = ~pcf8574.getByte();
+	for (auto itr = begin(inputMap); itr != end(inputMap); ++itr)
 	{
-		bool pressed = (digitalRead(itr->first) == LOW);
-		anyPressed |= pressed;
-		itr->second = itr->second || pressed;
-	}
-	return anyPressed;
-}
-
-int ButtonInput::calcInputCode()
-{
-	int inputCode = 0;
-	int digit = 0;
-	for (auto itr = begin(pinVals); itr != end(pinVals); ++itr)
-	{
-		if (itr->second) {
-			inputCode += pow(2, digit);
-			itr->second = false;
+		uint8_t filter = 0x01 << itr->first;
+		bool isPressed = (input & filter) != 0;
+		if (isPressed && !previousPressed[itr->first])
+		{
+			inputs.push_back(itr->second);
 		}
-		++digit;
+		previousPressed[itr->first] = isPressed;
 	}
-	return inputCode;
+	return inputs;
 }
