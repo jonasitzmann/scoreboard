@@ -6,6 +6,9 @@
 #include <vector>
 #include <memory>
 #include "IConfigLoader.h"
+#include "SerialLogger.h"
+#include "WiFiWrapper.h"
+#include "HttpWrapper.h"
 using namespace std;
 class ScoreboardController
 {
@@ -14,8 +17,9 @@ class ScoreboardController
 	vector<shared_ptr<OutputDevice>> outputDevices;
 	shared_ptr<IConfigLoader> configLoader;
 	vector<InputDevice::Input> inputCommands;
+	shared_ptr<ILogger> logger;
 public:
-	ScoreboardController();
+	ScoreboardController(shared_ptr<ILogger> logger);
 	void collectInputCommands();
 	bool executeInputCommands();
 	void update();

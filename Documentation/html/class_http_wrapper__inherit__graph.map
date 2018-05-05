@@ -1,0 +1,3 @@
+<map id="HttpWrapper" name="HttpWrapper">
+<area shape="rect" id="node2" href="$class_i_http_client.html" title="{IHttpClient\n||+ begin()\l+ sendRequest()\l+ getString()\l+ errorToString()\l+ ~IHttpClient()\l}" alt="" coords="7,5,126,141"/>
+</map>

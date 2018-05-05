@@ -1,0 +1,199 @@
+\hypertarget{class_led_display}{}\section{Led\+Display Class Reference}
+\label{class_led_display}\index{Led\+Display@{Led\+Display}}
+
+
+{\ttfamily \#include $<$Led\+Display.\+h$>$}
+
+
+
+Collaboration diagram for Led\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_led_display__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_led_display_a5399399b88b224912bbebbb5e4b36737}{Led\+Display} (int \hyperlink{class_led_display_ada84aea1dfd3e348efd492dfdccf596d}{pin}=D5, int \hyperlink{class_led_display_aef7ced23d44c457c19c3d0f4f88af940}{num\+Pixels}=142, bool emulated=false)
+\item 
+void \hyperlink{class_led_display_a497d2686d902d16ae001173486dcb7ab}{show} ()
+\item 
+void \hyperlink{class_led_display_a4e8fd0added33e4ba163bff5bbc8cd69}{show\+Digit} (int value, int pixel\+Offset, \hyperlink{struct_color}{Color} color=\hyperlink{struct_color}{Color}())
+\item 
+void \hyperlink{class_led_display_a673f0b08b216cc8a02a8a70fbbc54687}{show\+Number} (int number, \hyperlink{struct_color}{Color} color, int pixel\+Offset=0)
+\item 
+void \hyperlink{class_led_display_ab2333aa2ee8c8aa328917755249d440b}{set\+Pixel} (int index, \hyperlink{struct_color}{Color} color)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_led_display_ada84aea1dfd3e348efd492dfdccf596d}{pin}
+\item 
+int \hyperlink{class_led_display_aef7ced23d44c457c19c3d0f4f88af940}{num\+Pixels}
+\item 
+\hyperlink{class_led_wrapper}{Led\+Wrapper} $\ast$ \hyperlink{class_led_display_aa3c3d533c862065bd817c016f8fd1cab}{lights}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file Led\+Display.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_led_display_a5399399b88b224912bbebbb5e4b36737}\label{class_led_display_a5399399b88b224912bbebbb5e4b36737}} 
+\index{Led\+Display@{Led\+Display}!Led\+Display@{Led\+Display}}
+\index{Led\+Display@{Led\+Display}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{Led\+Display()}{LedDisplay()}}
+{\footnotesize\ttfamily Led\+Display\+::\+Led\+Display (\begin{DoxyParamCaption}\item[{int}]{pin = {\ttfamily D5},  }\item[{int}]{num\+Pixels = {\ttfamily 142},  }\item[{bool}]{emulated = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 24 of file Led\+Display.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_led_display_ab2333aa2ee8c8aa328917755249d440b}\label{class_led_display_ab2333aa2ee8c8aa328917755249d440b}} 
+\index{Led\+Display@{Led\+Display}!set\+Pixel@{set\+Pixel}}
+\index{set\+Pixel@{set\+Pixel}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{set\+Pixel()}{setPixel()}}
+{\footnotesize\ttfamily void Led\+Display\+::set\+Pixel (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\hyperlink{struct_color}{Color}}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 52 of file Led\+Display.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_led_display_ab2333aa2ee8c8aa328917755249d440b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{class_led_display_ab2333aa2ee8c8aa328917755249d440b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_led_display_a497d2686d902d16ae001173486dcb7ab}\label{class_led_display_a497d2686d902d16ae001173486dcb7ab}} 
+\index{Led\+Display@{Led\+Display}!show@{show}}
+\index{show@{show}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily void Led\+Display\+::show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 28 of file Led\+Display.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{class_led_display_a497d2686d902d16ae001173486dcb7ab_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_led_display_a497d2686d902d16ae001173486dcb7ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_led_display_a4e8fd0added33e4ba163bff5bbc8cd69}\label{class_led_display_a4e8fd0added33e4ba163bff5bbc8cd69}} 
+\index{Led\+Display@{Led\+Display}!show\+Digit@{show\+Digit}}
+\index{show\+Digit@{show\+Digit}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{show\+Digit()}{showDigit()}}
+{\footnotesize\ttfamily void Led\+Display\+::show\+Digit (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{pixel\+Offset,  }\item[{\hyperlink{struct_color}{Color}}]{color = {\ttfamily \hyperlink{struct_color}{Color}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 31 of file Led\+Display.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_led_display_a4e8fd0added33e4ba163bff5bbc8cd69_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_led_display_a4e8fd0added33e4ba163bff5bbc8cd69_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_led_display_a673f0b08b216cc8a02a8a70fbbc54687}\label{class_led_display_a673f0b08b216cc8a02a8a70fbbc54687}} 
+\index{Led\+Display@{Led\+Display}!show\+Number@{show\+Number}}
+\index{show\+Number@{show\+Number}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{show\+Number()}{showNumber()}}
+{\footnotesize\ttfamily void Led\+Display\+::show\+Number (\begin{DoxyParamCaption}\item[{int}]{number,  }\item[{\hyperlink{struct_color}{Color}}]{color,  }\item[{int}]{pixel\+Offset = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 47 of file Led\+Display.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_led_display_a673f0b08b216cc8a02a8a70fbbc54687_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_led_display_a673f0b08b216cc8a02a8a70fbbc54687_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_led_display_aa3c3d533c862065bd817c016f8fd1cab}\label{class_led_display_aa3c3d533c862065bd817c016f8fd1cab}} 
+\index{Led\+Display@{Led\+Display}!lights@{lights}}
+\index{lights@{lights}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{lights}{lights}}
+{\footnotesize\ttfamily \hyperlink{class_led_wrapper}{Led\+Wrapper}$\ast$ Led\+Display\+::lights\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 22 of file Led\+Display.\+h.
+
+\mbox{\Hypertarget{class_led_display_aef7ced23d44c457c19c3d0f4f88af940}\label{class_led_display_aef7ced23d44c457c19c3d0f4f88af940}} 
+\index{Led\+Display@{Led\+Display}!num\+Pixels@{num\+Pixels}}
+\index{num\+Pixels@{num\+Pixels}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{num\+Pixels}{numPixels}}
+{\footnotesize\ttfamily int Led\+Display\+::num\+Pixels\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 21 of file Led\+Display.\+h.
+
+\mbox{\Hypertarget{class_led_display_ada84aea1dfd3e348efd492dfdccf596d}\label{class_led_display_ada84aea1dfd3e348efd492dfdccf596d}} 
+\index{Led\+Display@{Led\+Display}!pin@{pin}}
+\index{pin@{pin}!Led\+Display@{Led\+Display}}
+\subsubsection{\texorpdfstring{pin}{pin}}
+{\footnotesize\ttfamily int Led\+Display\+::pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file Led\+Display.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_led_display_8h}{Led\+Display.\+h}\end{DoxyCompactItemize}

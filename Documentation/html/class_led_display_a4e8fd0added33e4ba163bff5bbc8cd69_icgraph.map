@@ -1,0 +1,4 @@
+<map id="LedDisplay::showDigit" name="LedDisplay::showDigit">
+<area shape="rect" id="node2" href="$class_led_display.html#a673f0b08b216cc8a02a8a70fbbc54687" title="LedDisplay::showNumber" alt="" coords="204,5,373,32"/>
+<area shape="rect" id="node3" href="$class_led_output.html#a553af18fe51a31ee3d5b94d9598503da" title="LedOutput::update" alt="" coords="421,5,551,32"/>
+</map>

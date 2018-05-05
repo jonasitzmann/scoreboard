@@ -1,0 +1,5 @@
+<map id="LedDisplay::showNumber" name="LedDisplay::showNumber">
+<area shape="rect" id="node2" href="$class_led_display.html#a4e8fd0added33e4ba163bff5bbc8cd69" title="LedDisplay::showDigit" alt="" coords="223,5,373,32"/>
+<area shape="rect" id="node4" href="$class_led_wrapper.html#a82048b562a501a0a46e5953d2cdb2549" title="LedWrapper::show" alt="" coords="233,56,363,83"/>
+<area shape="rect" id="node3" href="$class_led_wrapper.html#ac20a5afaaaaa2c275d7f6008ace09c41" title="LedWrapper::setPixelColor" alt="" coords="421,5,599,32"/>
+</map>

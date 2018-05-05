@@ -1,0 +1,6 @@
+<map id="LedWrapper::setPixelColor" name="LedWrapper::setPixelColor">
+<area shape="rect" id="node2" href="$class_led_display.html#a4e8fd0added33e4ba163bff5bbc8cd69" title="LedDisplay::showDigit" alt="" coords="231,5,381,32"/>
+<area shape="rect" id="node5" href="$class_led_display.html#ab2333aa2ee8c8aa328917755249d440b" title="LedDisplay::setPixel" alt="" coords="443,56,585,83"/>
+<area shape="rect" id="node3" href="$class_led_display.html#a673f0b08b216cc8a02a8a70fbbc54687" title="LedDisplay::showNumber" alt="" coords="429,5,599,32"/>
+<area shape="rect" id="node4" href="$class_led_output.html#a553af18fe51a31ee3d5b94d9598503da" title="LedOutput::update" alt="" coords="647,31,776,57"/>
+</map>

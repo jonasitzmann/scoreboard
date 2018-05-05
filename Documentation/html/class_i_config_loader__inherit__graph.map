@@ -1,0 +1,3 @@
+<map id="IConfigLoader" name="IConfigLoader">
+<area shape="rect" id="node2" href="$class_server_in_out.html" title="{ServerInOut\n|&#45; logger\l&#45; wifi\l&#45; https\l&#45; fingerprint\l&#45; updateScoreUrl\l&#45; updateSettingsUrl\l|+ ServerInOut()\l+ update()\l+ loadConfig()\l&#45; updateSettings()\l&#45; updateScores()\l&#45; getColorList()\l}" alt="" coords="5,131,139,355"/>
+</map>

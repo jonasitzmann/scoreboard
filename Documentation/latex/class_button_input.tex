@@ -1,0 +1,132 @@
+\hypertarget{class_button_input}{}\section{Button\+Input Class Reference}
+\label{class_button_input}\index{Button\+Input@{Button\+Input}}
+
+
+{\ttfamily \#include $<$Input\+Device.\+h$>$}
+
+
+
+Inheritance diagram for Button\+Input\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{class_button_input__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Button\+Input\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{class_button_input__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_button_input_a7f69a48d6e8e7f3db4794bc21c40d396}{Button\+Input} ()
+\item 
+virtual std\+::vector$<$ \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688b}{Input} $>$ \hyperlink{class_button_input_ab893731e65a4de626ad729cb9582da96}{get\+Input} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+E\+S\+P\+\_\+\+P\+C\+F8574 \hyperlink{class_button_input_adcda808bd27b4cb481e2630b07fe98d9}{pcf8574}
+\item 
+std\+::map$<$ uint8\+\_\+t, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688b}{Input} $>$ \hyperlink{class_button_input_a0913f24cb28e4c72063134e9c58450b2}{input\+Map}
+\item 
+std\+::map$<$ uint8\+\_\+t, bool $>$ \hyperlink{class_button_input_af8ee1752f6b9bba394f868a5401697f4}{previous\+Pressed}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 68 of file Input\+Device.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_button_input_a7f69a48d6e8e7f3db4794bc21c40d396}\label{class_button_input_a7f69a48d6e8e7f3db4794bc21c40d396}} 
+\index{Button\+Input@{Button\+Input}!Button\+Input@{Button\+Input}}
+\index{Button\+Input@{Button\+Input}!Button\+Input@{Button\+Input}}
+\subsubsection{\texorpdfstring{Button\+Input()}{ButtonInput()}}
+{\footnotesize\ttfamily Button\+Input\+::\+Button\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file Input\+Device.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_button_input_ab893731e65a4de626ad729cb9582da96}\label{class_button_input_ab893731e65a4de626ad729cb9582da96}} 
+\index{Button\+Input@{Button\+Input}!get\+Input@{get\+Input}}
+\index{get\+Input@{get\+Input}!Button\+Input@{Button\+Input}}
+\subsubsection{\texorpdfstring{get\+Input()}{getInput()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688b}{Input\+Device\+::\+Input} $>$ Button\+Input\+::get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_input_device_a946ae438b3a044741614493000aa216f}{Input\+Device}.
+
+
+
+Definition at line 47 of file Input\+Device.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_button_input_a0913f24cb28e4c72063134e9c58450b2}\label{class_button_input_a0913f24cb28e4c72063134e9c58450b2}} 
+\index{Button\+Input@{Button\+Input}!input\+Map@{input\+Map}}
+\index{input\+Map@{input\+Map}!Button\+Input@{Button\+Input}}
+\subsubsection{\texorpdfstring{input\+Map}{inputMap}}
+{\footnotesize\ttfamily std\+::map$<$uint8\+\_\+t, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688b}{Input}$>$ Button\+Input\+::input\+Map\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+        \{0, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688ba62e8e3a8805c10a1aeafdf32508a363d}{L\_COLOR}\},
+        \{1, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688ba0a6c0f0f21ce6b32c7f9bf45c268ed7d}{L\_MINUS}\},
+        \{2, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688ba2dfac8e357208426c5557646fc4851bc}{L\_PLUS}\},
+        \{3, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688ba55ff3df43eb079f61c3de4c26e891484}{R\_COLOR}\},
+        \{4, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688bafaf17bc1c44227054bb36ff122009380}{R\_MINUS}\},
+        \{5, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688ba01c5d472c59979ad6c0ed0515e4f0b76}{R\_PLUS}\},
+        \{6, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688ba906dded9cca7bddf13e5b394c4aa66ed}{RESET}\},
+        \{7, \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688ba4ff7ca0942a282a8006d53cd81ee4ba4}{SWAP}\}
+        \}
+\end{DoxyCode}
+
+
+Definition at line 70 of file Input\+Device.\+h.
+
+\mbox{\Hypertarget{class_button_input_adcda808bd27b4cb481e2630b07fe98d9}\label{class_button_input_adcda808bd27b4cb481e2630b07fe98d9}} 
+\index{Button\+Input@{Button\+Input}!pcf8574@{pcf8574}}
+\index{pcf8574@{pcf8574}!Button\+Input@{Button\+Input}}
+\subsubsection{\texorpdfstring{pcf8574}{pcf8574}}
+{\footnotesize\ttfamily E\+S\+P\+\_\+\+P\+C\+F8574 Button\+Input\+::pcf8574\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 69 of file Input\+Device.\+h.
+
+\mbox{\Hypertarget{class_button_input_af8ee1752f6b9bba394f868a5401697f4}\label{class_button_input_af8ee1752f6b9bba394f868a5401697f4}} 
+\index{Button\+Input@{Button\+Input}!previous\+Pressed@{previous\+Pressed}}
+\index{previous\+Pressed@{previous\+Pressed}!Button\+Input@{Button\+Input}}
+\subsubsection{\texorpdfstring{previous\+Pressed}{previousPressed}}
+{\footnotesize\ttfamily std\+::map$<$uint8\+\_\+t, bool$>$ Button\+Input\+::previous\+Pressed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 80 of file Input\+Device.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_input_device_8h}{Input\+Device.\+h}\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_input_device_8cpp}{Input\+Device.\+cpp}\end{DoxyCompactItemize}

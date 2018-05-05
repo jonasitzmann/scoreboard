@@ -1,0 +1,266 @@
+\hypertarget{class_server_in_out}{}\section{Server\+In\+Out Class Reference}
+\label{class_server_in_out}\index{Server\+In\+Out@{Server\+In\+Out}}
+
+
+{\ttfamily \#include $<$Server\+In\+Out.\+h$>$}
+
+
+
+Inheritance diagram for Server\+In\+Out\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_server_in_out__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Server\+In\+Out\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{class_server_in_out__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_server_in_out_a15b30010007404ca8665bd07cd71cc86}{Server\+In\+Out} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$ \hyperlink{class_server_in_out_a50c14553e627e15295eb3a0524478589}{logger}, std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_wi_fi}{I\+Wi\+Fi} $>$ \hyperlink{class_server_in_out_abbaeaec2b3d84e8c4c62629cfd7c6b2c}{wifi}, std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_http_client}{I\+Http\+Client} $>$ \hyperlink{class_server_in_out_a8a36805b52227548d216bd81a62f3abb}{https})
+\item 
+bool \hyperlink{class_server_in_out_a5442d5353fbf8445b7df75ee23c3322a}{update} (\hyperlink{struct_scoreboard_data}{Scoreboard\+Data} new\+Data) override
+\item 
+\hyperlink{struct_scoreboard_data}{Scoreboard\+Data} \hyperlink{class_server_in_out_a0525bb536f865858156f5d1527fcaeb6}{load\+Config} () override
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_server_in_out_a687c760ff3ad5f33c6d157d9eaefc262}{update\+Settings} (int color\+Index1, int color\+Index2, bool swapped\+Sides)
+\item 
+bool \hyperlink{class_server_in_out_aaa8e027abfe326208f48890b7e225672}{update\+Scores} (int score1, int score2)
+\item 
+vector$<$ shared\+\_\+ptr$<$ \hyperlink{struct_color}{Color} $>$ $>$ \hyperlink{class_server_in_out_a952f5812bddca76e92d5432c1890551d}{get\+Color\+List} (Json\+Array \&arr) const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$ \hyperlink{class_server_in_out_a50c14553e627e15295eb3a0524478589}{logger}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_wi_fi}{I\+Wi\+Fi} $>$ \hyperlink{class_server_in_out_abbaeaec2b3d84e8c4c62629cfd7c6b2c}{wifi}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_http_client}{I\+Http\+Client} $>$ \hyperlink{class_server_in_out_a8a36805b52227548d216bd81a62f3abb}{https}
+\item 
+std\+::string \hyperlink{class_server_in_out_a30de1f0615a253f6fff1876c310260d9}{fingerprint}
+\item 
+std\+::string \hyperlink{class_server_in_out_ab7eb8b232c914508eae5a5ebffe71c67}{update\+Score\+Url}
+\item 
+std\+::string \hyperlink{class_server_in_out_ac92c1702a2f9153c58c962db79de2b87}{update\+Settings\+Url}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file Server\+In\+Out.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_server_in_out_a15b30010007404ca8665bd07cd71cc86}\label{class_server_in_out_a15b30010007404ca8665bd07cd71cc86}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!Server\+In\+Out@{Server\+In\+Out}}
+\index{Server\+In\+Out@{Server\+In\+Out}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{Server\+In\+Out()}{ServerInOut()}}
+{\footnotesize\ttfamily Server\+In\+Out\+::\+Server\+In\+Out (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$}]{logger,  }\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_wi_fi}{I\+Wi\+Fi} $>$}]{wifi,  }\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_http_client}{I\+Http\+Client} $>$}]{https }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file Server\+In\+Out.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_server_in_out_a952f5812bddca76e92d5432c1890551d}\label{class_server_in_out_a952f5812bddca76e92d5432c1890551d}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!get\+Color\+List@{get\+Color\+List}}
+\index{get\+Color\+List@{get\+Color\+List}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{get\+Color\+List()}{getColorList()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{struct_color}{Color} $>$ $>$ Server\+In\+Out\+::get\+Color\+List (\begin{DoxyParamCaption}\item[{Json\+Array \&}]{arr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 5 of file Server\+In\+Out.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_in_out_a952f5812bddca76e92d5432c1890551d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_in_out_a0525bb536f865858156f5d1527fcaeb6}\label{class_server_in_out_a0525bb536f865858156f5d1527fcaeb6}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!load\+Config@{load\+Config}}
+\index{load\+Config@{load\+Config}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{load\+Config()}{loadConfig()}}
+{\footnotesize\ttfamily \hyperlink{struct_scoreboard_data}{Scoreboard\+Data} Server\+In\+Out\+::load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_i_config_loader_a951944a5f13c09ce045bca8aa9c6154a}{I\+Config\+Loader}.
+
+
+
+Definition at line 88 of file Server\+In\+Out.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_in_out_a0525bb536f865858156f5d1527fcaeb6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_in_out_a5442d5353fbf8445b7df75ee23c3322a}\label{class_server_in_out_a5442d5353fbf8445b7df75ee23c3322a}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!update@{update}}
+\index{update@{update}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool Server\+In\+Out\+::update (\begin{DoxyParamCaption}\item[{\hyperlink{struct_scoreboard_data}{Scoreboard\+Data}}]{new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_output_device_a9a5f6cf0655bd1c63639b593b10dbced}{Output\+Device}.
+
+
+
+Definition at line 29 of file Server\+In\+Out.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_in_out_a5442d5353fbf8445b7df75ee23c3322a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_in_out_aaa8e027abfe326208f48890b7e225672}\label{class_server_in_out_aaa8e027abfe326208f48890b7e225672}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!update\+Scores@{update\+Scores}}
+\index{update\+Scores@{update\+Scores}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{update\+Scores()}{updateScores()}}
+{\footnotesize\ttfamily bool Server\+In\+Out\+::update\+Scores (\begin{DoxyParamCaption}\item[{int}]{score1,  }\item[{int}]{score2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 54 of file Server\+In\+Out.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{class_server_in_out_aaa8e027abfe326208f48890b7e225672_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_in_out_aaa8e027abfe326208f48890b7e225672_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_in_out_a687c760ff3ad5f33c6d157d9eaefc262}\label{class_server_in_out_a687c760ff3ad5f33c6d157d9eaefc262}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!update\+Settings@{update\+Settings}}
+\index{update\+Settings@{update\+Settings}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{update\+Settings()}{updateSettings()}}
+{\footnotesize\ttfamily bool Server\+In\+Out\+::update\+Settings (\begin{DoxyParamCaption}\item[{int}]{color\+Index1,  }\item[{int}]{color\+Index2,  }\item[{bool}]{swapped\+Sides }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 71 of file Server\+In\+Out.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_server_in_out_a687c760ff3ad5f33c6d157d9eaefc262_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_in_out_a687c760ff3ad5f33c6d157d9eaefc262_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_server_in_out_a30de1f0615a253f6fff1876c310260d9}\label{class_server_in_out_a30de1f0615a253f6fff1876c310260d9}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!fingerprint@{fingerprint}}
+\index{fingerprint@{fingerprint}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{fingerprint}{fingerprint}}
+{\footnotesize\ttfamily std\+::string Server\+In\+Out\+::fingerprint\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 18 of file Server\+In\+Out.\+h.
+
+\mbox{\Hypertarget{class_server_in_out_a8a36805b52227548d216bd81a62f3abb}\label{class_server_in_out_a8a36805b52227548d216bd81a62f3abb}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!https@{https}}
+\index{https@{https}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{https}{https}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_i_http_client}{I\+Http\+Client}$>$ Server\+In\+Out\+::https\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 17 of file Server\+In\+Out.\+h.
+
+\mbox{\Hypertarget{class_server_in_out_a50c14553e627e15295eb3a0524478589}\label{class_server_in_out_a50c14553e627e15295eb3a0524478589}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!logger@{logger}}
+\index{logger@{logger}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_i_logger}{I\+Logger}$>$ Server\+In\+Out\+::logger\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 15 of file Server\+In\+Out.\+h.
+
+\mbox{\Hypertarget{class_server_in_out_ab7eb8b232c914508eae5a5ebffe71c67}\label{class_server_in_out_ab7eb8b232c914508eae5a5ebffe71c67}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!update\+Score\+Url@{update\+Score\+Url}}
+\index{update\+Score\+Url@{update\+Score\+Url}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{update\+Score\+Url}{updateScoreUrl}}
+{\footnotesize\ttfamily std\+::string Server\+In\+Out\+::update\+Score\+Url\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 19 of file Server\+In\+Out.\+h.
+
+\mbox{\Hypertarget{class_server_in_out_ac92c1702a2f9153c58c962db79de2b87}\label{class_server_in_out_ac92c1702a2f9153c58c962db79de2b87}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!update\+Settings\+Url@{update\+Settings\+Url}}
+\index{update\+Settings\+Url@{update\+Settings\+Url}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{update\+Settings\+Url}{updateSettingsUrl}}
+{\footnotesize\ttfamily std\+::string Server\+In\+Out\+::update\+Settings\+Url\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file Server\+In\+Out.\+h.
+
+\mbox{\Hypertarget{class_server_in_out_abbaeaec2b3d84e8c4c62629cfd7c6b2c}\label{class_server_in_out_abbaeaec2b3d84e8c4c62629cfd7c6b2c}} 
+\index{Server\+In\+Out@{Server\+In\+Out}!wifi@{wifi}}
+\index{wifi@{wifi}!Server\+In\+Out@{Server\+In\+Out}}
+\subsubsection{\texorpdfstring{wifi}{wifi}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_i_wi_fi}{I\+Wi\+Fi}$>$ Server\+In\+Out\+::wifi\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 16 of file Server\+In\+Out.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_server_in_out_8h}{Server\+In\+Out.\+h}\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_server_in_out_8cpp}{Server\+In\+Out.\+cpp}\end{DoxyCompactItemize}

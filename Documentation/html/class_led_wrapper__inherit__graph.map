@@ -1,0 +1,4 @@
+<map id="LedWrapper" name="LedWrapper">
+<area shape="rect" id="node2" href="$class_led_emulator.html" title="{LedEmulator\n|+ logger\l|+ LedEmulator()\l+ setPixelColor()\l+ show()\l}" alt="" coords="5,167,124,274"/>
+<area shape="rect" id="node3" href="$class_neo_pixel_wrapper.html" title="{NeoPixelWrapper\n|+ logger\l&#45; pin\l&#45; numPixels\l&#45; lights\l|+ NeoPixelWrapper()\l+ setPixelColor()\l+ show()\l}" alt="" coords="148,145,291,296"/>
+</map>

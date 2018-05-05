@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HttpWrapper" Collapsed="true">
+    <Position X="8.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAKgAQAAAAQAQQAgAAAACAAAAAAAAA=</HashCode>
+      <FileName>HttpWrapper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IConfigLoader" Collapsed="true">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IConfigLoader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IHttpClient" Collapsed="true">
+    <Position X="8.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAQAQQAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IHttpClient.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ILogger" Collapsed="true">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ILogger.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputDevice" Collapsed="true">
+    <Position X="1.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SerialInput" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>InputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonInput" Collapsed="true">
+    <Position X="2.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAEAAAEAAAAACAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IWiFi" Collapsed="true">
+    <Position X="5.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IWiFi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LedDisplay" Collapsed="true">
+    <Position X="11" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIAAAAAAAAIgCAAAAAAAAAIAAAAABAAAAAAAAAQ=</HashCode>
+      <FileName>LedDisplay.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LedWrapper" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>LedWrappers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeoPixelWrapper" Collapsed="true">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAIAAAAAAAAICAAAAAAIAAAIAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>LedWrappers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LedEmulator" Collapsed="true">
+    <Position X="6.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAACAAAAAAAAAAgAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>LedWrappers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OutputDevice" Collapsed="true">
+    <Position X="1.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAA=</HashCode>
+      <FileName>OutputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LedOutput" Collapsed="true">
+    <Position X="1.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>OutputDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreboardController" Collapsed="true">
+    <Position X="12.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAEAASAAAAAACIAABQAACAAAAAAAAgAAQAAAEAAA=</HashCode>
+      <FileName>ScoreboardController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SerialLogger" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAgCAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>SerialLogger.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ServerInOut" Collapsed="true">
+    <Position X="1.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAggAAAAAAAKgACIAgAAAAAAgAAAgAAAAAAEgAA=</HashCode>
+      <FileName>ServerInOut.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WiFiWrapper" Collapsed="true">
+    <Position X="5.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAGAAAAAAAQAAAQAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>WiFiWrapper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Color" Collapsed="true">
+    <Position X="12.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAABQAAAAABAAAIAQABgAAAAAA=</HashCode>
+      <FileName>Color.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="CmpPins" Collapsed="true">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputDevice.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ScoreboardData" Collapsed="true">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAIIABAAAIBAEAAAAAAAAAAABAAAAAAEA=</HashCode>
+      <FileName>ScoreboardData.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

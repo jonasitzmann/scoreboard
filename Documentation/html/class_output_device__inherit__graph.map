@@ -1,0 +1,4 @@
+<map id="OutputDevice" name="OutputDevice">
+<area shape="rect" id="node2" href="$class_led_output.html" title="{LedOutput\n|+ leds\l|+ update()\l}" alt="" coords="5,204,88,281"/>
+<area shape="rect" id="node3" href="$class_server_in_out.html" title="{ServerInOut\n|&#45; logger\l&#45; wifi\l&#45; https\l&#45; fingerprint\l&#45; updateScoreUrl\l&#45; updateSettingsUrl\l|+ ServerInOut()\l+ update()\l+ loadConfig()\l&#45; updateSettings()\l&#45; updateScores()\l&#45; getColorList()\l}" alt="" coords="112,131,245,355"/>
+</map>

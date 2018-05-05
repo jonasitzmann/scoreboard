@@ -51,7 +51,8 @@
 #define _Lockit
 #define __CLR_OR_THIS_CALL
 #define C4005
-//
+#define _NEW
+
 //typedef int uint8_t;
 //#define __ARMCC_VERSION 400678
 //#define PROGMEM

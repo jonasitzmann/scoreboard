@@ -1,0 +1,4 @@
+<map id="InputDevice" name="InputDevice">
+<area shape="rect" id="node2" href="$class_button_input.html" title="{ButtonInput\n|&#45; pcf8574\l&#45; inputMap\l&#45; previousPressed\l|+ ButtonInput()\l+ getInput()\l}" alt="" coords="5,131,131,252"/>
+<area shape="rect" id="node3" href="$class_serial_input.html" title="{SerialInput\n||+ SerialInput()\l+ getInput()\l}" alt="" coords="155,145,258,237"/>
+</map>

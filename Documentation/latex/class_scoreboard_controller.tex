@@ -1,0 +1,230 @@
+\hypertarget{class_scoreboard_controller}{}\section{Scoreboard\+Controller Class Reference}
+\label{class_scoreboard_controller}\index{Scoreboard\+Controller@{Scoreboard\+Controller}}
+
+
+{\ttfamily \#include $<$Scoreboard\+Controller.\+h$>$}
+
+
+
+Collaboration diagram for Scoreboard\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_scoreboard_controller__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scoreboard_controller_a91b4c81d76de5840fa48ec794ba2ee08}{Scoreboard\+Controller} (shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$ \hyperlink{class_scoreboard_controller_a4ebbb799945c5968d44c91266735a1d4}{logger})
+\item 
+void \hyperlink{class_scoreboard_controller_a79f3f5a26387ac5daabc34e90dd25e06}{collect\+Input\+Commands} ()
+\item 
+bool \hyperlink{class_scoreboard_controller_a5365e2a960e16cf49dca0852682b0499}{execute\+Input\+Commands} ()
+\item 
+void \hyperlink{class_scoreboard_controller_a05414b34fd7f4455ddb0ac98490639dc}{update} ()
+\item 
+void \hyperlink{class_scoreboard_controller_aa42bf3e044b51f70fa6edc3a830809a0}{add\+Input\+Device} (shared\+\_\+ptr$<$ \hyperlink{class_input_device}{Input\+Device} $>$ input\+Device)
+\item 
+void \hyperlink{class_scoreboard_controller_a7b2cc34a33c8203da586ffaab1fb3982}{add\+Output\+Device} (shared\+\_\+ptr$<$ \hyperlink{class_output_device}{Output\+Device} $>$ output\+Device)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_scoreboard_data}{Scoreboard\+Data} \hyperlink{class_scoreboard_controller_af6d8c4336b7c5b71d9d9ccd2f8a3f6d0}{data}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_input_device}{Input\+Device} $>$ $>$ \hyperlink{class_scoreboard_controller_a52fc99700dbe759cf0ffadf92219c229}{input\+Devices}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_output_device}{Output\+Device} $>$ $>$ \hyperlink{class_scoreboard_controller_a905c2a68cb4b0b769385ebdc13adf595}{output\+Devices}
+\item 
+shared\+\_\+ptr$<$ \hyperlink{class_i_config_loader}{I\+Config\+Loader} $>$ \hyperlink{class_scoreboard_controller_aebcab5e4054ef77db1c9de9ed889e573}{config\+Loader}
+\item 
+vector$<$ \hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688b}{Input\+Device\+::\+Input} $>$ \hyperlink{class_scoreboard_controller_a77a8287bcad5b5101b6be16f1314bc84}{input\+Commands}
+\item 
+shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$ \hyperlink{class_scoreboard_controller_a4ebbb799945c5968d44c91266735a1d4}{logger}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Scoreboard\+Controller.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scoreboard_controller_a91b4c81d76de5840fa48ec794ba2ee08}\label{class_scoreboard_controller_a91b4c81d76de5840fa48ec794ba2ee08}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{Scoreboard\+Controller()}{ScoreboardController()}}
+{\footnotesize\ttfamily Scoreboard\+Controller\+::\+Scoreboard\+Controller (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$}]{logger }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file Scoreboard\+Controller.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoreboard_controller_a91b4c81d76de5840fa48ec794ba2ee08_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scoreboard_controller_aa42bf3e044b51f70fa6edc3a830809a0}\label{class_scoreboard_controller_aa42bf3e044b51f70fa6edc3a830809a0}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!add\+Input\+Device@{add\+Input\+Device}}
+\index{add\+Input\+Device@{add\+Input\+Device}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{add\+Input\+Device()}{addInputDevice()}}
+{\footnotesize\ttfamily void Scoreboard\+Controller\+::add\+Input\+Device (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \hyperlink{class_input_device}{Input\+Device} $>$}]{input\+Device }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file Scoreboard\+Controller.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{class_scoreboard_controller_aa42bf3e044b51f70fa6edc3a830809a0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_scoreboard_controller_a7b2cc34a33c8203da586ffaab1fb3982}\label{class_scoreboard_controller_a7b2cc34a33c8203da586ffaab1fb3982}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!add\+Output\+Device@{add\+Output\+Device}}
+\index{add\+Output\+Device@{add\+Output\+Device}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{add\+Output\+Device()}{addOutputDevice()}}
+{\footnotesize\ttfamily void Scoreboard\+Controller\+::add\+Output\+Device (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \hyperlink{class_output_device}{Output\+Device} $>$}]{output\+Device }\end{DoxyParamCaption})}
+
+
+
+Definition at line 165 of file Scoreboard\+Controller.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{class_scoreboard_controller_a7b2cc34a33c8203da586ffaab1fb3982_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_scoreboard_controller_a79f3f5a26387ac5daabc34e90dd25e06}\label{class_scoreboard_controller_a79f3f5a26387ac5daabc34e90dd25e06}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!collect\+Input\+Commands@{collect\+Input\+Commands}}
+\index{collect\+Input\+Commands@{collect\+Input\+Commands}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{collect\+Input\+Commands()}{collectInputCommands()}}
+{\footnotesize\ttfamily void Scoreboard\+Controller\+::collect\+Input\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file Scoreboard\+Controller.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_scoreboard_controller_a79f3f5a26387ac5daabc34e90dd25e06_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_scoreboard_controller_a5365e2a960e16cf49dca0852682b0499}\label{class_scoreboard_controller_a5365e2a960e16cf49dca0852682b0499}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!execute\+Input\+Commands@{execute\+Input\+Commands}}
+\index{execute\+Input\+Commands@{execute\+Input\+Commands}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{execute\+Input\+Commands()}{executeInputCommands()}}
+{\footnotesize\ttfamily bool Scoreboard\+Controller\+::execute\+Input\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file Scoreboard\+Controller.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoreboard_controller_a5365e2a960e16cf49dca0852682b0499_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_scoreboard_controller_a05414b34fd7f4455ddb0ac98490639dc}\label{class_scoreboard_controller_a05414b34fd7f4455ddb0ac98490639dc}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!update@{update}}
+\index{update@{update}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Scoreboard\+Controller\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 148 of file Scoreboard\+Controller.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_scoreboard_controller_a05414b34fd7f4455ddb0ac98490639dc_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_scoreboard_controller_aebcab5e4054ef77db1c9de9ed889e573}\label{class_scoreboard_controller_aebcab5e4054ef77db1c9de9ed889e573}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!config\+Loader@{config\+Loader}}
+\index{config\+Loader@{config\+Loader}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{config\+Loader}{configLoader}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$\hyperlink{class_i_config_loader}{I\+Config\+Loader}$>$ Scoreboard\+Controller\+::config\+Loader\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 18 of file Scoreboard\+Controller.\+h.
+
+\mbox{\Hypertarget{class_scoreboard_controller_af6d8c4336b7c5b71d9d9ccd2f8a3f6d0}\label{class_scoreboard_controller_af6d8c4336b7c5b71d9d9ccd2f8a3f6d0}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!data@{data}}
+\index{data@{data}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \hyperlink{struct_scoreboard_data}{Scoreboard\+Data} Scoreboard\+Controller\+::data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 15 of file Scoreboard\+Controller.\+h.
+
+\mbox{\Hypertarget{class_scoreboard_controller_a77a8287bcad5b5101b6be16f1314bc84}\label{class_scoreboard_controller_a77a8287bcad5b5101b6be16f1314bc84}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!input\+Commands@{input\+Commands}}
+\index{input\+Commands@{input\+Commands}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{input\+Commands}{inputCommands}}
+{\footnotesize\ttfamily vector$<$\hyperlink{class_input_device_a75152d8f06b6d032036014e42e44688b}{Input\+Device\+::\+Input}$>$ Scoreboard\+Controller\+::input\+Commands\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 19 of file Scoreboard\+Controller.\+h.
+
+\mbox{\Hypertarget{class_scoreboard_controller_a52fc99700dbe759cf0ffadf92219c229}\label{class_scoreboard_controller_a52fc99700dbe759cf0ffadf92219c229}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!input\+Devices@{input\+Devices}}
+\index{input\+Devices@{input\+Devices}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{input\+Devices}{inputDevices}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\hyperlink{class_input_device}{Input\+Device}$>$ $>$ Scoreboard\+Controller\+::input\+Devices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 16 of file Scoreboard\+Controller.\+h.
+
+\mbox{\Hypertarget{class_scoreboard_controller_a4ebbb799945c5968d44c91266735a1d4}\label{class_scoreboard_controller_a4ebbb799945c5968d44c91266735a1d4}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!logger@{logger}}
+\index{logger@{logger}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$\hyperlink{class_i_logger}{I\+Logger}$>$ Scoreboard\+Controller\+::logger\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file Scoreboard\+Controller.\+h.
+
+\mbox{\Hypertarget{class_scoreboard_controller_a905c2a68cb4b0b769385ebdc13adf595}\label{class_scoreboard_controller_a905c2a68cb4b0b769385ebdc13adf595}} 
+\index{Scoreboard\+Controller@{Scoreboard\+Controller}!output\+Devices@{output\+Devices}}
+\index{output\+Devices@{output\+Devices}!Scoreboard\+Controller@{Scoreboard\+Controller}}
+\subsubsection{\texorpdfstring{output\+Devices}{outputDevices}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\hyperlink{class_output_device}{Output\+Device}$>$ $>$ Scoreboard\+Controller\+::output\+Devices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 17 of file Scoreboard\+Controller.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_scoreboard_controller_8h}{Scoreboard\+Controller.\+h}\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_scoreboard_controller_8cpp}{Scoreboard\+Controller.\+cpp}\end{DoxyCompactItemize}

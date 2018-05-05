@@ -1,0 +1,107 @@
+\hypertarget{class_i_http_client}{}\section{I\+Http\+Client Class Reference}
+\label{class_i_http_client}\index{I\+Http\+Client@{I\+Http\+Client}}
+
+
+{\ttfamily \#include $<$I\+Http\+Client.\+h$>$}
+
+
+
+Inheritance diagram for I\+Http\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_i_http_client__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for I\+Http\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_i_http_client__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_i_http_client_a8975ccaf71b99eef3f85f86a56878d93}{begin} ()=0
+\item 
+virtual std\+::string \hyperlink{class_i_http_client_accb015ba9ef2b7963f13094297d97073}{send\+Request} (std\+::string method, std\+::string url, std\+::string payload=\char`\"{}\char`\"{})=0
+\item 
+virtual std\+::string \hyperlink{class_i_http_client_a3bf91f2161617983a11228fdc69298b8}{get\+String} ()=0
+\item 
+virtual std\+::string \hyperlink{class_i_http_client_a7e7b1f6846e06a81242fbfdb2e328016}{error\+To\+String} (int code)=0
+\item 
+virtual \hyperlink{class_i_http_client_aef297654dd90d97a49d51d70c65940e5}{$\sim$\+I\+Http\+Client} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 3 of file I\+Http\+Client.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_http_client_aef297654dd90d97a49d51d70c65940e5}\label{class_i_http_client_aef297654dd90d97a49d51d70c65940e5}} 
+\index{I\+Http\+Client@{I\+Http\+Client}!````~I\+Http\+Client@{$\sim$\+I\+Http\+Client}}
+\index{````~I\+Http\+Client@{$\sim$\+I\+Http\+Client}!I\+Http\+Client@{I\+Http\+Client}}
+\subsubsection{\texorpdfstring{$\sim$\+I\+Http\+Client()}{~IHttpClient()}}
+{\footnotesize\ttfamily virtual I\+Http\+Client\+::$\sim$\+I\+Http\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 10 of file I\+Http\+Client.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_http_client_a8975ccaf71b99eef3f85f86a56878d93}\label{class_i_http_client_a8975ccaf71b99eef3f85f86a56878d93}} 
+\index{I\+Http\+Client@{I\+Http\+Client}!begin@{begin}}
+\index{begin@{begin}!I\+Http\+Client@{I\+Http\+Client}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily virtual bool I\+Http\+Client\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_http_wrapper_ad93bf7eb4c3d84f3b49a8b9673c207f6}{Http\+Wrapper}.
+
+\mbox{\Hypertarget{class_i_http_client_a7e7b1f6846e06a81242fbfdb2e328016}\label{class_i_http_client_a7e7b1f6846e06a81242fbfdb2e328016}} 
+\index{I\+Http\+Client@{I\+Http\+Client}!error\+To\+String@{error\+To\+String}}
+\index{error\+To\+String@{error\+To\+String}!I\+Http\+Client@{I\+Http\+Client}}
+\subsubsection{\texorpdfstring{error\+To\+String()}{errorToString()}}
+{\footnotesize\ttfamily virtual std\+::string I\+Http\+Client\+::error\+To\+String (\begin{DoxyParamCaption}\item[{int}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_http_wrapper_a9d75ef86fdb6e26d6835a774442eeb9f}{Http\+Wrapper}.
+
+\mbox{\Hypertarget{class_i_http_client_a3bf91f2161617983a11228fdc69298b8}\label{class_i_http_client_a3bf91f2161617983a11228fdc69298b8}} 
+\index{I\+Http\+Client@{I\+Http\+Client}!get\+String@{get\+String}}
+\index{get\+String@{get\+String}!I\+Http\+Client@{I\+Http\+Client}}
+\subsubsection{\texorpdfstring{get\+String()}{getString()}}
+{\footnotesize\ttfamily virtual std\+::string I\+Http\+Client\+::get\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_http_wrapper_a4c821b412205cfc46421b06e29a53f4f}{Http\+Wrapper}.
+
+\mbox{\Hypertarget{class_i_http_client_accb015ba9ef2b7963f13094297d97073}\label{class_i_http_client_accb015ba9ef2b7963f13094297d97073}} 
+\index{I\+Http\+Client@{I\+Http\+Client}!send\+Request@{send\+Request}}
+\index{send\+Request@{send\+Request}!I\+Http\+Client@{I\+Http\+Client}}
+\subsubsection{\texorpdfstring{send\+Request()}{sendRequest()}}
+{\footnotesize\ttfamily virtual std\+::string I\+Http\+Client\+::send\+Request (\begin{DoxyParamCaption}\item[{std\+::string}]{method,  }\item[{std\+::string}]{url,  }\item[{std\+::string}]{payload = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_http_wrapper_ab80e5851ce58d7d820dba5f13bb14fa1}{Http\+Wrapper}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_i_http_client_8h}{I\+Http\+Client.\+h}\end{DoxyCompactItemize}

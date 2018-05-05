@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_input_device.html" title="InputDevice" alt="" coords="5,31,93,57"/>
+<area shape="rect" id="node2" href="$class_button_input.html" title="ButtonInput" alt="" coords="141,5,229,32"/>
+<area shape="rect" id="node3" href="$class_serial_input.html" title="SerialInput" alt="" coords="144,56,227,83"/>
+</map>

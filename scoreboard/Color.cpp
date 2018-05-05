@@ -1,4 +1,6 @@
 #include "Color.h"
+#include <string>
+#include "stdlib_noniso.h"
 Color::Color(ColorType type_)
 {
 	Color c(0, 0, 0);
@@ -57,21 +59,32 @@ void Color::changeToNext()
 	int nextTypeNumber = static_cast<Color::ColorType>(type) + 1;
 	nextTypeNumber %= Color::NUM_COLORS;
 	Color newColor(static_cast<Color::ColorType>(nextTypeNumber));
-	memcpy(this, &newColor, sizeof(newColor));
+	r = newColor.r;
+	g = newColor.g;
+	b = newColor.b;
+	type = newColor.type;
 }
 
-String Color::toString() const
+string Color::toString() const
 {
-	String str;
+	char typeStr[10] = "";
+	itoa(type, typeStr, 10);
+	char rStr[10] = "";
+	itoa(r, rStr, 10);
+	char gStr[10] = "";
+	itoa(g, gStr, 10);
+	char bStr[10] = "";
+	itoa(b, bStr, 10);
+	string str;
 	str += "color: {\t";
 	str += "type: ";
-	str += String(type);
+	str += string(typeStr);
 	str += "\tr:";
-	str += String(r);
+	str += string(rStr);
 	str += "\tg:";
-	str += String(g);
+	str += string(gStr);
 	str += "\tb:";
-	str += String(b);
+	str += string(bStr);
 	str += "}";
 	return str;
 }

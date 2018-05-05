@@ -1,0 +1,6 @@
+<map id="LedOutput" name="LedOutput">
+<area shape="rect" id="node2" href="$class_output_device.html" title="{OutputDevice\n||+ update()\l}" alt="" coords="29,299,127,377"/>
+<area shape="rect" id="node3" href="$struct_scoreboard_data.html" title="{ScoreboardData\n|+ colorList1\l+ colorList2\l+ score1\l+ score2\l+ colorIndex1\l+ colorIndex2\l+ swappedSides\l+ locked\l|+ toString()\l+ ScoreboardData()\l}" alt="" coords="5,5,140,200"/>
+<area shape="rect" id="node4" href="$class_led_display.html" title="{LedDisplay\n|&#45; pin\l&#45; numPixels\l|+ LedDisplay()\l+ show()\l+ showDigit()\l+ showNumber()\l+ setPixel()\l}" alt="" coords="161,263,278,413"/>
+<area shape="rect" id="node5" href="$class_led_wrapper.html" title="{LedWrapper\n||+ setPixelColor()\l+ show()\l}" alt="" coords="164,57,283,149"/>
+</map>

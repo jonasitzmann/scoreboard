@@ -1,7 +1,6 @@
-#ifndef COLOR
-#define COLOR
-
-#include <Arduino.h>
+#pragma once
+#include <string>
+using namespace std;
 struct Color {
 	enum ColorType {
 		WHITE,
@@ -23,10 +22,5 @@ struct Color {
 	int g;
 	int b;
 	ColorType type;
-	int* toArray() {
-		int arr[3] = { r, g, b };
-		return arr;
-	}
-	String toString() const;
+	string toString() const;
 };
-#endif // !COLOR

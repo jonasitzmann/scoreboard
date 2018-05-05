@@ -1,0 +1,117 @@
+\hypertarget{class_serial_logger}{}\section{Serial\+Logger Class Reference}
+\label{class_serial_logger}\index{Serial\+Logger@{Serial\+Logger}}
+
+
+{\ttfamily \#include $<$Serial\+Logger.\+h$>$}
+
+
+
+Inheritance diagram for Serial\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_serial_logger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Serial\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_serial_logger__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_serial_logger_aec37622c02b5cfcc8a453b5bc46b143e}{Serial\+Logger} ()
+\item 
+virtual \hyperlink{class_serial_logger_aa9b4379968cdea3a5aa767d7e17d4df8}{$\sim$\+Serial\+Logger} ()
+\item 
+virtual void \hyperlink{class_serial_logger_acb71040c5d7d693cecfd08c1013449dc}{log} (std\+::string msg, \hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761}{Level} level=\hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761a1de9525e76b4d18631d4371fb0e4697c}{I\+N\+FO}) override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ \hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761}{Level}, std\+::string $>$ \hyperlink{class_serial_logger_a77aa170b33c8f7ae9726cc2b1275e7cb}{level\+Names}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 5 of file Serial\+Logger.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_serial_logger_aec37622c02b5cfcc8a453b5bc46b143e}\label{class_serial_logger_aec37622c02b5cfcc8a453b5bc46b143e}} 
+\index{Serial\+Logger@{Serial\+Logger}!Serial\+Logger@{Serial\+Logger}}
+\index{Serial\+Logger@{Serial\+Logger}!Serial\+Logger@{Serial\+Logger}}
+\subsubsection{\texorpdfstring{Serial\+Logger()}{SerialLogger()}}
+{\footnotesize\ttfamily Serial\+Logger\+::\+Serial\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file Serial\+Logger.\+cpp.
+
+\mbox{\Hypertarget{class_serial_logger_aa9b4379968cdea3a5aa767d7e17d4df8}\label{class_serial_logger_aa9b4379968cdea3a5aa767d7e17d4df8}} 
+\index{Serial\+Logger@{Serial\+Logger}!````~Serial\+Logger@{$\sim$\+Serial\+Logger}}
+\index{````~Serial\+Logger@{$\sim$\+Serial\+Logger}!Serial\+Logger@{Serial\+Logger}}
+\subsubsection{\texorpdfstring{$\sim$\+Serial\+Logger()}{~SerialLogger()}}
+{\footnotesize\ttfamily Serial\+Logger\+::$\sim$\+Serial\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 12 of file Serial\+Logger.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_serial_logger_acb71040c5d7d693cecfd08c1013449dc}\label{class_serial_logger_acb71040c5d7d693cecfd08c1013449dc}} 
+\index{Serial\+Logger@{Serial\+Logger}!log@{log}}
+\index{log@{log}!Serial\+Logger@{Serial\+Logger}}
+\subsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void Serial\+Logger\+::log (\begin{DoxyParamCaption}\item[{std\+::string}]{msg,  }\item[{\hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761}{Level}}]{level = {\ttfamily \hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761a1de9525e76b4d18631d4371fb0e4697c}{I\+N\+FO}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_i_logger_ad7ebc4b8b6a509f4c3b973343c5fc1f1}{I\+Logger}.
+
+
+
+Definition at line 17 of file Serial\+Logger.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_serial_logger_a77aa170b33c8f7ae9726cc2b1275e7cb}\label{class_serial_logger_a77aa170b33c8f7ae9726cc2b1275e7cb}} 
+\index{Serial\+Logger@{Serial\+Logger}!level\+Names@{level\+Names}}
+\index{level\+Names@{level\+Names}!Serial\+Logger@{Serial\+Logger}}
+\subsubsection{\texorpdfstring{level\+Names}{levelNames}}
+{\footnotesize\ttfamily std\+::map$<$\hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761}{Level}, std\+::string$>$ Serial\+Logger\+::level\+Names\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    \{
+    \{\hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761a1de9525e76b4d18631d4371fb0e4697c}{INFO}, \textcolor{stringliteral}{"INFO"}\},
+    \{\hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761a8d9f1b016a76655dab45b63a335227af}{DEBUG}, \textcolor{stringliteral}{"DEBUG"}\},
+    \{\hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761ace8c0022cd4dd8851aea339bfcd19e32}{WARING}, \textcolor{stringliteral}{"WARNING"}\},
+    \{\hyperlink{class_i_logger_af129a40b0950160d0fe6c6b675d9d761ad8c193b079fed311195eb87f00d088c8}{ERROR}, \textcolor{stringliteral}{"ERROR"}\}
+    \}
+\end{DoxyCode}
+
+
+Definition at line 9 of file Serial\+Logger.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_serial_logger_8h}{Serial\+Logger.\+h}\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_serial_logger_8cpp}{Serial\+Logger.\+cpp}\end{DoxyCompactItemize}

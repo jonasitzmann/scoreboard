@@ -1,0 +1,4 @@
+<map id="ServerInOut" name="ServerInOut">
+<area shape="rect" id="node2" href="$class_output_device.html" title="{OutputDevice\n|# data\l|+ update()\l}" alt="" coords="5,5,104,83"/>
+<area shape="rect" id="node3" href="$class_i_config_loader.html" title="{IConfigLoader\n||+ loadConfig()\l}" alt="" coords="129,5,231,83"/>
+</map>

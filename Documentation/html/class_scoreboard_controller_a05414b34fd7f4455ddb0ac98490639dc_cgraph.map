@@ -1,0 +1,4 @@
+<map id="ScoreboardController::update" name="ScoreboardController::update">
+<area shape="rect" id="node2" href="$class_scoreboard_controller.html#a79f3f5a26387ac5daabc34e90dd25e06" title="ScoreboardController\l::collectInputCommands" alt="" coords="200,5,363,47"/>
+<area shape="rect" id="node3" href="$class_scoreboard_controller.html#a5365e2a960e16cf49dca0852682b0499" title="ScoreboardController\l::executeInputCommands" alt="" coords="196,71,367,112"/>
+</map>

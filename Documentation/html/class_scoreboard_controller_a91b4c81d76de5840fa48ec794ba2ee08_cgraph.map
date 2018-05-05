@@ -1,0 +1,5 @@
+<map id="ScoreboardController::ScoreboardController" name="ScoreboardController::ScoreboardController">
+<area shape="rect" id="node2" href="$class_scoreboard_controller.html#aa42bf3e044b51f70fa6edc3a830809a0" title="ScoreboardController\l::addInputDevice" alt="" coords="218,5,361,47"/>
+<area shape="rect" id="node3" href="$class_scoreboard_controller.html#a7b2cc34a33c8203da586ffaab1fb3982" title="ScoreboardController\l::addOutputDevice" alt="" coords="218,71,361,112"/>
+<area shape="rect" id="node4" href="$class_scoreboard_controller.html#a5365e2a960e16cf49dca0852682b0499" title="ScoreboardController\l::executeInputCommands" alt="" coords="204,136,375,177"/>
+</map>

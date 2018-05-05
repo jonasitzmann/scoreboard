@@ -1,0 +1,178 @@
+\hypertarget{class_http_wrapper}{}\section{Http\+Wrapper Class Reference}
+\label{class_http_wrapper}\index{Http\+Wrapper@{Http\+Wrapper}}
+
+
+{\ttfamily \#include $<$Http\+Wrapper.\+h$>$}
+
+
+
+Inheritance diagram for Http\+Wrapper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_http_wrapper__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Http\+Wrapper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_http_wrapper__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_http_wrapper_ad2dd768eee3169e710f1398472cbdbfa}{Http\+Wrapper} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$ \hyperlink{class_http_wrapper_aecd53efb752913b0a9beb14491ce8baa}{logger})
+\item 
+\hyperlink{class_http_wrapper_a5943777943275825f7c40e246203f59a}{$\sim$\+Http\+Wrapper} ()
+\item 
+virtual bool \hyperlink{class_http_wrapper_ad93bf7eb4c3d84f3b49a8b9673c207f6}{begin} () override
+\item 
+virtual std\+::string \hyperlink{class_http_wrapper_ab80e5851ce58d7d820dba5f13bb14fa1}{send\+Request} (std\+::string method, std\+::string url, std\+::string payload=\char`\"{}\char`\"{}) override
+\item 
+virtual std\+::string \hyperlink{class_http_wrapper_a4c821b412205cfc46421b06e29a53f4f}{get\+String} () override
+\item 
+virtual std\+::string \hyperlink{class_http_wrapper_a9d75ef86fdb6e26d6835a774442eeb9f}{error\+To\+String} (int code) override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_http_wrapper_ad79bd50b7d1e7de1de0677eecbf2a8d3}{fingerprint}
+\item 
+std\+::shared\+\_\+ptr$<$ H\+T\+T\+P\+Client $>$ \hyperlink{class_http_wrapper_a166384df03a99c77da6051fcf6f25f29}{https}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$ \hyperlink{class_http_wrapper_aecd53efb752913b0a9beb14491ce8baa}{logger}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 5 of file Http\+Wrapper.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_http_wrapper_ad2dd768eee3169e710f1398472cbdbfa}\label{class_http_wrapper_ad2dd768eee3169e710f1398472cbdbfa}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!Http\+Wrapper@{Http\+Wrapper}}
+\index{Http\+Wrapper@{Http\+Wrapper}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{Http\+Wrapper()}{HttpWrapper()}}
+{\footnotesize\ttfamily Http\+Wrapper\+::\+Http\+Wrapper (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$}]{logger }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file Http\+Wrapper.\+cpp.
+
+\mbox{\Hypertarget{class_http_wrapper_a5943777943275825f7c40e246203f59a}\label{class_http_wrapper_a5943777943275825f7c40e246203f59a}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!````~Http\+Wrapper@{$\sim$\+Http\+Wrapper}}
+\index{````~Http\+Wrapper@{$\sim$\+Http\+Wrapper}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{$\sim$\+Http\+Wrapper()}{~HttpWrapper()}}
+{\footnotesize\ttfamily Http\+Wrapper\+::$\sim$\+Http\+Wrapper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file Http\+Wrapper.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_http_wrapper_ad93bf7eb4c3d84f3b49a8b9673c207f6}\label{class_http_wrapper_ad93bf7eb4c3d84f3b49a8b9673c207f6}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!begin@{begin}}
+\index{begin@{begin}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool Http\+Wrapper\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_i_http_client_a8975ccaf71b99eef3f85f86a56878d93}{I\+Http\+Client}.
+
+
+
+Definition at line 19 of file Http\+Wrapper.\+cpp.
+
+\mbox{\Hypertarget{class_http_wrapper_a9d75ef86fdb6e26d6835a774442eeb9f}\label{class_http_wrapper_a9d75ef86fdb6e26d6835a774442eeb9f}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!error\+To\+String@{error\+To\+String}}
+\index{error\+To\+String@{error\+To\+String}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{error\+To\+String()}{errorToString()}}
+{\footnotesize\ttfamily std\+::string Http\+Wrapper\+::error\+To\+String (\begin{DoxyParamCaption}\item[{int}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_i_http_client_a7e7b1f6846e06a81242fbfdb2e328016}{I\+Http\+Client}.
+
+
+
+Definition at line 48 of file Http\+Wrapper.\+cpp.
+
+\mbox{\Hypertarget{class_http_wrapper_a4c821b412205cfc46421b06e29a53f4f}\label{class_http_wrapper_a4c821b412205cfc46421b06e29a53f4f}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!get\+String@{get\+String}}
+\index{get\+String@{get\+String}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{get\+String()}{getString()}}
+{\footnotesize\ttfamily std\+::string Http\+Wrapper\+::get\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_i_http_client_a3bf91f2161617983a11228fdc69298b8}{I\+Http\+Client}.
+
+
+
+Definition at line 43 of file Http\+Wrapper.\+cpp.
+
+\mbox{\Hypertarget{class_http_wrapper_ab80e5851ce58d7d820dba5f13bb14fa1}\label{class_http_wrapper_ab80e5851ce58d7d820dba5f13bb14fa1}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!send\+Request@{send\+Request}}
+\index{send\+Request@{send\+Request}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{send\+Request()}{sendRequest()}}
+{\footnotesize\ttfamily std\+::string Http\+Wrapper\+::send\+Request (\begin{DoxyParamCaption}\item[{std\+::string}]{method,  }\item[{std\+::string}]{url,  }\item[{std\+::string}]{payload = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_i_http_client_accb015ba9ef2b7963f13094297d97073}{I\+Http\+Client}.
+
+
+
+Definition at line 24 of file Http\+Wrapper.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_http_wrapper_ad79bd50b7d1e7de1de0677eecbf2a8d3}\label{class_http_wrapper_ad79bd50b7d1e7de1de0677eecbf2a8d3}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!fingerprint@{fingerprint}}
+\index{fingerprint@{fingerprint}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{fingerprint}{fingerprint}}
+{\footnotesize\ttfamily std\+::string Http\+Wrapper\+::fingerprint\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 8 of file Http\+Wrapper.\+h.
+
+\mbox{\Hypertarget{class_http_wrapper_a166384df03a99c77da6051fcf6f25f29}\label{class_http_wrapper_a166384df03a99c77da6051fcf6f25f29}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!https@{https}}
+\index{https@{https}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{https}{https}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$H\+T\+T\+P\+Client$>$ Http\+Wrapper\+::https\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 9 of file Http\+Wrapper.\+h.
+
+\mbox{\Hypertarget{class_http_wrapper_aecd53efb752913b0a9beb14491ce8baa}\label{class_http_wrapper_aecd53efb752913b0a9beb14491ce8baa}} 
+\index{Http\+Wrapper@{Http\+Wrapper}!logger@{logger}}
+\index{logger@{logger}!Http\+Wrapper@{Http\+Wrapper}}
+\subsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_i_logger}{I\+Logger}$>$ Http\+Wrapper\+::logger\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 10 of file Http\+Wrapper.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_http_wrapper_8h}{Http\+Wrapper.\+h}\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_http_wrapper_8cpp}{Http\+Wrapper.\+cpp}\end{DoxyCompactItemize}

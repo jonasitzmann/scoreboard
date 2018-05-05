@@ -1,12 +1,11 @@
 #include "ScoreboardController.h"
 #include <memory>
+#include "SerialLogger.h"
 using namespace std;
 shared_ptr<ScoreboardController> controller;
 void setup() {
-	Serial.begin(115200);
-	delay(100);
-	Serial.println();
-	controller = make_shared<ScoreboardController>();
+	shared_ptr<ILogger> logger = make_shared<SerialLogger>();
+	controller = make_shared<ScoreboardController>(logger);
 }
 
 void loop() {

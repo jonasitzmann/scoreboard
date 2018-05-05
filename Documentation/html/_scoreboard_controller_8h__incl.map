@@ -1,0 +1,16 @@
+<map id="C:/Users/jonas/OneDrive/Dokumente/scoreboard/scoreboard/ScoreboardController.h" name="C:/Users/jonas/OneDrive/Dokumente/scoreboard/scoreboard/ScoreboardController.h">
+<area shape="rect" id="node2" href="$_input_device_8h.html" title="InputDevice.h" alt="" coords="381,184,480,211"/>
+<area shape="rect" id="node4" href="$_scoreboard_data_8h.html" title="ScoreboardData.h" alt="" coords="145,259,271,285"/>
+<area shape="rect" id="node11" href="$_output_device_8h.html" title="OutputDevice.h" alt="" coords="505,184,615,211"/>
+<area shape="rect" id="node15" href="$_serial_logger_8h.html" title="SerialLogger.h" alt="" coords="102,408,207,435"/>
+<area shape="rect" id="node19" href="$_server_in_out_8h.html" title="ServerInOut.h" alt="" coords="510,109,610,136"/>
+<area shape="rect" id="node20" href="$_i_config_loader_8h.html" title="IConfigLoader.h" alt="" coords="195,184,306,211"/>
+<area shape="rect" id="node24" href="$_wi_fi_wrapper_8h.html" title="WiFiWrapper.h" alt="" coords="865,109,975,136"/>
+<area shape="rect" id="node27" href="$_http_wrapper_8h.html" title="HttpWrapper.h" alt="" coords="1229,109,1336,136"/>
+<area shape="rect" id="node5" href="$_color_8h.html" title="Color.h" alt="" coords="726,408,789,435"/>
+<area shape="rect" id="node12" href="$_led_display_8h.html" title="LedDisplay.h" alt="" coords="511,259,609,285"/>
+<area shape="rect" id="node13" href="$_led_wrappers_8h.html" title="LedWrappers.h" alt="" coords="505,333,615,360"/>
+<area shape="rect" id="node16" href="$_i_logger_8h.html" title="ILogger.h" alt="" coords="795,483,869,509"/>
+<area shape="rect" id="node21" href="$_i_wi_fi_8h.html" title="IWiFi.h" alt="" coords="819,184,882,211"/>
+<area shape="rect" id="node23" href="$_i_http_client_8h.html" title="IHttpClient.h" alt="" coords="1125,184,1219,211"/>
+</map>

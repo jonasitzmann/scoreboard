@@ -1,0 +1,17 @@
+<map id="C:/Users/jonas/OneDrive/Dokumente/scoreboard/scoreboard/Color.h" name="C:/Users/jonas/OneDrive/Dokumente/scoreboard/scoreboard/Color.h">
+<area shape="rect" id="node2" href="$_color_8cpp.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/Color.cpp" alt="" coords="327,109,491,165"/>
+<area shape="rect" id="node3" href="$_scoreboard_data_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/ScoreboardData.h" alt="" coords="419,213,617,269"/>
+<area shape="rect" id="node12" href="$_output_device_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/OutputDevice.h" alt="" coords="719,317,901,373"/>
+<area shape="rect" id="node15" href="$_led_wrappers_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/LedWrappers.h" alt="" coords="567,109,749,165"/>
+<area shape="rect" id="node16" href="$_led_display_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/LedDisplay.h" alt="" coords="641,213,811,269"/>
+<area shape="rect" id="node4" href="$_i_config_loader_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/IConfigLoader.h" alt="" coords="265,317,448,373"/>
+<area shape="rect" id="node6" href="$_server_in_out_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/ServerInOut.h" alt="" coords="596,421,768,477"/>
+<area shape="rect" id="node7" href="$_scoreboard_controller_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/ScoreboardController.h" alt="" coords="391,525,618,581"/>
+<area shape="rect" id="node10" href="$_input_device_8h.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/InputDevice.h" alt="" coords="473,317,643,373"/>
+<area shape="rect" id="node14" href="$_scoreboard_data_8cpp.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/ScoreboardData.cpp" alt="" coords="29,317,241,373"/>
+<area shape="rect" id="node5" href="$_i_config_loader_8cpp.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/IConfigLoader.cpp" alt="" coords="113,421,310,477"/>
+<area shape="rect" id="node9" href="$_server_in_out_8cpp.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/ServerInOut.cpp" alt="" coords="642,525,829,581"/>
+<area shape="rect" id="node8" href="$_scoreboard_controller_8cpp.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/ScoreboardController.cpp" alt="" coords="385,629,625,685"/>
+<area shape="rect" id="node11" href="$_input_device_8cpp.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/InputDevice.cpp" alt="" coords="335,421,520,477"/>
+<area shape="rect" id="node13" href="$_output_device_8cpp.html" title="C:/Users/jonas/OneDrive\l/Dokumente/scoreboard\l/scoreboard/OutputDevice.cpp" alt="" coords="844,421,1040,477"/>
+</map>

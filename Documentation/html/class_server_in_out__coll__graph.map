@@ -1,0 +1,5 @@
+<map id="ServerInOut" name="ServerInOut">
+<area shape="rect" id="node2" href="$class_output_device.html" title="{OutputDevice\n||+ update()\l}" alt="" coords="23,263,122,340"/>
+<area shape="rect" id="node3" href="$struct_scoreboard_data.html" title="{ScoreboardData\n|+ colorList1\l+ colorList2\l+ score1\l+ score2\l+ colorIndex1\l+ colorIndex2\l+ swappedSides\l+ locked\l|+ toString()\l+ ScoreboardData()\l}" alt="" coords="5,5,140,200"/>
+<area shape="rect" id="node4" href="$class_i_config_loader.html" title="{IConfigLoader\n||+ loadConfig()\l}" alt="" coords="147,263,249,340"/>
+</map>

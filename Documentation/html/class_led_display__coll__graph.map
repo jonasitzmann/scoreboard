@@ -1,0 +1,3 @@
+<map id="LedDisplay" name="LedDisplay">
+<area shape="rect" id="node2" href="$class_led_wrapper.html" title="{LedWrapper\n||+ setPixelColor()\l+ show()\l}" alt="" coords="5,5,124,97"/>
+</map>

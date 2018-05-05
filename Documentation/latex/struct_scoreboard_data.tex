@@ -1,0 +1,164 @@
+\hypertarget{struct_scoreboard_data}{}\section{Scoreboard\+Data Struct Reference}
+\label{struct_scoreboard_data}\index{Scoreboard\+Data@{Scoreboard\+Data}}
+
+
+{\ttfamily \#include $<$Scoreboard\+Data.\+h$>$}
+
+
+
+Collaboration diagram for Scoreboard\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{struct_scoreboard_data__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{struct_scoreboard_data_a1857c6e0cb04be47e30d055458e0fb1b}{to\+String} () const
+\item 
+\hyperlink{struct_scoreboard_data_acb3b9d9e9affe90ee7575a24a3cf9819}{Scoreboard\+Data} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \hyperlink{struct_color}{Color} $>$ $>$ \hyperlink{struct_scoreboard_data_afe340df3f7d2b4f4701801ddd82f4941}{color\+List1}
+\item 
+vector$<$ shared\+\_\+ptr$<$ \hyperlink{struct_color}{Color} $>$ $>$ \hyperlink{struct_scoreboard_data_a96734f5c133d8cc75459b60f71d705de}{color\+List2} = \{\}
+\item 
+int \hyperlink{struct_scoreboard_data_a6c414dec169989de015aac17eab8adcb}{score1} = 0
+\item 
+int \hyperlink{struct_scoreboard_data_a51ddc426391e48da3a6c9cf2a3a76e32}{score2} = 0
+\item 
+int \hyperlink{struct_scoreboard_data_a55a771de3adba23e887ea532f7f4524c}{color\+Index1} = 0
+\item 
+int \hyperlink{struct_scoreboard_data_accbdaad52d9f539e0f53180c437ab8fa}{color\+Index2} = 0
+\item 
+bool \hyperlink{struct_scoreboard_data_a6e1aabe8d6abc24c5798c2de90b54c71}{swapped\+Sides} = false
+\item 
+bool \hyperlink{struct_scoreboard_data_a1538b97991646d1fcfd36377a2e52f67}{locked} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file Scoreboard\+Data.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_scoreboard_data_acb3b9d9e9affe90ee7575a24a3cf9819}\label{struct_scoreboard_data_acb3b9d9e9affe90ee7575a24a3cf9819}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!Scoreboard\+Data@{Scoreboard\+Data}}
+\index{Scoreboard\+Data@{Scoreboard\+Data}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{Scoreboard\+Data()}{ScoreboardData()}}
+{\footnotesize\ttfamily Scoreboard\+Data\+::\+Scoreboard\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 13 of file Scoreboard\+Data.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_scoreboard_data_a1857c6e0cb04be47e30d055458e0fb1b}\label{struct_scoreboard_data_a1857c6e0cb04be47e30d055458e0fb1b}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily String Scoreboard\+Data\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 2 of file Scoreboard\+Data.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_scoreboard_data_a55a771de3adba23e887ea532f7f4524c}\label{struct_scoreboard_data_a55a771de3adba23e887ea532f7f4524c}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!color\+Index1@{color\+Index1}}
+\index{color\+Index1@{color\+Index1}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{color\+Index1}{colorIndex1}}
+{\footnotesize\ttfamily int Scoreboard\+Data\+::color\+Index1 = 0}
+
+
+
+Definition at line 10 of file Scoreboard\+Data.\+h.
+
+\mbox{\Hypertarget{struct_scoreboard_data_accbdaad52d9f539e0f53180c437ab8fa}\label{struct_scoreboard_data_accbdaad52d9f539e0f53180c437ab8fa}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!color\+Index2@{color\+Index2}}
+\index{color\+Index2@{color\+Index2}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{color\+Index2}{colorIndex2}}
+{\footnotesize\ttfamily int Scoreboard\+Data\+::color\+Index2 = 0}
+
+
+
+Definition at line 10 of file Scoreboard\+Data.\+h.
+
+\mbox{\Hypertarget{struct_scoreboard_data_afe340df3f7d2b4f4701801ddd82f4941}\label{struct_scoreboard_data_afe340df3f7d2b4f4701801ddd82f4941}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!color\+List1@{color\+List1}}
+\index{color\+List1@{color\+List1}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{color\+List1}{colorList1}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\hyperlink{struct_color}{Color}$>$ $>$ Scoreboard\+Data\+::color\+List1}
+
+
+
+Definition at line 8 of file Scoreboard\+Data.\+h.
+
+\mbox{\Hypertarget{struct_scoreboard_data_a96734f5c133d8cc75459b60f71d705de}\label{struct_scoreboard_data_a96734f5c133d8cc75459b60f71d705de}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!color\+List2@{color\+List2}}
+\index{color\+List2@{color\+List2}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{color\+List2}{colorList2}}
+{\footnotesize\ttfamily vector$<$shared\+\_\+ptr$<$\hyperlink{struct_color}{Color}$>$ $>$ Scoreboard\+Data\+::color\+List2 = \{\}}
+
+
+
+Definition at line 8 of file Scoreboard\+Data.\+h.
+
+\mbox{\Hypertarget{struct_scoreboard_data_a1538b97991646d1fcfd36377a2e52f67}\label{struct_scoreboard_data_a1538b97991646d1fcfd36377a2e52f67}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!locked@{locked}}
+\index{locked@{locked}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{locked}{locked}}
+{\footnotesize\ttfamily bool Scoreboard\+Data\+::locked = false}
+
+
+
+Definition at line 11 of file Scoreboard\+Data.\+h.
+
+\mbox{\Hypertarget{struct_scoreboard_data_a6c414dec169989de015aac17eab8adcb}\label{struct_scoreboard_data_a6c414dec169989de015aac17eab8adcb}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!score1@{score1}}
+\index{score1@{score1}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{score1}{score1}}
+{\footnotesize\ttfamily int Scoreboard\+Data\+::score1 = 0}
+
+
+
+Definition at line 9 of file Scoreboard\+Data.\+h.
+
+\mbox{\Hypertarget{struct_scoreboard_data_a51ddc426391e48da3a6c9cf2a3a76e32}\label{struct_scoreboard_data_a51ddc426391e48da3a6c9cf2a3a76e32}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!score2@{score2}}
+\index{score2@{score2}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{score2}{score2}}
+{\footnotesize\ttfamily int Scoreboard\+Data\+::score2 = 0}
+
+
+
+Definition at line 9 of file Scoreboard\+Data.\+h.
+
+\mbox{\Hypertarget{struct_scoreboard_data_a6e1aabe8d6abc24c5798c2de90b54c71}\label{struct_scoreboard_data_a6e1aabe8d6abc24c5798c2de90b54c71}} 
+\index{Scoreboard\+Data@{Scoreboard\+Data}!swapped\+Sides@{swapped\+Sides}}
+\index{swapped\+Sides@{swapped\+Sides}!Scoreboard\+Data@{Scoreboard\+Data}}
+\subsubsection{\texorpdfstring{swapped\+Sides}{swappedSides}}
+{\footnotesize\ttfamily bool Scoreboard\+Data\+::swapped\+Sides = false}
+
+
+
+Definition at line 11 of file Scoreboard\+Data.\+h.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_scoreboard_data_8h}{Scoreboard\+Data.\+h}\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_scoreboard_data_8cpp}{Scoreboard\+Data.\+cpp}\end{DoxyCompactItemize}

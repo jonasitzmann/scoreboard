@@ -1,0 +1,148 @@
+\hypertarget{class_neo_pixel_wrapper}{}\section{Neo\+Pixel\+Wrapper Class Reference}
+\label{class_neo_pixel_wrapper}\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+
+
+{\ttfamily \#include $<$Led\+Wrappers.\+h$>$}
+
+
+
+Inheritance diagram for Neo\+Pixel\+Wrapper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_neo_pixel_wrapper__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Neo\+Pixel\+Wrapper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_neo_pixel_wrapper__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_neo_pixel_wrapper_afc5c5949b137bc56535915717ece34a3}{Neo\+Pixel\+Wrapper} (int \hyperlink{class_neo_pixel_wrapper_a879ef1b03cfd7c10f081d7bc6a048aad}{pin}=D5, int \hyperlink{class_neo_pixel_wrapper_a5134bf399bb6c272ae62208fea97ed79}{num\+Pixels}=142)
+\item 
+void \hyperlink{class_neo_pixel_wrapper_a2dc988a9c17e27f36f83acb63e875c10}{set\+Pixel\+Color} (int index, \hyperlink{struct_color}{Color} color) override
+\item 
+void \hyperlink{class_neo_pixel_wrapper_a965564daa3e81baefb9947c28633f06a}{show} () override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_i_logger}{I\+Logger} $>$ \hyperlink{class_neo_pixel_wrapper_a1e4129f56a27f2533dc8ed2c9ddde84b}{logger}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_neo_pixel_wrapper_a879ef1b03cfd7c10f081d7bc6a048aad}{pin}
+\item 
+int \hyperlink{class_neo_pixel_wrapper_a5134bf399bb6c272ae62208fea97ed79}{num\+Pixels}
+\item 
+Adafruit\+\_\+\+Neo\+Pixel \hyperlink{class_neo_pixel_wrapper_a059056899c5ab29bced35b32f05918c3}{lights}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file Led\+Wrappers.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_neo_pixel_wrapper_afc5c5949b137bc56535915717ece34a3}\label{class_neo_pixel_wrapper_afc5c5949b137bc56535915717ece34a3}} 
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\subsubsection{\texorpdfstring{Neo\+Pixel\+Wrapper()}{NeoPixelWrapper()}}
+{\footnotesize\ttfamily Neo\+Pixel\+Wrapper\+::\+Neo\+Pixel\+Wrapper (\begin{DoxyParamCaption}\item[{int}]{pin = {\ttfamily D5},  }\item[{int}]{num\+Pixels = {\ttfamily 142} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 20 of file Led\+Wrappers.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_neo_pixel_wrapper_a2dc988a9c17e27f36f83acb63e875c10}\label{class_neo_pixel_wrapper_a2dc988a9c17e27f36f83acb63e875c10}} 
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!set\+Pixel\+Color@{set\+Pixel\+Color}}
+\index{set\+Pixel\+Color@{set\+Pixel\+Color}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\subsubsection{\texorpdfstring{set\+Pixel\+Color()}{setPixelColor()}}
+{\footnotesize\ttfamily void Neo\+Pixel\+Wrapper\+::set\+Pixel\+Color (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\hyperlink{struct_color}{Color}}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_led_wrapper_ac20a5afaaaaa2c275d7f6008ace09c41}{Led\+Wrapper}.
+
+
+
+Definition at line 29 of file Led\+Wrappers.\+h.
+
+\mbox{\Hypertarget{class_neo_pixel_wrapper_a965564daa3e81baefb9947c28633f06a}\label{class_neo_pixel_wrapper_a965564daa3e81baefb9947c28633f06a}} 
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!show@{show}}
+\index{show@{show}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\subsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily void Neo\+Pixel\+Wrapper\+::show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_led_wrapper_a82048b562a501a0a46e5953d2cdb2549}{Led\+Wrapper}.
+
+
+
+Definition at line 33 of file Led\+Wrappers.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_neo_pixel_wrapper_a059056899c5ab29bced35b32f05918c3}\label{class_neo_pixel_wrapper_a059056899c5ab29bced35b32f05918c3}} 
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!lights@{lights}}
+\index{lights@{lights}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\subsubsection{\texorpdfstring{lights}{lights}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+Neo\+Pixel Neo\+Pixel\+Wrapper\+::lights\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 40 of file Led\+Wrappers.\+h.
+
+\mbox{\Hypertarget{class_neo_pixel_wrapper_a1e4129f56a27f2533dc8ed2c9ddde84b}\label{class_neo_pixel_wrapper_a1e4129f56a27f2533dc8ed2c9ddde84b}} 
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!logger@{logger}}
+\index{logger@{logger}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\subsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\hyperlink{class_i_logger}{I\+Logger}$>$ Neo\+Pixel\+Wrapper\+::logger}
+
+
+
+Definition at line 19 of file Led\+Wrappers.\+h.
+
+\mbox{\Hypertarget{class_neo_pixel_wrapper_a5134bf399bb6c272ae62208fea97ed79}\label{class_neo_pixel_wrapper_a5134bf399bb6c272ae62208fea97ed79}} 
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!num\+Pixels@{num\+Pixels}}
+\index{num\+Pixels@{num\+Pixels}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\subsubsection{\texorpdfstring{num\+Pixels}{numPixels}}
+{\footnotesize\ttfamily int Neo\+Pixel\+Wrapper\+::num\+Pixels\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 39 of file Led\+Wrappers.\+h.
+
+\mbox{\Hypertarget{class_neo_pixel_wrapper_a879ef1b03cfd7c10f081d7bc6a048aad}\label{class_neo_pixel_wrapper_a879ef1b03cfd7c10f081d7bc6a048aad}} 
+\index{Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}!pin@{pin}}
+\index{pin@{pin}!Neo\+Pixel\+Wrapper@{Neo\+Pixel\+Wrapper}}
+\subsubsection{\texorpdfstring{pin}{pin}}
+{\footnotesize\ttfamily int Neo\+Pixel\+Wrapper\+::pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 38 of file Led\+Wrappers.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+One\+Drive/\+Dokumente/scoreboard/scoreboard/\hyperlink{_led_wrappers_8h}{Led\+Wrappers.\+h}\end{DoxyCompactItemize}

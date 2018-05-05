@@ -1,0 +1,3 @@
+<map id="IHttpClient" name="IHttpClient">
+<area shape="rect" id="node2" href="$class_http_wrapper.html" title="{HttpWrapper\n|&#45; fingerprint\l&#45; https\l&#45; logger\l|+ HttpWrapper()\l+ ~HttpWrapper()\l+ begin()\l+ sendRequest()\l+ getString()\l+ errorToString()\l}" alt="" coords="5,189,128,369"/>
+</map>

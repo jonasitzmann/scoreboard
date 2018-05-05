@@ -3,7 +3,6 @@
 bool LedOutput::update(ScoreboardData newData)
 {
 	data = newData;
-	Serial.println("update leds: \n" + data.toString());
 	int offset1 = 0;
 	int offset2 = 72;
 	if (data.swappedSides)
