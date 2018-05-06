@@ -10,4 +10,7 @@
 // Header für CppUnitTest
 #include "CppUnitTest.h"
 
-// TODO: Hier auf zusätzliche Header, die das Programm erfordert, verweisen.
+// TODO: Hier auf zusätzliche Header, die das Programm erfordert, verweisen
+
+// don't use Arduino
+#define UNIT_TEST

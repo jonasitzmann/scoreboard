@@ -1,15 +1,15 @@
 #pragma once
 #include "IHttpClient.h"
 #include "ESP8266HTTPClient.h"
-#include "ILogger.h"
+#include "LoggerFactory.h"
 class HttpWrapper :
 	public IHttpClient
 {
 	std::string fingerprint;
 	std::shared_ptr<HTTPClient> https;
-	std::shared_ptr<ILogger> logger;
+	ILogger& logger;
 public:
-	HttpWrapper(std::shared_ptr<ILogger> logger);
+	HttpWrapper();
 	~HttpWrapper();
 
 	// Geerbt über IHttpClient

@@ -2,7 +2,7 @@
 #include "IWiFi.h"
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
-#include "ILogger.h"
+#include "LoggerFactory.h"
 
 #define S(x) #x
 #define STR(x) S(x)
@@ -15,10 +15,10 @@ class WiFiWrapper :
 	public IWiFi
 {
 	ESP8266WiFiMulti wifi;
-	std::shared_ptr<ILogger> logger;
+	ILogger& logger;
 
 public:
-	WiFiWrapper(std::shared_ptr<ILogger> logger);
+	WiFiWrapper();
 	~WiFiWrapper() override {};
 
 	// Geerbt �ber IWiFi

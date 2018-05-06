@@ -2,10 +2,12 @@
 #include "ILogger.h"
 #include <map>
 #include <string.h>
+#include <memory>
 class SerialLogger :
 	public ILogger
 
 {
+	SerialLogger();
 	std::map<Level, std::string> levelNames =
 	{
 	{INFO, "INFO"},
@@ -14,10 +16,8 @@ class SerialLogger :
 	{ERROR, "ERROR"}
 	};
 public:
-	SerialLogger();
-	virtual ~SerialLogger();
-
 	// Geerbt über ILogger
 	virtual void log(std::string msg, Level level = INFO) override;
+	static ILogger& GetInstance();
 };
 

@@ -4,8 +4,7 @@
 using namespace std;
 shared_ptr<ScoreboardController> controller;
 void setup() {
-	shared_ptr<ILogger> logger = make_shared<SerialLogger>();
-	controller = make_shared<ScoreboardController>(logger);
+	controller = make_shared<ScoreboardController>();
 }
 
 void loop() {

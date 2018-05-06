@@ -12,7 +12,7 @@ class ServerInOut :
 	public OutputDevice,
 	public IConfigLoader
 {
-	std::shared_ptr<ILogger> logger;
+	ILogger& logger;
 	std::shared_ptr<IWiFi> wifi;
 	std::shared_ptr<IHttpClient> https;
 	std::string fingerprint;
@@ -22,7 +22,7 @@ class ServerInOut :
 	bool updateScores(int score1, int score2);
 	vector<shared_ptr<Color>> getColorList(JsonArray &arr) const;
 public:
-	ServerInOut(std::shared_ptr<ILogger> logger, std::shared_ptr<IWiFi> wifi, std::shared_ptr<IHttpClient> https);
+	ServerInOut(std::shared_ptr<IWiFi> wifi, std::shared_ptr<IHttpClient> https);
 	bool update(ScoreboardData newData) override;
 	ScoreboardData loadConfig() override;
 };

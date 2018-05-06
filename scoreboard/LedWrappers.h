@@ -1,11 +1,15 @@
 #include <Adafruit_NeoPixel.h>
 #include "Color.h"
 #include<memory>
-#include "SerialLogger.h"
+#include "LoggerFactory.h"
 #include<string>
 #include<stdlib.h>
 class LedWrapper{
+protected:
+	ILogger &logger;
 public:
+	LedWrapper() : logger(LoggerFactory::getLogger())
+	{}
   virtual void setPixelColor(int index, Color color) = 0;
   virtual void show() = 0;
 };
@@ -16,10 +20,10 @@ public:
 */
 class NeoPixelWrapper: public LedWrapper{
   public:
-std::shared_ptr<ILogger> logger;
-	  NeoPixelWrapper(int pin = D5, int numPixels = 142) :pin(pin), numPixels(numPixels)
+	  NeoPixelWrapper(int pin = D5, int numPixels = 142) :
+		  pin(pin),
+		  numPixels(numPixels)
   {
-		  logger = std::make_shared<SerialLogger>();
     lights = * new Adafruit_NeoPixel(numPixels, pin,
                  /*suitable pixel flags for our LED Strip*/NEO_GRB + NEO_KHZ800
                );
@@ -46,12 +50,6 @@ std::shared_ptr<ILogger> logger;
 */
 class LedEmulator: public LedWrapper{
   public:
-std::shared_ptr<SerialLogger> logger;
-	  LedEmulator()  
-	  {
-		  logger = std::make_shared<SerialLogger>();
-
-	  }
   void setPixelColor(int index, Color color) override
   {
     // don't remove. The following line is a command, not a comment
@@ -63,7 +61,7 @@ std::shared_ptr<SerialLogger> logger;
 	  itoa(color.r, rS, 10);
 	  itoa(color.g, gS, 10);
 	  itoa(color.b, bS, 10);
-      logger->log("setPixel: " + std::string(indexS) + " "
+      logger.log("setPixel: " + std::string(indexS) + " "
 							   + std::string(rS)
 							   + " " + std::string(gS)
 		                       + " " + std::string(bS));
@@ -71,6 +69,6 @@ std::shared_ptr<SerialLogger> logger;
   }
   void show() override
   {
-    logger->log("show"); // don't remove. This line is a command, not a comment
+    logger.log("show"); // don't remove. This line is a command, not a comment
   }
 };

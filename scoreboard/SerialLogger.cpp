@@ -8,15 +8,15 @@ SerialLogger::SerialLogger()
 	Serial.println();
 }
 
-
-SerialLogger::~SerialLogger()
-{
-	Serial.end();
-}
-
 void SerialLogger::log(std::string msg, Level level)
 {
 	std::string formated = "[" + levelNames[level] + "]: ";
 	formated += msg;
 	Serial.println(msg.c_str());
+}
+
+ILogger& SerialLogger::GetInstance()
+{
+	static SerialLogger instance;
+	return instance;
 }

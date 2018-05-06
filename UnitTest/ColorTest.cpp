@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include "Color.h"
 #include "Color.cpp"
+#include "utils.cpp"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest

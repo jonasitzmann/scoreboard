@@ -10,7 +10,7 @@ public:
 		ERROR
 	};
 	virtual void log(std::string msg, Level level = INFO) = 0;
-	virtual ~ILogger() {};
+	virtual std::string echo(std::string msg) { return "not implemented"; }
 };
 
 

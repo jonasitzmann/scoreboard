@@ -17,10 +17,10 @@ std::vector<std::shared_ptr<Color>> ServerInOut::getColorList(JsonArray &arr) co
 	return colors;
 }
 
-ServerInOut::ServerInOut(std::shared_ptr<ILogger> logger, std::shared_ptr<IWiFi> wifi, std::shared_ptr<IHttpClient> https):
-	logger(logger),
+ServerInOut::ServerInOut(std::shared_ptr<IWiFi> wifi, std::shared_ptr<IHttpClient> https) :
 	wifi(wifi),
-	https(https)
+	https(https),
+	logger(LoggerFactory::getLogger())
 {
 	wifi->begin();
 	https->begin();

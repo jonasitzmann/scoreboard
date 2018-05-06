@@ -62,7 +62,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\scoreboard;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\libraries;$(ProjectDir)..\..\Arduino\libraries;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\libraries;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266\libb64;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266\spiffs;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266\umm_malloc;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\variants\nodemcu;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\lwip2\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\libc\xtensa-lx106-elf\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2\xtensa-lx106-elf;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\lib\gcc\xtensa-lx106-elf\4.8.2\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\scoreboard;$(ProjectDir)..\..\Arduino\libraries\ESP_PCF8574;$(ProjectDir)..\..\Arduino\libraries\Adafruit_NeoPixel;$(ProjectDir)..\..\Arduino\libraries\ArduinoJson\src;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\libraries\ESP8266WiFi\src;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\libraries\ESP8266HTTPClient\src;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\libraries\Wire;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\libraries;$(ProjectDir)..\..\Arduino\libraries;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\libraries;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266\libb64;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266\spiffs;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266\umm_malloc;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\variants\nodemcu;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\lwip2\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\libc\xtensa-lx106-elf\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2\xtensa-lx106-elf;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\lib\gcc\xtensa-lx106-elf\4.8.2\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\tools\sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.scoreboard.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__ESP8266_ESp8266__;__ESP8266_ESP8266__;_VMDEBUG=1;__ets__;ICACHE_FLASH;F_CPU=80000000L;LWIP_OPEN_SRC;TCP_MSS=536;DEBUG_ESP_PORT=Serial1;DEBUG_ESP_SSL;ARDUINO=10804;ARDUINO_ESP8266_NODEMCU;ARDUINO_ARCH_ESP8266;ESP8266;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -114,11 +114,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
+    <ClInclude Include="CoutLogger.h" />
     <ClInclude Include="HttpWrapper.h" />
     <ClInclude Include="IConfigLoader.h" />
     <ClInclude Include="IHttpClient.h" />
     <ClInclude Include="ILogger.h" />
     <ClInclude Include="IWiFi.h" />
+    <ClInclude Include="LoggerFactory.h" />
     <ClInclude Include="pwd2.h" />
     <ClInclude Include="pwd3.h" />
     <ClInclude Include="ScoreboardData.h" />
@@ -143,13 +145,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="CoutLogger.cpp" />
     <ClCompile Include="HttpWrapper.cpp" />
     <ClCompile Include="InputDevice.cpp" />
+    <ClCompile Include="LoggerFactory.cpp" />
     <ClCompile Include="OutputDevice.cpp" />
     <ClCompile Include="ScoreboardController.cpp" />
     <ClCompile Include="ScoreboardData.cpp" />
     <ClCompile Include="SerialLogger.cpp" />
     <ClCompile Include="ServerInOut.cpp" />
+    <ClCompile Include="utils.cpp" />
     <ClCompile Include="WiFiWrapper.cpp" />
   </ItemGroup>
   <PropertyGroup>

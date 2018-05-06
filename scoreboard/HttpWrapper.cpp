@@ -1,9 +1,9 @@
 #include "HttpWrapper.h"
 
 
-HttpWrapper::HttpWrapper(std::shared_ptr<ILogger> logger):
-	logger(logger)
-{
+HttpWrapper::HttpWrapper():
+	logger(LoggerFactory::getLogger())
+{	
 	https = std::make_shared<HTTPClient>();
 	fingerprint = "2d3be5152d49d30d0923f1cf7bebb90d20ea0723";
 	https->addHeader("Accept", "application/json", true);
@@ -18,7 +18,7 @@ HttpWrapper::~HttpWrapper()
 
 bool HttpWrapper::begin()
 {
-	return false;
+	return true;
 }
 
 std::string HttpWrapper::sendRequest(std::string method, std::string url, std::string payload)
@@ -34,7 +34,7 @@ std::string HttpWrapper::sendRequest(std::string method, std::string url, std::s
 	}
 	else {
 		std::string errStr = "HTTP error: " + std::string(https->errorToString(httpCode).c_str());
-		logger->log(errStr);
+		logger.log(errStr);
 	}
 	https->end();
 	return received;

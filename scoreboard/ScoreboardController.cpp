@@ -1,17 +1,18 @@
 #include "ScoreboardController.h"
 #include <set>
 #include <stdlib.h>
-ScoreboardController::ScoreboardController(shared_ptr<ILogger> logger): logger(logger)
+ScoreboardController::ScoreboardController():
+	logger(LoggerFactory::getLogger())
 {
-	std::shared_ptr<IWiFi> wifi(std::make_shared<WiFiWrapper>(logger));
-	std::shared_ptr<IHttpClient> https(std::make_shared<HttpWrapper>(logger));
+	std::shared_ptr<IWiFi> wifi(std::make_shared<WiFiWrapper>());
+	std::shared_ptr<IHttpClient> https(std::make_shared<HttpWrapper>());
 	addInputDevice(make_shared<SerialInput>());
 	addInputDevice(make_shared<ButtonInput>());
 	addOutputDevice(make_shared<LedOutput>());
 	auto emulatorOutput = make_shared<LedOutput>();
 	emulatorOutput->leds = LedDisplay(14, 142, true);
 	addOutputDevice(emulatorOutput);
-	auto serverInOut = make_shared<ServerInOut>(logger, wifi, https);
+	auto serverInOut = make_shared<ServerInOut>(wifi, https);
 	addOutputDevice(serverInOut);
 	configLoader = serverInOut;
 	inputCommands.push_back(InputDevice::RESET);
@@ -33,7 +34,7 @@ bool ScoreboardController::executeInputCommands()
 	if (inputCommands.empty()) return true;
 	char command0[10];
 	itoa(inputCommands[0], command0, 10);
-	logger->log("inputCommand[0]: " + std::string(command0));
+	logger.log("inputCommand[0]: " + std::string(command0));
 	bool ok = true;
 	for (auto itr = inputCommands.begin(); itr != inputCommands.end(); ++itr)
 	{
@@ -77,7 +78,7 @@ bool ScoreboardController::executeInputCommands()
 				}
 				if (colorList->empty())
 				{
-					logger->log("no colors available!");
+					logger.log("no colors available!");
 					break;
 				}
 				else
@@ -103,7 +104,7 @@ bool ScoreboardController::executeInputCommands()
 				}
 				if (colorList->empty())
 				{
-					logger->log("no colors available!");
+					logger.log("no colors available!");
 					break;
 				}
 				else
@@ -150,7 +151,7 @@ bool ScoreboardController::executeInputCommands()
 		collectInputCommands();
 		if (!executeInputCommands())
 		{
-			logger->log("could not execute input command\nperforming reset");
+			logger.log("could not execute input command\nperforming reset");
 			inputCommands.clear();
 			inputCommands.push_back(InputDevice::RESET);
 			executeInputCommands();

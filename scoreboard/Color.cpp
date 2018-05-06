@@ -1,6 +1,6 @@
 #include "Color.h"
 #include <string>
-#include "stdlib_noniso.h"
+#include "utils.h"
 Color::Color(ColorType type_)
 {
 	Color c(0, 0, 0);
@@ -67,24 +67,18 @@ void Color::changeToNext()
 
 string Color::toString() const
 {
-	char typeStr[10] = "";
-	itoa(type, typeStr, 10);
-	char rStr[10] = "";
-	itoa(r, rStr, 10);
-	char gStr[10] = "";
-	itoa(g, gStr, 10);
-	char bStr[10] = "";
-	itoa(b, bStr, 10);
 	string str;
 	str += "color: {\t";
 	str += "type: ";
-	str += string(typeStr);
+	str += int2Str(static_cast<int>(type));
 	str += "\tr:";
-	str += string(rStr);
+	str += int2Str(r);
 	str += "\tg:";
-	str += string(gStr);
+	str += int2Str(g);
 	str += "\tb:";
-	str += string(bStr);
+	str += int2Str(b);
 	str += "}";
 	return str;
+	
+	//return "auskommentiert!";
 }

@@ -26,8 +26,8 @@ String pwd3 =
 
 
 
-WiFiWrapper::WiFiWrapper(std::shared_ptr<ILogger> logger):
-	logger(logger)
+WiFiWrapper::WiFiWrapper():
+	logger(LoggerFactory::getLogger())
 {
 	wifi.addAP(ssid1.c_str(), pwd1.c_str());
 	wifi.addAP(ssid2.c_str(), pwd2.c_str());
@@ -36,19 +36,19 @@ WiFiWrapper::WiFiWrapper(std::shared_ptr<ILogger> logger):
 
 bool WiFiWrapper::begin()
 {
-	logger->log("Connecting ...");
+	logger.log("Connecting ...");
 	int i = 0;
 	while (wifi.run() != WL_CONNECTED) {
 		delay(500);
-		logger->log(".");
+		logger.log(".");
 		++i;
 		if (i == 10)
 		{
 			return false;
 		}
 	}
-	logger->log("");
+	logger.log("");
 	std::string ssid(WiFi.SSID().c_str());
-	logger->log("Connected to " + ssid);
+	logger.log("Connected to " + ssid);
 	return true;
 }
