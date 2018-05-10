@@ -5,9 +5,7 @@
 #else
 #include "SerialLogger.h"
 #endif
-class LoggerFactory
-{
+class LoggerFactory {
 public:
-	static ILogger& getLogger();
+  static ILogger &getLogger();
 };
-

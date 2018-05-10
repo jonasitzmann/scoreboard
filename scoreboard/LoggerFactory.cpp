@@ -1,9 +1,8 @@
 #include "LoggerFactory.h"
-ILogger& LoggerFactory::getLogger()
-{
+ILogger &LoggerFactory::getLogger() {
 #ifdef UNIT_TEST
-	return CoutLogger::GetInstance();
+  return CoutLogger::GetInstance();
 #else
-	return SerialLogger::GetInstance();
+  return SerialLogger::GetInstance();
 #endif
 }

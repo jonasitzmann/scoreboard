@@ -145,7 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="CoutLogger.cpp" />
     <ClCompile Include="HttpWrapper.cpp" />
     <ClCompile Include="InputDevice.cpp" />
     <ClCompile Include="LoggerFactory.cpp" />
