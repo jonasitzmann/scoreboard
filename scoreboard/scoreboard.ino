@@ -1,3 +1,4 @@
+#include <pcf8574_esp.h>
 #include "ScoreboardController.h"
 #include <memory>
 #include "SerialLogger.h"

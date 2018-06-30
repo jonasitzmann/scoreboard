@@ -26,4 +26,3 @@ public:
 	void addInputDevice(shared_ptr<InputDevice> inputDevice);
 	void addOutputDevice(shared_ptr<OutputDevice> outputDevice);
 };
-

@@ -1,32 +1,32 @@
 #pragma once
+#include <map>
 #include "Color.h"
 #include "LedWrappers.h"
-#include <map>
 static const bool digits[10][7] = {
-    //   1  2  3  4  5  6  7  (segments)
-    {1, 1, 1, 0, 1, 1, 1}, // zero
-    {0, 0, 1, 0, 0, 0, 1}, // one
-    {1, 1, 0, 1, 0, 1, 1}, // two
-    {0, 1, 1, 1, 0, 1, 1}, // three
-    {0, 0, 1, 1, 1, 0, 1}, // four
-    {0, 1, 1, 1, 1, 1, 0}, // five
-    {1, 1, 1, 1, 1, 1, 0}, // six
-    {0, 0, 1, 0, 0, 1, 1}, // seven
-    {1, 1, 1, 1, 1, 1, 1}, // eight
-    {0, 1, 1, 1, 1, 1, 1}  // nine
+    // 1  2  3  4  5  6  7  (segments)
+    {1, 1, 1, 0, 1, 1, 1},  // zero
+    {0, 0, 1, 0, 0, 0, 1},  // one
+    {1, 1, 0, 1, 0, 1, 1},  // two
+    {0, 1, 1, 1, 0, 1, 1},  // three
+    {0, 0, 1, 1, 1, 0, 1},  // four
+    {0, 1, 1, 1, 1, 1, 0},  // five
+    {1, 1, 1, 1, 1, 1, 0},  // six
+    {0, 0, 1, 0, 0, 1, 1},  // seven
+    {1, 1, 1, 1, 1, 1, 1},  // eight
+    {0, 1, 1, 1, 1, 1, 1}   // nine
 };
 
 class LedDisplay {
   int pin;
   int numPixels;
-  LedWrapper *lights;
+  LedWrapper* lights;
 
-public:
+ public:
   LedDisplay(int pin = D5, int numPixels = 142, bool emulated = false) {
     lights =
         emulated
-            ? static_cast<LedWrapper *>(new LedEmulator())
-            : static_cast<LedWrapper *>(new NeoPixelWrapper(pin, numPixels));
+            ? static_cast<LedWrapper*>(new LedEmulator())
+            : static_cast<LedWrapper*>(new NeoPixelWrapper(pin, numPixels));
   }
 
   void show() { lights->show(); }

@@ -1,5 +1,5 @@
 #pragma once
-#include <ESP_PCF8574.h>
+#include <pcf8574_esp.h>
 #include <map>
 #include "Arduino.h"
 #include "ScoreboardData.h"
@@ -40,7 +40,7 @@ struct CmpPins {
 };
 
 class ButtonInput : public InputDevice {
-  ESP_PCF8574 pcf8574;
+  PCF857x pcf8574;
   std::map<uint8_t, Input> inputMap = {{0, L_COLOR}, {1, L_MINUS}, {2, L_PLUS},
                                        {3, R_COLOR}, {4, R_MINUS}, {5, R_PLUS},
                                        {6, RESET},   {7, SWAP}};

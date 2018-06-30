@@ -1,7 +1,10 @@
 #include "InputDevice.h"
 #include <map>
+#include "Wire.h"
 
-SerialInput::SerialInput() { Serial.setTimeout(10); }
+SerialInput::SerialInput() {
+  Serial.setTimeout(10);
+}
 
 std::vector<InputDevice::Input> SerialInput::getInput() {
   using namespace std;
@@ -23,8 +26,8 @@ std::vector<InputDevice::Input> SerialInput::getInput() {
   return inputs;
 }
 
-ButtonInput::ButtonInput() {
-  pcf8574.begin(0x20, D1, D2);
+ButtonInput::ButtonInput() : pcf8574(0x20, new TwoWire()) {
+  pcf8574.begin();
   for (auto itr = begin(inputMap); itr != end(inputMap); ++itr) {
     previousPressed[itr->first] = false;
   }
@@ -32,7 +35,7 @@ ButtonInput::ButtonInput() {
 
 std::vector<InputDevice::Input> ButtonInput::getInput() {
   vector<Input> inputs;
-  uint8_t input = ~pcf8574.getByte();
+  uint8_t input = ~pcf8574.read8();
   for (auto itr = begin(inputMap); itr != end(inputMap); ++itr) {
     uint8_t filter = 0x01 << itr->first;
     bool isPressed = (input & filter) != 0;
@@ -44,32 +47,32 @@ std::vector<InputDevice::Input> ButtonInput::getInput() {
   return inputs;
 }
 
-int CmpPins::gpio2Pin(const int &val) {
+int CmpPins::gpio2Pin(const int& val) {
   switch (val) {
-  case D0:
-    return 0;
-  case D1:
-    return 1;
-  case D2:
-    return 2;
-  case D3:
-    return 3;
-  case D4:
-    return 4;
-  case D5:
-    return 5;
-  case D6:
-    return 6;
-  case D7:
-    return 7;
-  case D8:
-    return 8;
-  case D9:
-    return 9;
-  case D10:
-    return 10;
+    case D0:
+      return 0;
+    case D1:
+      return 1;
+    case D2:
+      return 2;
+    case D3:
+      return 3;
+    case D4:
+      return 4;
+    case D5:
+      return 5;
+    case D6:
+      return 6;
+    case D7:
+      return 7;
+    case D8:
+      return 8;
+    case D9:
+      return 9;
+    case D10:
+      return 10;
 
-  default:
-    return -1;
+    default:
+      return -1;
   }
 }
